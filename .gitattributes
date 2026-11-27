@@ -1,2 +1,20 @@
 * text=auto
 *.sh text eol=lf
+
+# The frozen forecasting code is identified by the SHA-256 of its exact bytes (forecast/freeze.py code_sha256,
+# recorded in experiments/forecast/frozen_choices.json; checked by serving/registry.py before any model is trained
+# or served). The hash was taken over these files with the line endings below, so every checkout, on any platform
+# and with any core.autocrlf, must reproduce them byte for byte. Do not change these lines.
+src/mandicast/forecast/__init__.py text eol=lf
+src/mandicast/forecast/baselines.py text eol=crlf
+src/mandicast/forecast/data.py text eol=crlf
+src/mandicast/forecast/evaluate.py text eol=crlf
+src/mandicast/forecast/final.py text eol=lf
+src/mandicast/forecast/freeze.py text eol=lf
+src/mandicast/forecast/gbm.py text eol=crlf
+src/mandicast/forecast/intervals.py text eol=lf
+src/mandicast/forecast/metrics.py text eol=lf
+src/mandicast/forecast/report.py text eol=crlf
+src/mandicast/forecast/run.py text eol=crlf
+src/mandicast/forecast/stats_models.py text eol=crlf
+src/mandicast/forecast/walkforward.py text eol=crlf
