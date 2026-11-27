@@ -12,6 +12,7 @@ npm test           # unit and component tests (Vitest)
 npm run test:e2e   # end-to-end in Edge against the real API (needs `docker compose up -d db redis` in ..)
 npm run build      # production build in dist/ (adds the Content-Security-Policy)
 npm run gen:api    # refresh src/api/openapi.json and src/api/schema.d.ts from the running API
+npm run screenshots   # README screenshots into ../docs/images from the Compose stack (BASE_URL to change it)
 ```
 
 Settings (`.env.local`, see `.env.example`): `VITE_API_BASE` (the API's origin must allow this dashboard in

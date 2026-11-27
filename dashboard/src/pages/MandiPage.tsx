@@ -12,7 +12,7 @@ import { PriceChart, PriceLegend } from "../components/PriceChart";
 import { forecastPoints } from "../lib/forecast";
 import { dayNumber } from "../lib/chart";
 import {
-  addDays, daysBetween, formatDate, inr, inrPerKg, int, pct, relativeDays, signedPct, todayIso,
+  addDays, daysBetween, formatDate, inr, inrPerKg, int, pct, relativeDays, sentence, signedPct, todayIso,
 } from "../lib/format";
 import { t } from "../strings";
 
@@ -329,7 +329,8 @@ function AccuracyCard({ accuracy, live, crop, horizon }: {
           weekly {live.origins === 1 ? "issue" : "issues"}):{" "}
           {live.wape_served != null && <>off by {pct(live.wape_served)}</>}
           {live.wape_last_value != null && <> vs {pct(live.wape_last_value)} for the last price</>}
-          {live.coverage80 != null && <>; 80% range held the price {pct(live.coverage80)} of the time</>}. {live.note}
+          {live.coverage80 != null && <>; 80% range held the price {pct(live.coverage80)} of the time</>}.{" "}
+          {live.note && sentence(live.note)}
         </p>
       )}
       <p className="small"><Link to="/data">How the models are tested</Link></p>

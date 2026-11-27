@@ -116,10 +116,10 @@ This is single-client latency on one machine, not a capacity or load test.
 
 ## 6. Limitations and next steps
 
-- **Quarterly retraining is manual** (`mandicast train-model`); from 2027-01-01 publication fails until the 2027Q1
+- *Resolved in Phase 5 (`ensure-models`, docs/12):* **Quarterly retraining is manual** (`mandicast train-model`); from 2027-01-01 publication fails until the 2027Q1
   model is trained. Phase 5 automates it with a promotion gate (a new model must not be worse than the current one
   or than last value on recent weeks).
-- **No live accuracy monitoring yet.** Published forecasts are stored unchanged so Phase 5 can measure real error
+- *Resolved in Phase 5 (monitoring; fallback kept informational):* **No live accuracy monitoring yet.** Published forecasts are stored unchanged so Phase 5 can measure real error
   and coverage per crop and fall back to last value where the model is worse (Tomato at 7 days would qualify).
 - Ranges come from a 1-year rolling calibration; they adapt to volatility changes only slowly (Soyabean).
-- The API runs from the virtual environment; containers, CI and deployment are Phase 8.
+- *Resolved in Phase 8 (docs/15):* The API runs from the virtual environment; containers, CI and deployment are Phase 8.

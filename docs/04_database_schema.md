@@ -20,24 +20,38 @@ were added in Phase 4, MLOps in Phase 5, users and alerts in Phase 6. Field-leve
 
 ## 1. Entity relationships
 
+As built at Alembic `0005`: the 20 tables and every foreign key in the database (checked against
+`information_schema` on 2026-11-27). `name_aliases` maps each source spelling to a canonical key
+(`entity`, `parent_key`, `canonical_name`), which equals the `name` key of a state, district or market (e.g.
+`andhra pradesh`, shown as `display_name`); it has no foreign key. The five commodities need no aliases. Every column: `05_data_dictionary.md` §5.
+
 ```mermaid
 erDiagram
     ingestion_jobs ||--o{ raw_pages : fetched
-    raw_pages ||--o{ source_observations : contains
+    raw_pages ||--o{ source_observations : "contains / supersedes"
     source_observations ||--o| price_observations : "cleaned into"
-    commodities ||--o{ price_observations : ""
-    markets ||--o{ price_observations : ""
     states ||--o{ districts : ""
     districts ||--o{ markets : ""
-    name_aliases }o--|| commodities : "maps spelling"
-    name_aliases }o--|| markets : "maps spelling"
+    commodities ||--o{ price_series : ""
+    markets ||--o{ price_series : ""
     price_series ||--o{ price_observations : groups
+    commodities ||--o{ model_versions : ""
+    model_versions |o--o{ model_versions : replaces
+    commodities ||--o{ model_events : ""
+    model_versions |o--o{ model_events : ""
+    commodities ||--o{ forecast_runs : ""
+    ingestion_jobs ||--o{ forecast_runs : published_by
+    model_versions |o--o{ forecast_runs : ""
+    forecast_runs ||--o{ forecasts : ""
     price_series ||--o{ forecasts : ""
-    model_versions ||--o{ forecasts : produced
-    training_runs ||--o| model_versions : registers
+    model_versions |o--o{ forecasts : ""
+    commodities ||--o{ monitoring_snapshots : ""
+    users ||--o{ login_codes : ""
+    users ||--o{ user_sessions : ""
     users ||--o{ alert_subscriptions : ""
+    price_series ||--o{ alert_subscriptions : ""
     alert_subscriptions ||--o{ notification_history : ""
-    users ||--o{ user_preferences : ""
+    users ||--o{ notification_history : ""
 ```
 
 ## 2. Tables
@@ -46,7 +60,7 @@ erDiagram
 
 | Table | Key columns | Notes |
 |---|---|---|
-| `ingestion_jobs` | `id` PK, `kind` (`daily` / `backfill`), `scope` JSONB (commodity, date window), `status` (`running` / `succeeded` / `failed`), `started_at`, `finished_at`, `rows_fetched`, `rows_inserted`, `rows_rejected`, `quality_report` JSONB, `error` | One row per run; a failed job can be re-run safely |
+| `ingestion_jobs` | `id` PK, `kind` (every scheduled or manual job: `backfill`, `daily`, `load_raw`, `clean`, `train_models`, `retrain`, `ensure_models`, `rollback`, `publish_forecasts`, `monitor`, `alerts`, …), `scope` JSONB (commodity, date window), `status` (`running` / `succeeded` / `failed` / `skipped`), `started_at`, `finished_at`, `rows_fetched`, `rows_inserted`, `rows_rejected`, `quality_report` JSONB, `error` | One row per run; a failed job can be re-run safely |
 | `raw_pages` | `id` PK, `job_id` FK, `resource_id`, `request_params` JSONB (no key), `offset`, `rows`, `sha256` UNIQUE, `file_path`, `fetched_at` | Mirrors the downloader manifest; the file itself stays on disk |
 | `source_observations` | `id` BIGINT PK, `raw_page_id` FK, `source_row_hash` CHAR(64) **UNIQUE**, all source fields as received (`arrival_date_raw`, `state_raw`, `district_raw`, `market_raw`, `commodity_raw`, `commodity_code_raw`, `variety_raw`, `grade_raw`, `min_price_raw`, `max_price_raw`, `modal_price_raw` — TEXT), `first_seen_at` | Never updated. `INSERT … ON CONFLICT (source_row_hash) DO NOTHING` makes loads idempotent |
 
@@ -58,7 +72,7 @@ erDiagram
 | `districts` | `id`, `state_id` FK, `name`; UNIQUE (`state_id`, `name`) | |
 | `markets` | `id`, `district_id` FK, `name`, `first_reported`, `last_reported`; UNIQUE (`district_id`, `name`) | |
 | `commodities` | `id`, `name` UNIQUE, `agmarknet_code`, `price_unit` (default `INR_per_quintal`) | |
-| `name_aliases` | `id`, `entity` (`state` / `district` / `market` / `commodity`), `raw_name`, `entity_id`, `rule` (`exact` / `whitespace` / `manual`), `created_at` | Every source spelling maps to one cleaned entity; manual mappings are reviewed |
+| `name_aliases` | `id`, `entity` (`state` / `district` / `market` / `commodity`), `parent_key` (the canonical key of the parent area; `''` for states and commodities), `raw_name`, `canonical_name` (the key the spelling maps to), `rule` (`exact` / `whitespace` / `state_rename` / `apmc_suffix` / `manual`), `created_at`, `last_seen` | Every source spelling maps to one cleaned entity; manual mappings are reviewed |
 
 ### Cleaned observations
 
@@ -80,8 +94,9 @@ If the table grows beyond tens of millions of rows, partition `price_observation
 | `forecasts` | `id`, `run_id`, `series_id`, `model_version_id`, `issued_on`, `target_date`, `horizon_days`, `last_date`, `last_price`, `point`, `lower80`, `upper80`, `lower90`, `upper90`, `volatility_tercile`; UNIQUE (`series_id`, `model_version_id`, `issued_on`, `target_date`) | Checks: `target_date = issued_on + horizon_days`, nested intervals (`lower90 ≤ lower80 ≤ upper80 ≤ upper90`; conformal intervals need not contain the point). Never updated; kept after the target date for monitoring |
 
 `training_runs` from the Phase 1 design is not a table: training is recorded in `ingestion_jobs` (kind
-`train_models`), in `model_versions.training` and in MLflow (`experiments/mlflow.db`, experiment
-`mandicast-serving`). Forecast publications are `ingestion_jobs` of kind `publish_forecasts`.
+`train_models`, later `retrain`), in `model_versions.training`, in `model_events` (Phase 5) and in MLflow
+(`experiments/mlflow.db`, experiment `mandicast-serving`, from Phase 5 `mandicast-models`; docs/16). Forecast
+publications are `ingestion_jobs` of kind `publish_forecasts`.
 
 ### MLOps (Phase 5, Alembic revision `0004`)
 

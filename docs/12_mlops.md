@@ -94,4 +94,4 @@ equals docs/10's figures exactly (e.g. Onion days 1–7: 6.357% on 154,382 point
   (serve the evaluated model; never serve something worse than the rejected candidate), and neither altered a live
   decision; they are still post-hoc choices.
 - Retraining is quarterly (the evaluated procedure), not weekly as the Phase 1 roadmap said.
-- Phase 4/5 run from the virtual environment; containers, CI and alerting on monitoring warnings come in Phases 6–8.
+- Phase 4/5 run from the virtual environment; containers, CI and alerting on monitoring warnings come in Phases 6–8. *(Containers and CI: done in Phase 8. Alerting operators on monitoring warnings: not built; warnings are shown in `/v1/monitoring` and the dashboard, docs/19.)*

@@ -78,4 +78,4 @@ flowchart LR
 - Mandi search is by name substring; renamed mandis that Phase 2 could not link appear twice (e.g. "APMC Lasalgaon"
   and "Lasalgaon APMC"), shown as they appear in the source.
 - Forecast alerts look at the 7-day point only and fire once per weekly publication.
-- The bot runs as one process; it is not yet containerised or supervised (Phase 8).
+- *Resolved in Phase 8:* the bot runs as the Compose service `bot` (profile `bot`, restarted by Docker). Still one process.

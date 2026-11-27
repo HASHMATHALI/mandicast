@@ -2,7 +2,8 @@
 
 Date: 2026-11-27. Files: `docker-compose.yml`, `docker/`, `.github/workflows/ci.yml`, `requirements-linux.lock.txt`,
 `src/mandicast/db/roles.py`, `scripts/backup.sh`, `scripts/restore_check.sh`. Roadmap exit criteria (docs/08): CI green
-on GitHub; failure-mode tests pass.
+on GitHub; failure-mode tests pass. **Both met** (§5; CI green from 2026-11-27, run 46034190212). Step-by-step
+deployment: docs/18.
 
 ## 1. Deployment
 
@@ -114,7 +115,12 @@ the Compose stack with `E2E_BASE_URL=http://localhost:8090`).
 | MLflow UI (profile `tools`) | serves experiments and the registered models `mandicast-lightgbm-*` |
 | Bot without a token (profile `bot`) | exits with code 1 and "TELEGRAM_BOT_TOKEN is not set" |
 | Backup and restore of the live database | 1.1 GB in 163 s; restored in 310 s; 21 tables, 29,717,867 rows, identical counts (§6) |
-| GitHub Actions run | **not done: no GitHub repository yet** |
+| GitHub Actions, first run (46032340358, commit `ffc5c01`) | **failed**: backend Tests, 1 test: the frozen-code hash differed on the Linux checkout (line endings; docs/17 §4). Dashboard and images jobs passed |
+| GitHub Actions after the fix (**46034190212**, commit `c61c4f4`, https://github.com/HASHMATHALI/mandicast/actions/runs/46034190212) | **all 3 jobs passed**: backend 1 min 38 s, dashboard 25 s, images + fresh deployment 1 min 52 s |
+
+**Lesson from the first run:** the local "clone-equivalent" reproduction above copied the Windows working files into
+the image, so it tested the right file set with the wrong bytes. A real checkout on another platform was needed to
+catch it; the reproduction now uses a `git clone` into a Linux container (docs/17 §4).
 
 ## 6. Backups
 
@@ -157,8 +163,7 @@ encryption) are the operator's choice.
 
 ## 8. Limitations
 
-- The CI workflow has not run on GitHub (no repository yet); its three jobs were reproduced locally as described in
-  §5, which is evidence, not a green run.
+- CI does not run the Playwright tests (they need the full database) and measures no coverage.
 - The app image is 1.78 GB (MLflow, Polars, PyArrow, LightGBM, statsforecast in one image); the API does not need most
   of it. Split images would be smaller.
 - The hash-locked requirements are for linux/amd64; other architectures need their own lock.

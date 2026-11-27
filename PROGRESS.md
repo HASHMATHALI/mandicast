@@ -2,9 +2,10 @@
 
 This file lets work resume without losing context. Update it at the end of every phase.
 
-## Current state: Phase 8 (testing, infrastructure) built and verified locally (2026-11-27). Waiting on the owner: a GitHub repository (CI run) and the bot token (Phase 6 real-bot run). Next: Phase 9, final documentation
+## Current state: Phases 1–9 done (2026-11-27). CI green on GitHub. Open: the real-bot run (Phase 6, needs the owner's bot token) and publication from a fresh clone (docs/19 §4)
 
-Nothing is committed (repo initialised, no commits). Ask the owner before the first commit.
+Repository: https://github.com/HASHMATHALI/mandicast (public, branch `main`). Commits so far: `ffc5c01` (Phases 1–8),
+`c61c4f4` (line-ending fix found by CI), then Phase 9. Commit and push only when the owner asks.
 
 Run state: the whole stack runs in Docker Compose (`docker compose up -d`: db, redis, migrate, api, worker,
 dashboard at http://localhost:8090); PostgreSQL and Redis are still published on 127.0.0.1:5433 / 6380 for the venv.
@@ -13,7 +14,31 @@ Production models for 2026Q4 in `models/` (gate passed, MLflow alias `production
 empty. Role `mandicast_api` exists. Migrations at `0005`. Backup `backups/mandicast-20261127T143344Z.dump` (1.1 GB).
 No users or alerts in the database (test users are deleted).
 
-## Phase 8: Testing, infrastructure, deployment ✅ locally; ⏳ GitHub CI run (2026-11-27)
+## Phase 9: Final documentation ✅ (2026-11-27)
+
+**Index:** `docs/README.md` maps every roadmap deliverable to its document.
+
+**Written / rewritten**
+* `README.md` (results table, screenshots, run, tests, layout), `docs/03_architecture.md` (as built, v1.0),
+  `docs/16_mlflow_guide.md`, `docs/17_testing_report.md`, `docs/18_deployment_guide.md`, `docs/19_known_limitations.md`,
+  `docs/20_interview_guide.md`, `docs/README.md`; roadmap status in docs/08; CI results in docs/15.
+* `docs/05` §5: every column of the 20 tables, generated from the database (`python -m mandicast.db.schema_doc`);
+  docs/04 diagram redrawn from the database's foreign keys.
+* Screenshots `docs/images/` from the running stack (`cd dashboard; npm run screenshots`).
+* Resolved items marked in the older phase reports' limitation lists (docs/11–14).
+
+**Verified (executed 2026-11-27)**
+| Check | Result |
+|---|---|
+| `tests/test_docs.py` (5 tests: generated schema reference = migrated database; docs/07 = API operations; CLI commands, paths, links, cited test names exist) | pass; on first run it found a renamed test cited in docs/09 and a non-existent `name_aliases.entity_id` in docs/04 (fixed) |
+| `pytest` / `ruff` | **121 passed** (34.5 s) / clean |
+| Every number in the new documents | taken from reports, the database, MLflow or a command run that day (sources named in each document) |
+
+**Found while documenting:** a deployment from a fresh clone cannot publish forecasts: range calibration starts from
+walk-forward predictions (`experiments/forecast/**/*.parquet`, 77 MB, git-ignored, keyed by this database's series
+ids). Documented in docs/18 §2 and docs/19 §4; fix not built.
+
+## Phase 8: Testing, infrastructure, deployment ✅ (2026-11-27; CI green on GitHub)
 
 **Report:** `docs/15_infrastructure.md` (deployment, failure-mode matrix, database role, CI, verification, backups,
 operations, limitations).
@@ -43,7 +68,7 @@ operations, limitations).
 | Fresh deployment (separate project, empty volume) | migrations 0001→0005, role, API and dashboard healthy |
 | Full stack on the real DB + Playwright against it | all healthy; **7 passed** |
 | Backup + restore check | 1.1 GB dump in 163 s; restored in 310 s; 21 tables, 29,717,867 rows, identical counts (first check run passed on 0 tables: script bug, fixed and rerun) |
-| GitHub Actions run | **not done: no repository** |
+| GitHub Actions | first run 46032340358 **failed** (frozen-code hash differs on a Linux checkout: line endings; fixed with `.gitattributes`, commit `c61c4f4`); run **46034190212: all 3 jobs passed** |
 
 ## Phase 7: Dashboard ✅ (2026-11-27)
 
@@ -101,71 +126,13 @@ labels; month ticks "Nov 26" read as a date; trend wording; unsent messages list
 | Real Telegram end-to-end | **pending: owner to add `TELEGRAM_BOT_TOKEN` to `.env`** |
 
 ## Next (exact steps)
-1. **Owner:** create a bot with @BotFather and put the token in `.env` (`TELEGRAM_BOT_TOKEN=`), with a text editor
-   (save the file) or the hidden-prompt command given in the chat. Then `docker compose --profile bot up -d bot worker`
-   (or `python -m mandicast bot`), send `/start`, `/forecast onion lasalgaon`, an `/alert … above 1000`, `/login`
-   (open the link: http://localhost:8090), and run `docker compose run --rm worker alerts`; record the outcome here
-   (Phase 6 exit criterion).
-2. **Owner:** create a GitHub repository and say so; then (with the owner's go-ahead) first commit, push, and record
-   the first Actions run here (Phase 8 exit criterion "CI green on GitHub").
-3. Phase 9, final documentation: README, architecture, data sources, data dictionary, ETL, methodology, walk-forward
-   report, model comparison, MLflow guide, API docs, testing report, deployment guide, known limitations, interview
-   guide; check every claim against what exists and was run.
-
-## Phase 7: Dashboard ✅ (2026-11-27)
-
-**Report:** `docs/14_dashboard.md`; how to run: `dashboard/README.md`.
-
-**Implemented** (`dashboard/`, React 19 + TypeScript 5.9 strict, Vite 8, React Router, TanStack Query; charts as own SVG)
-* Pages: prices (crop, state, mandi search, latest prices with date, freshness), mandi (latest price in ₹/quintal and
-  ₹/kg, trend sentences, chart of history + forecast + 80%/90% ranges with gaps left empty, keyboard readout and table
-  view, hold-out accuracy vs the last price, live accuracy, warnings, disclaimer, "not enough data" with the failed
-  rules, names as reported), compare (up to 4 mandis on common dates), about the data (freshness, models and gate,
-  hold-out and live accuracy), alerts (sign-in with the bot's one-time link, create/delete alerts, messages, sign
-  out, delete my data), `/login#code=`.
-* Security: CSP meta tag in production builds, no raw HTML (lint rule), code removed from the address before use,
-  token only to the API origin, `credentials: omit`, no third-party code; dependencies resolved with
-  `--before=2026-11-20`, exact versions, `npm audit` clean.
-* Types generated from the API's OpenAPI document (`npm run gen:api`); `tests/test_dashboard_contract.py` fails when
-  the API schema and the dashboard's copy differ.
-* `scripts/e2e_login.py`: one-time sign-in link for a test user (negative chat id) without Telegram, and its deletion.
-
-**Verified (executed 2026-11-27)**
-| Check | Result |
-|---|---|
-| `npm test` | **29 passed** (component tests on real API responses recorded 2026-11-27) |
-| `npm run test:e2e` (Edge, production build, real API and DB) | **7 passed** (5 at 375 px with touch, 2 desktop); fails on CSP violations, page errors or horizontal overflow |
-| `pytest` / `ruff` | **110 passed** / clean |
-| typecheck, ESLint, `npm audit`, build | clean; 0 vulnerabilities; 111 kB gzip JavaScript |
-| Browser check (375 px, dark + light) | real data on every page; alert created in the dashboard was queued by `mandicast alerts` (job 24) and shown as "waiting to be sent" |
-
-**Defects found and fixed:** forecast unreadable at a 3-month default on a phone (default now 1 month); overlapping end
-labels; month ticks "Nov 26" read as a date; trend wording; unsent messages listed as "sent"; "not enough data" page
-541 px wide on a 375 px screen (found by the end-to-end overflow check).
-
-## Phase 6: Telegram bot and price alerts ✅ built and tested; ⏳ real-bot run (2026-11-27)
-
-**Report:** `docs/13_telegram_alerts.md`; API `docs/07_api_specification.md` §6; schema docs/04 (Alembic `0005`).
-
-**Implemented**
-* Alembic `0005`: `users` (chat id only), `login_codes`, `user_sessions` (hashes only), `alert_subscriptions`,
-  `notification_history` (idempotency keys); cascading deletion.
-* `bot/telegram.py` (httpx Bot API client: retries, 429 handling, token never in errors or logs), `bot/handlers.py`
-  (commands, buttons, private chats only, per-chat rate limit), `bot/service.py` (users, search, subscriptions,
-  one-time login codes, sessions, retention purge), `bot/alerts.py` (price alerts on crossing, forecast alerts per
-  publication, idempotent delivery, retries, pause on block), `bot/runner.py` (long polling).
-* API: `POST /v1/auth/session`, `POST /v1/auth/logout`, `GET/POST /v1/alerts`, `DELETE /v1/alerts/{id}`,
-  `GET /v1/alerts/history`, `DELETE /v1/me`; Bearer auth; separate writable engine; never cached.
-* CLI `bot`, `alerts`, `privacy-purge`; scheduler `alerts` 02:45/14:45 and `privacy_purge` 04:00 UTC; logging
-  redacts bot tokens and keeps httpx URL logs at WARNING.
-
-**Verified (executed 2026-11-27)**
-| Check | Result |
-|---|---|
-| `pytest` | **109 passed** (95 earlier + 14 Phase 6, Telegram mocked); ruff clean |
-| Cache isolation with real Redis | two users' `/v1/alerts` never served from the shared cache; public data still cached |
-| Simulated chat on the real database | `/price`, `/forecast`, `/alert` produce correct messages on real data; temporary user deleted |
-| Real Telegram end-to-end | **pending: owner to add `TELEGRAM_BOT_TOKEN` to `.env`** |
+1. **Owner:** create a bot with @BotFather and put the token in `.env` (`TELEGRAM_BOT_TOKEN=`) with a text editor.
+   Then `docker compose --profile bot up -d bot worker`, send `/start`, `/forecast onion lasalgaon`, an
+   `/alert … above 1000`, `/login` (open the link: http://localhost:8090), and run `docker compose run --rm worker alerts`;
+   record the outcome here (Phase 6 exit criterion).
+2. Fresh-clone publication (docs/19 §4): a command that regenerates the calibration predictions for the current
+   database without touching the tracked evaluation files, tested on a freshly loaded database.
+3. Optional: VeriTrace resumes at its Phase 2 write-up (`../veritrace/PROGRESS.md`).
 
 ## Phase 5: MLOps — retraining, gate, rollback, monitoring ✅ (2026-11-27)
 
@@ -323,6 +290,7 @@ renamed; zero min/max = not reported. Details in `docs/02_data_source_assessment
   `data/raw/`; harmless (identical rows, loaded once).
 * The data.gov.in key was pasted into the chat once; the owner may regenerate it and update `.env`.
 * From 2027-01-01 the scheduler's `ensure-models` retrains through the gate (or run `mandicast retrain`).
+* A fresh clone cannot publish forecasts until calibration predictions exist for its database (docs/18 §2).
 * The Phase 4 MLflow experiment `mandicast-serving` stored artifact copies under `./mlruns` (git-ignored); Phase 5
   uses `mandicast-models` with an absolute artifact location under `experiments/mlruns`.
 * Laptop Wi-Fi dropped repeatedly on 2026-11-26; the client retries for up to ~40 minutes.

@@ -17,6 +17,22 @@ is complete only when its exit criteria pass. Estimates are working sessions on 
 
 Total: about 11–15 working days.
 
+## Status (2026-11-27)
+
+| Phase | Done | Exit criteria | Report |
+|---|---|---|---|
+| 1 | 2026-11-26 | met | docs/01–08, `reports/profile/` |
+| 2 | 2026-11-26 | met: 14.8M real rows; re-runs create no duplicates (tested); quality reports | docs/09 |
+| 3 | 2026-11-26 | met: every model vs baselines on the same folds; coverage measured; MLflow | docs/10 |
+| 4 | 2026-11-27 | met: API integration tests on real PostgreSQL | docs/11 |
+| 5 | 2026-11-27 | met: worse candidates rejected and rollback tested (on real data too) | docs/12 |
+| 6 | 2026-11-27 | **partly**: mocked-Telegram tests pass; **the manual run with a real bot is pending** (needs a bot token) | docs/13 |
+| 7 | 2026-11-27 | met: 375 px, history / forecast / range distinct, end-to-end tests | docs/14 |
+| 8 | 2026-11-27 | met: failure-mode tests pass; CI green on GitHub (run 46034190212) | docs/15, docs/17 |
+| 9 | 2026-11-27 | met: documents checked against the code, database and API by `tests/test_docs.py` and by hand | docs/README.md |
+
+Elapsed: two calendar days (2026-11-26 – 27) rather than the 11–15 working days estimated.
+
 Phase 5 note (2026-11-27): retraining is quarterly, the cadence that was evaluated (methodology D1, C6); "weekly retraining"
 above was the Phase 1 plan. Forecasts are still issued weekly. See docs/12.
 

@@ -47,7 +47,7 @@ flowchart LR
 | No look-ahead in derived values | Primary row chosen from the previous 365 days only | `test_primary_choice_uses_only_past_data` |
 | Logging, safe logging | JSON log lines; registered secrets, `api-key=` values and URL passwords masked | `test_redaction…`, `test_log_filter_redacts_messages_and_exceptions` |
 | Job records, no overlapping runs | `ingestion_jobs` row per run (succeeded / failed with redacted error / skipped); PostgreSQL advisory lock | `test_job_success_and_failure…`, `test_concurrent_run_is_skipped`, `test_daily_without_loaded_data…` |
-| Scheduled workers | APScheduler, twice daily, one instance, coalesced | `test_scheduler_registers_twice_daily_job…` |
+| Scheduled workers | APScheduler, twice daily, one instance, coalesced (later phases added publication, model checks, monitoring, alerts and the privacy purge: docs/18 §3) | `test_scheduler_registers_ingestion_and_publication_without_overlap` |
 | Data quality reporting | Per-job JSON in `reports/quality/` and `ingestion_jobs.quality_report`: rows read/inserted/duplicate, snapshots applied/not applied, superseded rows, flag counts, alias rules used, series and eligible series, origin date | inspected in §4 |
 
 ## 4. Verification on the real data (2026-11-26)

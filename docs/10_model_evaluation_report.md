@@ -2,7 +2,8 @@
 
 Date: 2026-11-26. Method: `docs/06_forecasting_methodology.md` (pre-registered; every change is dated in §9 before
 the results it governs). Full tables: `experiments/forecast/EVALUATION_TABLES.md` (generated). Raw results:
-`experiments/forecast/` (predictions per model, crop and period; JSON reports; `frozen_choices.json`; `DEV_LOG.md`).
+`experiments/forecast/` (predictions per model, crop and period as Parquet, 77 MB, kept on the development machine and
+not in git; the JSON reports, `frozen_choices.json` and `DEV_LOG.md` are in git).
 MLflow: `experiments/mlflow.db`, experiment `mandicast-forecast`. Every table below is generated from those files.
 
 ## 1. Summary

@@ -31,6 +31,13 @@ export function pct(share: number, digits = 1): string {
   return `${(share * 100).toFixed(digits)}%`;
 }
 
+/** An API phrase ("live accuracy of …; not yet reliable") as a sentence: capital first letter, final full stop. */
+export function sentence(text: string): string {
+  const s = text.trim();
+  if (!s) return s;
+  return s[0]!.toUpperCase() + s.slice(1) + (/[.!?]$/.test(s) ? "" : ".");
+}
+
 /** A change already in percent (-10.1) as "−10.1%" / "+10.1%" (true minus sign). */
 export function signedPct(changePct: number, digits = 1): string {
   const s = Math.abs(changePct).toFixed(digits);

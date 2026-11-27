@@ -93,8 +93,8 @@ one-time link for a test user (negative chat id, which no real Telegram private 
 
 - The real-bot sign-in path (Telegram → `/login` → dashboard) has not been run: `TELEGRAM_BOT_TOKEN` is not set yet
   (Phase 6). The dashboard side of sign-in was tested with codes issued by the same service function.
-- The CSP is a meta tag; `frame-ancestors` and other header-only protections need the web server that hosts the
-  build (Phase 8). The session token is readable by page scripts (Bearer API on another origin); the CSP and the
+- *Resolved in Phase 8:* the CSP is a meta tag; `frame-ancestors` and other header-only protections need the web server that hosts the
+  build (Phase 8): nginx now sends them as headers (docs/15 §1). The session token is readable by page scripts (Bearer API on another origin); the CSP and the
   absence of third-party code and raw HTML are the mitigation.
 - No automated accessibility audit was run. Implemented: labels on every control, 44 px touch targets, visible focus,
   notices with icon and text, chart values from the keyboard and as tables, legends for every chart.
