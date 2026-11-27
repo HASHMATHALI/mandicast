@@ -32,6 +32,8 @@ No users or alerts in the database (test users are deleted).
 |---|---|
 | `tests/test_docs.py` (5 tests: generated schema reference = migrated database; docs/07 = API operations; CLI commands, paths, links, cited test names exist) | pass; on first run it found a renamed test cited in docs/09 and a non-existent `name_aliases.entity_id` in docs/04 (fixed) |
 | `pytest` / `ruff` | **121 passed** (34.5 s) / clean |
+| GitHub Actions run 46037678158 (commit `8f56e96`) | all 3 jobs passed (121 backend tests on Linux) |
+| Playwright against the rebuilt Compose stack | **7 passed** (an earlier run straight after the screenshots hit the 60/min rate limit) |
 | Every number in the new documents | taken from reports, the database, MLflow or a command run that day (sources named in each document) |
 
 **Found while documenting:** a deployment from a fresh clone cannot publish forecasts: range calibration starts from

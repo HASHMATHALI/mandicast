@@ -56,6 +56,7 @@ list what is exercised instead.
 | 2026-11-27 | **GitHub Actions run 46034190212** (commit `c61c4f4`) | **all 3 jobs passed** (backend 1 min 38 s, dashboard 25 s, images + fresh deployment 1 min 52 s) |
 | 2026-11-27 | Phase 9: dashboard rebuilt (live-accuracy note shown as a sentence); Playwright against the Compose stack | first run straight after the screenshot script: 5 of 7 (2 hit the rate limit, "Too many requests"); rerun a minute later: **7 passed** |
 | 2026-11-27 | Phase 9: `test_docs.py` added (Windows venv) | **121 passed** in 34.5 s; on first run it found stale documentation (a renamed test cited in docs/09; a non-existent `name_aliases.entity_id` in docs/04), fixed |
+| 2026-11-27 | **GitHub Actions run 46037678158** (commit `8f56e96`, Phase 9) | **all 3 jobs passed**, including the 121 backend tests on Linux (the generated schema reference matches a database migrated on Linux too) |
 
 **What the first GitHub run found.** The frozen forecasting code is identified by the SHA-256 of its exact bytes. It
 was frozen on Windows, where 8 of its 13 files had CRLF line endings and 5 had LF; git stores LF, so every Linux
