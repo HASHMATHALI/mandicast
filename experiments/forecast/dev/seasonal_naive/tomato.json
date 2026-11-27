@@ -1,0 +1,8 @@
+{
+  "commodity": "Tomato",
+  "period": "dev",
+  "model": "seasonal_naive",
+  "fallback_share": 0.08688081377056721,
+  "rows": 921734,
+  "written_at": "2026-11-26T13:22:42Z"
+}

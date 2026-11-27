@@ -1,0 +1,49 @@
+{
+  "job_id": 18,
+  "kind": "publish_forecasts",
+  "scope": {
+    "commodities": [
+      "Onion",
+      "Tomato",
+      "Potato",
+      "Wheat",
+      "Soyabean"
+    ],
+    "origin": null,
+    "today": "2026-11-27"
+  },
+  "counts": {
+    "rows_fetched": 0,
+    "rows_inserted": 0,
+    "rows_duplicate": 0,
+    "rows_rejected": 0
+  },
+  "report": {
+    "Onion": {
+      "status": "already_published",
+      "run_id": 1,
+      "series_forecast": 494
+    },
+    "Tomato": {
+      "status": "already_published",
+      "run_id": 2,
+      "series_forecast": 517
+    },
+    "Potato": {
+      "status": "already_published",
+      "run_id": 3,
+      "series_forecast": 580
+    },
+    "Wheat": {
+      "status": "already_published",
+      "run_id": 4,
+      "series_forecast": 324
+    },
+    "Soyabean": {
+      "status": "already_published",
+      "run_id": 5,
+      "series_forecast": 88
+    }
+  },
+  "written_at": "2026-11-27T01:35:49Z"
+}

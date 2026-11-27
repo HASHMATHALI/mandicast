@@ -1,0 +1,25 @@
+{
+  "job_id": 24,
+  "kind": "alerts",
+  "scope": {
+    "today": "2026-11-27",
+    "telegram": false
+  },
+  "counts": {
+    "rows_fetched": 0,
+    "rows_inserted": 0,
+    "rows_duplicate": 0,
+    "rows_rejected": 0
+  },
+  "report": {
+    "queued_price": 1,
+    "queued_forecast": 0,
+    "delivery": {
+      "sent": 0,
+      "failed": 0,
+      "blocked_users": 0,
+      "pending": 1
+    }
+  },
+  "written_at": "2026-11-27T12:49:33Z"
+}

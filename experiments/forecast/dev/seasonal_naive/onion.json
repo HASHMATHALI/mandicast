@@ -1,0 +1,8 @@
+{
+  "commodity": "Onion",
+  "period": "dev",
+  "model": "seasonal_naive",
+  "fallback_share": 0.07090669862128726,
+  "rows": 970543,
+  "written_at": "2026-11-26T13:22:42Z"
+}

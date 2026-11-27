@@ -1,0 +1,534 @@
+{
+  "commodity_dir": "tomato",
+  "integrity": {
+    "pages": 306,
+    "page_rows": 3055643,
+    "boundary_repair": {
+      "boundary_dates_replaced": 305,
+      "page_rows_for_those_dates": 139366,
+      "refetched_rows_for_those_dates": 139366,
+      "page_rows_not_in_refetch": 0,
+      "refetched_rows_not_in_pages": 12
+    },
+    "pages_failing_sha256": [],
+    "rows_read": 3055643,
+    "total_reported_min": 3055643,
+    "total_reported_max": 3055643,
+    "first_fetch": "2026-11-26T07:45:22Z",
+    "last_fetch": "2026-11-26T08:37:53Z"
+  },
+  "dates": {
+    "unparseable": 0,
+    "min": "2001-02-08",
+    "max": "2026-11-25",
+    "after_download_date": 0,
+    "rows_per_year": {
+      "2001": 345,
+      "2002": 10934,
+      "2003": 29704,
+      "2004": 21416,
+      "2005": 28454,
+      "2006": 40969,
+      "2007": 54124,
+      "2008": 71394,
+      "2009": 82992,
+      "2010": 101246,
+      "2011": 106900,
+      "2012": 115922,
+      "2013": 120700,
+      "2014": 120160,
+      "2015": 139574,
+      "2016": 136786,
+      "2017": 151111,
+      "2018": 173772,
+      "2019": 176695,
+      "2020": 155548,
+      "2021": 164598,
+      "2022": 189211,
+      "2023": 181567,
+      "2024": 215045,
+      "2025": 243120,
+      "2026": 223356
+    },
+    "rows_by_weekday_1mon_7sun": {
+      "1": 470332,
+      "2": 472913,
+      "3": 474889,
+      "4": 470000,
+      "5": 462145,
+      "6": 425182,
+      "7": 280182
+    }
+  },
+  "prices": {
+    "Min_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 85754,
+      "negative": 0
+    },
+    "Max_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 86318,
+      "negative": 0
+    },
+    "Modal_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 0,
+      "negative": 0
+    },
+    "violations": {
+      "min_and_max_zero_modal_positive": 84010,
+      "only_one_bound_zero": 4052,
+      "min_gt_max": 14,
+      "modal_lt_min": 18,
+      "modal_gt_max": 2
+    },
+    "modal_quantiles": {
+      "p0.1": 68.0,
+      "p1": 250.0,
+      "p5": 400.0,
+      "p50": 1500.0,
+      "p95": 4450.0,
+      "p99": 6500.0,
+      "p99.9": 11000.0,
+      "min": 0.01,
+      "max": 270000000.0
+    }
+  },
+  "duplicates": {
+    "exact_duplicate_rows": 8,
+    "exact_duplicates_across_page_boundary": 0,
+    "keys_with_multiple_rows": 1175,
+    "keys_with_conflicting_modal": 1051,
+    "rows_in_multi_row_keys": 2357
+  },
+  "names": {
+    "commodity_name_code_pairs": [
+      {
+        "Commodity": "Tomato",
+        "Commodity_Code": "78",
+        "len": 3055643
+      }
+    ],
+    "states": {
+      "Andaman and Nicobar": 611,
+      "Andhra Pradesh": 70788,
+      "Arunachal Pradesh": 244,
+      "Assam": 15793,
+      "Bihar": 13279,
+      "Chandigarh": 3273,
+      "Chattisgarh": 12184,
+      "Goa": 192,
+      "Gujarat": 125344,
+      "Haryana": 284959,
+      "Himachal Pradesh": 97604,
+      "Jammu and Kashmir": 24148,
+      "Jharkhand": 27271,
+      "Karnataka": 122694,
+      "Kerala": 187577,
+      "Keralam": 10596,
+      "Madhya Pradesh": 113202,
+      "Maharashtra": 173067,
+      "Meghalaya": 5007,
+      "Mizoram": 635,
+      "NCT of Delhi": 20247,
+      "Nagaland": 2997,
+      "Odisha": 234572,
+      "Punjab": 376955,
+      "Rajasthan": 94691,
+      "Sikkim": 34,
+      "Tamil Nadu": 142949,
+      "Telangana": 54838,
+      "Tripura": 32406,
+      "Uttar Pradesh": 604514,
+      "Uttarakhand": 4398,
+      "Uttrakhand": 51500,
+      "West Bengal": 147074
+    },
+    "n_districts": 611,
+    "n_markets": 3687,
+    "varieties_top": [
+      {
+        "Variety": "Other",
+        "len": 1483669
+      },
+      {
+        "Variety": "Tomato",
+        "len": 608872
+      },
+      {
+        "Variety": "Deshi",
+        "len": 470842
+      },
+      {
+        "Variety": "Hybrid",
+        "len": 287032
+      },
+      {
+        "Variety": "Local",
+        "len": 200525
+      },
+      {
+        "Variety": "Sankar",
+        "len": 4551
+      },
+      {
+        "Variety": "017",
+        "len": 152
+      }
+    ],
+    "grades": [
+      {
+        "Grade": "FAQ",
+        "len": 2716444
+      },
+      {
+        "Grade": "Local",
+        "len": 202959
+      },
+      {
+        "Grade": "Medium",
+        "len": 71483
+      },
+      {
+        "Grade": "Non-FAQ",
+        "len": 31637
+      },
+      {
+        "Grade": "Grade B",
+        "len": 10496
+      },
+      {
+        "Grade": "Grade A",
+        "len": 10330
+      },
+      {
+        "Grade": "Large",
+        "len": 6026
+      },
+      {
+        "Grade": "Small",
+        "len": 2845
+      },
+      {
+        "Grade": "Grade C",
+        "len": 1606
+      },
+      {
+        "Grade": "Grade Range-1",
+        "len": 1135
+      },
+      {
+        "Grade": "Grade Range-2",
+        "len": 430
+      },
+      {
+        "Grade": "Ref grade-1",
+        "len": 168
+      },
+      {
+        "Grade": "Grade Range-3",
+        "len": 66
+      },
+      {
+        "Grade": "Ref grade-2",
+        "len": 18
+      }
+    ],
+    "state_spelling_variants": {
+      "groups_with_multiple_spellings": 0,
+      "examples": []
+    },
+    "district_spelling_variants": {
+      "groups_with_multiple_spellings": 4,
+      "examples": [
+        {
+          "State": "Assam",
+          "spellings": [
+            "MORIGAON",
+            "Morigaon"
+          ]
+        },
+        {
+          "State": "Assam",
+          "spellings": [
+            "BONGAIGAON",
+            "Bongaigaon"
+          ]
+        },
+        {
+          "State": "Rajasthan",
+          "spellings": [
+            " Jhunjhunu",
+            "Jhunjhunu"
+          ]
+        },
+        {
+          "State": "Punjab",
+          "spellings": [
+            "Kapurthala",
+            "kapurthala"
+          ]
+        }
+      ]
+    },
+    "market_spelling_variants": {
+      "groups_with_multiple_spellings": 28,
+      "examples": [
+        {
+          "State": "Tamil Nadu",
+          "District": "Dindigul",
+          "spellings": [
+            "Kodaikkanal(Uzhavar Sandhai ) APMC",
+            "Kodaikkanal(Uzhavar Sandhai) APMC"
+          ]
+        },
+        {
+          "State": "Telangana",
+          "District": "Adilabad",
+          "spellings": [
+            "Adilabad (Rythu Bazar) ",
+            "Adilabad(Rythu Bazar)"
+          ]
+        },
+        {
+          "State": "Haryana",
+          "District": "Sirsa",
+          "spellings": [
+            "KALANWALIAPMC",
+            "kalanwali APMC"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Amarawati",
+          "spellings": [
+            "Amrawati(Frui & Veg. Market)",
+            "Amrawati(Frui & Veg. Market) "
+          ]
+        },
+        {
+          "State": "Uttar Pradesh",
+          "District": "Gautam Budh Nagar",
+          "spellings": [
+            "DADRI APMC",
+            "Dadri APMC"
+          ]
+        },
+        {
+          "State": "Telangana",
+          "District": "Nalgonda",
+          "spellings": [
+            "Miryalguda(Rythu Bazar)",
+            "Miryalguda(Rythu Bazar) "
+          ]
+        },
+        {
+          "State": "Telangana",
+          "District": "Medchal Malkajgiri",
+          "spellings": [
+            "Kukatpally,RBZ",
+            "Kukatpally,RBZ "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Jalgaon",
+          "spellings": [
+            "APMC Jalgaon",
+            "APMC Jalgaon "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Pune",
+          "spellings": [
+            "Pune(Manjri)",
+            "Pune(Manjri) "
+          ]
+        },
+        {
+          "State": "Madhya Pradesh",
+          "District": "Sheopur",
+          "spellings": [
+            "Sheopurkalan (F&V) APMC",
+            "Sheopurkalan(F&V) APMC"
+          ]
+        },
+        {
+          "State": "Telangana",
+          "District": "Khammam",
+          "spellings": [
+            "Sattupalli (Ramalayam),RBZ",
+            "Sattupalli (ramalayam),RBZ"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Dharashiv",
+          "spellings": [
+            "APMC Dharashiv",
+            "APMC Dharashiv "
+          ]
+        },
+        {
+          "State": "Telangana",
+          "District": "Ranga Reddy",
+          "spellings": [
+            "Kukatpally,RBZ",
+            "Kukatpally,RBZ "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Kolhapur",
+          "spellings": [
+            "APMC Kolhapur",
+            "APMC Kolhapur "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Chandrapur",
+          "spellings": [
+            "Chandrapur(Ganjwad)",
+            "Chandrapur(Ganjwad) "
+          ]
+        }
+      ]
+    }
+  },
+  "series": {
+    "series": 8904,
+    "series_active_last_30d": 1378,
+    "series_with_365plus_days_in_last_2y_and_active": 81,
+    "rows_in_those_series_last_2y": 41029,
+    "days_per_series_quantiles": {
+      "p10": 1.0,
+      "p25": 4.0,
+      "p50": 43.0,
+      "p75": 221.0,
+      "p90": 1024.0,
+      "min": 1.0,
+      "max": 6214.0
+    },
+    "median_gap_days_quantiles_active": {
+      "p10": 1.0,
+      "p50": 1.0,
+      "p90": 7.5,
+      "min": 1.0,
+      "max": 219.0
+    },
+    "top_active_series": [
+      {
+        "State": "Tamil Nadu",
+        "District": "Ariyalur",
+        "Market": "Jeyankondam (Uzhavar Sandhai )",
+        "Variety": "Deshi",
+        "Grade": "Local",
+        "days_last_2y": 592,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Thanjavur",
+        "Market": "Kumbakonam (Uzhavar Sandhai )",
+        "Variety": "Deshi",
+        "Grade": "Local",
+        "days_last_2y": 592,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Krishnagiri",
+        "Market": "Krishnagiri(Uzhavar Sandhai )",
+        "Variety": "Deshi",
+        "Grade": "Local",
+        "days_last_2y": 592,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Virudhunagar",
+        "Market": "Srivilliputhur(Uzhavar Sandhai )",
+        "Variety": "Deshi",
+        "Grade": "Local",
+        "days_last_2y": 592,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Thanjavur",
+        "Market": "Pattukottai(Uzhavar Sandhai )",
+        "Variety": "Deshi",
+        "Grade": "Local",
+        "days_last_2y": 592,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Virudhunagar",
+        "Market": "Sivakasi(Uzhavar Sandhai )",
+        "Variety": "Deshi",
+        "Grade": "Local",
+        "days_last_2y": 592,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "The Nilgiris",
+        "Market": "Udhagamandalam(Uzhavar Sandhai )",
+        "Variety": "Deshi",
+        "Grade": "Local",
+        "days_last_2y": 590,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Erode",
+        "Market": "Gobichettipalayam(Uzhavar Sandhai )",
+        "Variety": "Deshi",
+        "Grade": "Local",
+        "days_last_2y": 590,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Virudhunagar",
+        "Market": "Kariyapatti(Uzhavar Sandhai )",
+        "Variety": "Deshi",
+        "Grade": "Local",
+        "days_last_2y": 590,
+        "first": "2024-07-17",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Virudhunagar",
+        "Market": "Aruppukottai(Uzhavar Sandhai )",
+        "Variety": "Deshi",
+        "Grade": "Local",
+        "days_last_2y": 590,
+        "first": "2024-07-16",
+        "max_gap": 117
+      }
+    ]
+  },
+  "outliers": {
+    "points_with_local_median": 3049890,
+    "ratio_gt_3_or_lt_one_third": 4320,
+    "ratio_gt_10_or_lt_one_tenth": 272,
+    "abs_log_ratio_p99": 0.6190392084062235
+  }
+}

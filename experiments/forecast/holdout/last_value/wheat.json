@@ -1,0 +1,8 @@
+{
+  "commodity": "Wheat",
+  "period": "holdout",
+  "model": "last_value",
+  "fallback_share": 0.0,
+  "rows": 191621,
+  "written_at": "2026-11-26T16:58:25Z"
+}

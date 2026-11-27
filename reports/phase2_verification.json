@@ -1,0 +1,190 @@
+{
+  "commodities": {
+    "Onion": {
+      "api_total": 3425173,
+      "raw_page_rows": 3425173,
+      "raw_distinct_rows": 3425172,
+      "source_rows_in_db": 3425172,
+      "check_source_equals_distinct_raw": true,
+      "raw_files": 700,
+      "raw_files_loaded": 700,
+      "check_all_files_loaded": true,
+      "active_source_rows": 3425172,
+      "cleaned_rows": 3425172,
+      "check_cleaned_equals_active": true,
+      "primary_rows": 3245913,
+      "days_with_a_valid_row": 3245913,
+      "check_one_primary_per_valid_day": true,
+      "series": 2636,
+      "eligible_series": 494,
+      "origin": "2026-11-23"
+    },
+    "Tomato": {
+      "api_total": 3055643,
+      "raw_page_rows": 3055643,
+      "raw_distinct_rows": 3055635,
+      "source_rows_in_db": 3055635,
+      "check_source_equals_distinct_raw": true,
+      "raw_files": 626,
+      "raw_files_loaded": 626,
+      "check_all_files_loaded": true,
+      "active_source_rows": 3055635,
+      "cleaned_rows": 3055635,
+      "check_cleaned_equals_active": true,
+      "primary_rows": 3008704,
+      "days_with_a_valid_row": 3008704,
+      "check_one_primary_per_valid_day": true,
+      "series": 2470,
+      "eligible_series": 519,
+      "origin": "2026-11-24"
+    },
+    "Potato": {
+      "api_total": 3492438,
+      "raw_page_rows": 3492438,
+      "raw_distinct_rows": 3492418,
+      "source_rows_in_db": 3492418,
+      "check_source_equals_distinct_raw": true,
+      "raw_files": 712,
+      "raw_files_loaded": 712,
+      "check_all_files_loaded": true,
+      "active_source_rows": 3492418,
+      "cleaned_rows": 3492418,
+      "check_cleaned_equals_active": true,
+      "primary_rows": 3400928,
+      "days_with_a_valid_row": 3400928,
+      "check_one_primary_per_valid_day": true,
+      "series": 2349,
+      "eligible_series": 578,
+      "origin": "2026-11-24"
+    },
+    "Wheat": {
+      "api_total": 3559803,
+      "raw_page_rows": 3559803,
+      "raw_distinct_rows": 3559803,
+      "source_rows_in_db": 3559803,
+      "check_source_equals_distinct_raw": true,
+      "raw_files": 724,
+      "raw_files_loaded": 724,
+      "check_all_files_loaded": true,
+      "active_source_rows": 3559803,
+      "cleaned_rows": 3559803,
+      "check_cleaned_equals_active": true,
+      "primary_rows": 3133813,
+      "days_with_a_valid_row": 3133813,
+      "check_one_primary_per_valid_day": true,
+      "series": 2521,
+      "eligible_series": 324,
+      "origin": "2026-11-23"
+    },
+    "Soyabean": {
+      "api_total": 1294978,
+      "raw_page_rows": 1294978,
+      "raw_distinct_rows": 1294978,
+      "source_rows_in_db": 1294978,
+      "check_source_equals_distinct_raw": true,
+      "raw_files": 275,
+      "raw_files_loaded": 275,
+      "check_all_files_loaded": true,
+      "active_source_rows": 1294978,
+      "cleaned_rows": 1294978,
+      "check_cleaned_equals_active": true,
+      "primary_rows": 1189077,
+      "days_with_a_valid_row": 1189077,
+      "check_one_primary_per_valid_day": true,
+      "series": 1334,
+      "eligible_series": 88,
+      "origin": "2026-11-23"
+    }
+  },
+  "global": {
+    "source_rows": 14828006,
+    "superseded_rows": 0,
+    "cleaned_rows": 14828006,
+    "orphan_cleaned_rows": 0,
+    "cleaned_rows_from_superseded_sources": 0,
+    "duplicate_primary_days": 0,
+    "alias_rules": {
+      "district:exact": 688,
+      "district:whitespace": 2,
+      "market:apmc_suffix": 2650,
+      "market:exact": 3630,
+      "market:whitespace": 297,
+      "state:exact": 32,
+      "state:state_rename": 2
+    },
+    "jobs": [
+      {
+        "id": 1,
+        "kind": "load_raw",
+        "status": "succeeded",
+        "rows_inserted": 1294978,
+        "rows_duplicate": 28065,
+        "rows_rejected": 0
+      },
+      {
+        "id": 2,
+        "kind": "clean",
+        "status": "succeeded",
+        "rows_inserted": 0,
+        "rows_duplicate": 0,
+        "rows_rejected": 0
+      },
+      {
+        "id": 3,
+        "kind": "load_raw",
+        "status": "succeeded",
+        "rows_inserted": 13533028,
+        "rows_duplicate": 656487,
+        "rows_rejected": 0
+      },
+      {
+        "id": 4,
+        "kind": "daily",
+        "status": "skipped",
+        "rows_inserted": 0,
+        "rows_duplicate": 0,
+        "rows_rejected": 0
+      },
+      {
+        "id": 5,
+        "kind": "daily",
+        "status": "failed",
+        "rows_inserted": 0,
+        "rows_duplicate": 0,
+        "rows_rejected": 0
+      },
+      {
+        "id": 6,
+        "kind": "daily",
+        "status": "succeeded",
+        "rows_inserted": 0,
+        "rows_duplicate": 25494,
+        "rows_rejected": 0
+      },
+      {
+        "id": 7,
+        "kind": "daily",
+        "status": "succeeded",
+        "rows_inserted": 0,
+        "rows_duplicate": 18941,
+        "rows_rejected": 0
+      },
+      {
+        "id": 8,
+        "kind": "daily",
+        "status": "succeeded",
+        "rows_inserted": 0,
+        "rows_duplicate": 0,
+        "rows_rejected": 0
+      },
+      {
+        "id": 9,
+        "kind": "clean",
+        "status": "succeeded",
+        "rows_inserted": 0,
+        "rows_duplicate": 0,
+        "rows_rejected": 0
+      }
+    ]
+  }
+}

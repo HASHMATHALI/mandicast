@@ -1,0 +1,8 @@
+{
+  "commodity": "Onion",
+  "period": "dev",
+  "model": "mean_28d",
+  "fallback_share": 4.945685044351461e-05,
+  "rows": 970543,
+  "written_at": "2026-11-26T13:22:42Z"
+}

@@ -1,0 +1,18 @@
+{
+  "commodity": "Potato",
+  "period": "holdout",
+  "model": "arima",
+  "pairs": 1739,
+  "pairs_forecast": 1739,
+  "series": 44,
+  "failed_fits": 0,
+  "failed_forwards": 0,
+  "seconds": 165.8,
+  "window_days": 730,
+  "season": 7,
+  "sample_per_commodity": 60,
+  "sample_seed": 20261126,
+  "statsforecast": "2.1.1",
+  "rows": 24346,
+  "written_at": "2026-11-26T18:03:24Z"
+}

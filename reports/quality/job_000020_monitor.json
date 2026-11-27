@@ -1,0 +1,202 @@
+{
+  "job_id": 20,
+  "kind": "monitor",
+  "scope": {
+    "commodities": [
+      "Onion",
+      "Tomato",
+      "Potato",
+      "Wheat",
+      "Soyabean"
+    ],
+    "today": "2026-11-27"
+  },
+  "counts": {
+    "rows_fetched": 0,
+    "rows_inserted": 0,
+    "rows_duplicate": 0,
+    "rows_rejected": 0
+  },
+  "report": {
+    "Onion": {
+      "live": [
+        {
+          "day_range": "1-7",
+          "points": 1073,
+          "origins": 1,
+          "wape_model": 0.043332527987402725,
+          "wape_last_value": 0.04394230020231226,
+          "wape_served": 0.043332527987402725,
+          "coverage80": 0.8331780055917987,
+          "coverage90": 0.923578751164958,
+          "direction_moves_ge_2pct": 0.729957805907173,
+          "served_by_last_value": 0
+        }
+      ]
+    },
+    "Tomato": {
+      "live": [
+        {
+          "day_range": "1-7",
+          "points": 1165,
+          "origins": 1,
+          "wape_model": 0.08659287028683434,
+          "wape_last_value": 0.08703619472070198,
+          "wape_served": 0.08659287028683434,
+          "coverage80": 0.8137339055793992,
+          "coverage90": 0.9158798283261803,
+          "direction_moves_ge_2pct": 0.5092460881934566,
+          "served_by_last_value": 0
+        }
+      ]
+    },
+    "Potato": {
+      "live": [
+        {
+          "day_range": "1-7",
+          "points": 1260,
+          "origins": 1,
+          "wape_model": 0.06041384484251662,
+          "wape_last_value": 0.06755951659628028,
+          "wape_served": 0.06041384484251662,
+          "coverage80": 0.7206349206349206,
+          "coverage90": 0.8452380952380952,
+          "direction_moves_ge_2pct": 0.6790123456790124,
+          "served_by_last_value": 0
+        }
+      ]
+    },
+    "Wheat": {
+      "live": [
+        {
+          "day_range": "1-7",
+          "points": 555,
+          "origins": 1,
+          "wape_model": 0.023390331504496594,
+          "wape_last_value": 0.026850579524928198,
+          "wape_served": 0.023390331504496594,
+          "coverage80": 0.7621621621621621,
+          "coverage90": 0.8864864864864865,
+          "direction_moves_ge_2pct": 0.7721518987341772,
+          "served_by_last_value": 0
+        }
+      ]
+    },
+    "Soyabean": {
+      "live": [
+        {
+          "day_range": "1-7",
+          "points": 176,
+          "origins": 1,
+          "wape_model": 0.027291385257357217,
+          "wape_last_value": 0.03162930882044483,
+          "wape_served": 0.027291385257357217,
+          "coverage80": 0.8977272727272727,
+          "coverage90": 0.9772727272727273,
+          "direction_moves_ge_2pct": 0.8315789473684211,
+          "served_by_last_value": 0
+        }
+      ]
+    },
+    "checks": [
+      {
+        "check": "ingestion_recent",
+        "commodity": null,
+        "ok": true,
+        "detail": "last successful ingestion 2026-11-27 01:10:23.301510+00:00 (1.5 h ago)"
+      },
+      {
+        "check": "data_current",
+        "commodity": "Onion",
+        "ok": true,
+        "detail": "latest complete arrival date 2026-11-25 (2 days old)"
+      },
+      {
+        "check": "latest_monday_published",
+        "commodity": "Onion",
+        "ok": true,
+        "detail": "latest complete Monday 2026-11-23, latest publication 2026-11-23"
+      },
+      {
+        "check": "valid_production_model",
+        "commodity": "Onion",
+        "ok": true,
+        "detail": "lightgbm-onion-2026q4-ec32e42e"
+      },
+      {
+        "check": "data_current",
+        "commodity": "Tomato",
+        "ok": true,
+        "detail": "latest complete arrival date 2026-11-25 (2 days old)"
+      },
+      {
+        "check": "latest_monday_published",
+        "commodity": "Tomato",
+        "ok": true,
+        "detail": "latest complete Monday 2026-11-23, latest publication 2026-11-23"
+      },
+      {
+        "check": "valid_production_model",
+        "commodity": "Tomato",
+        "ok": true,
+        "detail": "lightgbm-tomato-2026q4-510d9ae1"
+      },
+      {
+        "check": "data_current",
+        "commodity": "Potato",
+        "ok": true,
+        "detail": "latest complete arrival date 2026-11-25 (2 days old)"
+      },
+      {
+        "check": "latest_monday_published",
+        "commodity": "Potato",
+        "ok": true,
+        "detail": "latest complete Monday 2026-11-23, latest publication 2026-11-23"
+      },
+      {
+        "check": "valid_production_model",
+        "commodity": "Potato",
+        "ok": true,
+        "detail": "lightgbm-potato-2026q4-9cdbf4d0"
+      },
+      {
+        "check": "data_current",
+        "commodity": "Wheat",
+        "ok": true,
+        "detail": "latest complete arrival date 2026-11-25 (2 days old)"
+      },
+      {
+        "check": "latest_monday_published",
+        "commodity": "Wheat",
+        "ok": true,
+        "detail": "latest complete Monday 2026-11-23, latest publication 2026-11-23"
+      },
+      {
+        "check": "valid_production_model",
+        "commodity": "Wheat",
+        "ok": true,
+        "detail": "lightgbm-wheat-2026q4-01908121"
+      },
+      {
+        "check": "data_current",
+        "commodity": "Soyabean",
+        "ok": true,
+        "detail": "latest complete arrival date 2026-11-25 (2 days old)"
+      },
+      {
+        "check": "latest_monday_published",
+        "commodity": "Soyabean",
+        "ok": true,
+        "detail": "latest complete Monday 2026-11-23, latest publication 2026-11-23"
+      },
+      {
+        "check": "valid_production_model",
+        "commodity": "Soyabean",
+        "ok": true,
+        "detail": "lightgbm-soyabean-2026q4-ef136591"
+      }
+    ],
+    "warnings": []
+  },
+  "written_at": "2026-11-27T02:40:33Z"
+}

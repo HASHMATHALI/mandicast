@@ -1,0 +1,8 @@
+{
+  "commodity": "Onion",
+  "period": "holdout",
+  "model": "mean_7d",
+  "fallback_share": 0.008086961088063855,
+  "rows": 304688,
+  "written_at": "2026-11-26T16:58:22Z"
+}

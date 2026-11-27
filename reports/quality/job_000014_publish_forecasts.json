@@ -1,0 +1,112 @@
+{
+  "job_id": 14,
+  "kind": "publish_forecasts",
+  "scope": {
+    "commodities": [
+      "Onion",
+      "Tomato",
+      "Potato",
+      "Wheat",
+      "Soyabean"
+    ],
+    "origin": null,
+    "today": "2026-11-27"
+  },
+  "counts": {
+    "rows_fetched": 0,
+    "rows_inserted": 26810,
+    "rows_duplicate": 0,
+    "rows_rejected": 0
+  },
+  "report": {
+    "Onion": {
+      "status": "published",
+      "run_id": 1,
+      "series_forecast": 494,
+      "series_eligible": 494,
+      "points": 6916,
+      "rows_inserted": 6916,
+      "model_version": "lightgbm-onion-2026q4-ec32e42e",
+      "calibration": {
+        "method": "conditional",
+        "window_origins": [
+          "2025-11-24",
+          "2026-11-22"
+        ],
+        "rule": "target dates before the origin (methodology C9)",
+        "residuals": 302349,
+        "smallest_group": 4724,
+        "groups": 42,
+        "origins_in_window": 51
+      }
+    },
+    "Tomato": {
+      "status": "published",
+      "run_id": 2,
+      "series_forecast": 517,
+      "series_eligible": 517,
+      "points": 7238,
+      "rows_inserted": 7238,
+      "model_version": "lightgbm-tomato-2026q4-510d9ae1",
+      "calibration": {
+        "method": "conditional",
+        "window_origins": [
+          "2025-11-24",
+          "2026-11-22"
+        ],
+        "rule": "target dates before the origin (methodology C9)",
+        "residuals": 305114,
+        "smallest_group": 5104,
+        "groups": 42,
+        "origins_in_window": 51
+      }
+    },
+    "Potato": {
+      "status": "published",
+      "run_id": 3,
+      "series_forecast": 580,
+      "series_eligible": 580,
+      "points": 8120,
+      "rows_inserted": 8120,
+      "model_version": "lightgbm-potato-2026q4-9cdbf4d0",
+      "calibration": {
+        "method": "conditional",
+        "window_origins": [
+          "2025-11-24",
+          "2026-11-22"
+        ],
+        "rule": "target dates before the origin (methodology C9)",
+        "residuals": 320434,
+        "smallest_group": 5404,
+        "groups": 42,
+        "origins_in_window": 51
+      }
+    },
+    "Wheat": {
+      "status": "published",
+      "run_id": 4,
+      "series_forecast": 324,
+      "series_eligible": 324,
+      "points": 4536,
+      "rows_inserted": 4536,
+      "model_version": "lightgbm-wheat-2026q4-01908121",
+      "calibration": {
+        "method": "conditional",
+        "window_origins": [
+          "2025-11-24",
+          "2026-11-22"
+        ],
+        "rule": "target dates before the origin (methodology C9)",
+        "residuals": 190503,
+        "smallest_group": 1638,
+        "groups": 42,
+        "origins_in_window": 51
+      }
+    },
+    "Soyabean": {
+      "status": "failed",
+      "error": "too few calibration residuals for Soyabean at 2026-11-23: 42 groups, smallest 97"
+    }
+  },
+  "written_at": "2026-11-27T01:21:26Z"
+}

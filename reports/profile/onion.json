@@ -1,0 +1,566 @@
+{
+  "commodity_dir": "onion",
+  "integrity": {
+    "pages": 343,
+    "page_rows": 3425173,
+    "boundary_repair": {
+      "boundary_dates_replaced": 341,
+      "page_rows_for_those_dates": 164911,
+      "refetched_rows_for_those_dates": 164911,
+      "page_rows_not_in_refetch": 0,
+      "refetched_rows_not_in_pages": 9
+    },
+    "pages_failing_sha256": [],
+    "rows_read": 3425173,
+    "total_reported_min": 3425173,
+    "total_reported_max": 3425173,
+    "first_fetch": "2026-11-26T06:09:49Z",
+    "last_fetch": "2026-11-26T07:45:15Z"
+  },
+  "dates": {
+    "unparseable": 0,
+    "min": "2001-01-10",
+    "max": "2026-11-25",
+    "after_download_date": 0,
+    "rows_per_year": {
+      "2001": 696,
+      "2002": 11772,
+      "2003": 38118,
+      "2004": 39637,
+      "2005": 48130,
+      "2006": 65976,
+      "2007": 85590,
+      "2008": 98589,
+      "2009": 106375,
+      "2010": 124752,
+      "2011": 130516,
+      "2012": 131191,
+      "2013": 132968,
+      "2014": 138619,
+      "2015": 159946,
+      "2016": 151790,
+      "2017": 164613,
+      "2018": 182642,
+      "2019": 167365,
+      "2020": 154860,
+      "2021": 168381,
+      "2022": 201993,
+      "2023": 196556,
+      "2024": 227024,
+      "2025": 266963,
+      "2026": 230111
+    },
+    "rows_by_weekday_1mon_7sun": {
+      "1": 530802,
+      "2": 535007,
+      "3": 538933,
+      "4": 536099,
+      "5": 521881,
+      "6": 476876,
+      "7": 285575
+    }
+  },
+  "prices": {
+    "Min_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 127189,
+      "negative": 0
+    },
+    "Max_Price": {
+      "empty": 0,
+      "non_numeric": 1,
+      "zero": 124611,
+      "negative": 0
+    },
+    "Modal_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 0,
+      "negative": 0
+    },
+    "violations": {
+      "min_and_max_zero_modal_positive": 122479,
+      "only_one_bound_zero": 6842,
+      "min_gt_max": 4,
+      "modal_lt_min": 312,
+      "modal_gt_max": 379
+    },
+    "modal_quantiles": {
+      "p0.1": 100.0,
+      "p1": 275.0,
+      "p5": 450.0,
+      "p50": 1440.0,
+      "p95": 4550.0,
+      "p99": 6500.0,
+      "p99.9": 10000.0,
+      "min": 0.01,
+      "max": 917588483.0
+    }
+  },
+  "duplicates": {
+    "exact_duplicate_rows": 1,
+    "exact_duplicates_across_page_boundary": 0,
+    "keys_with_multiple_rows": 5164,
+    "keys_with_conflicting_modal": 3190,
+    "rows_in_multi_row_keys": 10414
+  },
+  "names": {
+    "commodity_name_code_pairs": [
+      {
+        "Commodity": "Onion",
+        "Commodity_Code": "23",
+        "len": 3425173
+      }
+    ],
+    "states": {
+      "Andaman and Nicobar": 522,
+      "Andhra Pradesh": 30424,
+      "Arunachal Pradesh": 457,
+      "Assam": 24230,
+      "Bihar": 40824,
+      "Chandigarh": 3216,
+      "Chattisgarh": 11336,
+      "Goa": 5570,
+      "Gujarat": 119830,
+      "Haryana": 284514,
+      "Himachal Pradesh": 86891,
+      "Jammu and Kashmir": 25910,
+      "Jharkhand": 63237,
+      "Karnataka": 103652,
+      "Kerala": 242527,
+      "Keralam": 13030,
+      "Madhya Pradesh": 165379,
+      "Maharashtra": 248056,
+      "Manipur": 10721,
+      "Meghalaya": 1029,
+      "Mizoram": 737,
+      "NCT of Delhi": 21576,
+      "Nagaland": 1364,
+      "Odisha": 214582,
+      "Punjab": 407373,
+      "Rajasthan": 99881,
+      "Tamil Nadu": 151596,
+      "Telangana": 32577,
+      "Tripura": 20479,
+      "Uttar Pradesh": 746836,
+      "Uttarakhand": 3259,
+      "Uttrakhand": 46101,
+      "West Bengal": 197457
+    },
+    "n_districts": 631,
+    "n_markets": 3877,
+    "varieties_top": [
+      {
+        "Variety": "Other",
+        "len": 1585702
+      },
+      {
+        "Variety": "Red",
+        "len": 637970
+      },
+      {
+        "Variety": "Onion",
+        "len": 442342
+      },
+      {
+        "Variety": "Bellary",
+        "len": 155090
+      },
+      {
+        "Variety": "Nasik",
+        "len": 127045
+      },
+      {
+        "Variety": "Local",
+        "len": 120701
+      },
+      {
+        "Variety": "Big",
+        "len": 95866
+      },
+      {
+        "Variety": "1st Sort",
+        "len": 80542
+      },
+      {
+        "Variety": "Small",
+        "len": 46118
+      },
+      {
+        "Variety": "Medium",
+        "len": 28955
+      },
+      {
+        "Variety": "White",
+        "len": 19069
+      },
+      {
+        "Variety": "Dry F.A.Q.",
+        "len": 15149
+      },
+      {
+        "Variety": "Beelary-Red",
+        "len": 14666
+      },
+      {
+        "Variety": "Pusa-Red",
+        "len": 10199
+      },
+      {
+        "Variety": "Puna",
+        "len": 10162
+      }
+    ],
+    "grades": [
+      {
+        "Grade": "FAQ",
+        "len": 3103193
+      },
+      {
+        "Grade": "Local",
+        "len": 210362
+      },
+      {
+        "Grade": "Medium",
+        "len": 47621
+      },
+      {
+        "Grade": "Non-FAQ",
+        "len": 34646
+      },
+      {
+        "Grade": "Grade A",
+        "len": 12225
+      },
+      {
+        "Grade": "Grade B",
+        "len": 7658
+      },
+      {
+        "Grade": "Large",
+        "len": 3916
+      },
+      {
+        "Grade": "Small",
+        "len": 2895
+      },
+      {
+        "Grade": "Grade C",
+        "len": 1611
+      },
+      {
+        "Grade": "Grade Range-1",
+        "len": 597
+      },
+      {
+        "Grade": "Grade Range-2",
+        "len": 250
+      },
+      {
+        "Grade": "Ref grade-1",
+        "len": 108
+      },
+      {
+        "Grade": "Grade Range-3",
+        "len": 83
+      },
+      {
+        "Grade": "Ref grade-2",
+        "len": 8
+      }
+    ],
+    "state_spelling_variants": {
+      "groups_with_multiple_spellings": 0,
+      "examples": []
+    },
+    "district_spelling_variants": {
+      "groups_with_multiple_spellings": 4,
+      "examples": [
+        {
+          "State": "Assam",
+          "spellings": [
+            "BONGAIGAON",
+            "Bongaigaon"
+          ]
+        },
+        {
+          "State": "Rajasthan",
+          "spellings": [
+            " Jhunjhunu",
+            "Jhunjhunu"
+          ]
+        },
+        {
+          "State": "Punjab",
+          "spellings": [
+            "Kapurthala",
+            "kapurthala"
+          ]
+        },
+        {
+          "State": "Assam",
+          "spellings": [
+            "MORIGAON",
+            "Morigaon"
+          ]
+        }
+      ]
+    },
+    "market_spelling_variants": {
+      "groups_with_multiple_spellings": 31,
+      "examples": [
+        {
+          "State": "Telangana",
+          "District": "Medchal Malkajgiri",
+          "spellings": [
+            "Kukatpally,RBZ",
+            "Kukatpally,RBZ "
+          ]
+        },
+        {
+          "State": "Madhya Pradesh",
+          "District": "Sehore",
+          "spellings": [
+            "Ashta  APMC",
+            "Ashta APMC"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Nagpur",
+          "spellings": [
+            "HINGNA - APMC",
+            "Hingna APMC"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Pune",
+          "spellings": [
+            "Pune(Pimpri)",
+            "Pune(Pimpri) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Pune",
+          "spellings": [
+            "Pune(Moshi)",
+            "Pune(Moshi) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Pune",
+          "spellings": [
+            "Junnar(Otur)",
+            "Junnar(Otur) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Dharashiv",
+          "spellings": [
+            "APMC Dharashiv",
+            "APMC Dharashiv "
+          ]
+        },
+        {
+          "State": "Uttar Pradesh",
+          "District": "Gautam Budh Nagar",
+          "spellings": [
+            "DADRI APMC",
+            "Dadri APMC"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Nashik",
+          "spellings": [
+            "Dindori(Vani)",
+            "Dindori(Vani) "
+          ]
+        },
+        {
+          "State": "Tamil Nadu",
+          "District": "Dindigul",
+          "spellings": [
+            "Kodaikkanal(Uzhavar Sandhai )",
+            "Kodaikkanal(Uzhavar Sandhai)"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Jalgaon",
+          "spellings": [
+            "APMC Jalgaon",
+            "APMC Jalgaon "
+          ]
+        },
+        {
+          "State": "Telangana",
+          "District": "Nalgonda",
+          "spellings": [
+            "Miryalguda(Rythu Bazar)",
+            "Miryalguda(Rythu Bazar) "
+          ]
+        },
+        {
+          "State": "Telangana",
+          "District": "Ranga Reddy",
+          "spellings": [
+            "Vanasthalipuram,RBZ",
+            "Vanasthalipuram,RBZ "
+          ]
+        },
+        {
+          "State": "Rajasthan",
+          "District": "Hanumangarh",
+          "spellings": [
+            "Hanumangarh Town APMC",
+            "HanumangarhTown APMC"
+          ]
+        },
+        {
+          "State": "Tamil Nadu",
+          "District": "Dharmapuri",
+          "spellings": [
+            "A.Jattihalli(Uzhavar Sandhai )",
+            "AJattihalli(Uzhavar Sandhai )"
+          ]
+        }
+      ]
+    }
+  },
+  "series": {
+    "series": 9999,
+    "series_active_last_30d": 1377,
+    "series_with_365plus_days_in_last_2y_and_active": 117,
+    "rows_in_those_series_last_2y": 66851,
+    "days_per_series_quantiles": {
+      "p10": 1.0,
+      "p25": 3.0,
+      "p50": 31.0,
+      "p75": 200.0,
+      "p90": 999.0,
+      "min": 1.0,
+      "max": 6661.0
+    },
+    "median_gap_days_quantiles_active": {
+      "p10": 1.0,
+      "p50": 1.0,
+      "p90": 8.0,
+      "min": 1.0,
+      "max": 234.0
+    },
+    "top_active_series": [
+      {
+        "State": "Tamil Nadu",
+        "District": "Namakkal",
+        "Market": "Rasipuram(Uzhavar Sandhai )",
+        "Variety": "Bellary",
+        "Grade": "Local",
+        "days_last_2y": 595,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Salem",
+        "Market": "Sooramangalam(Uzhavar Sandhai )",
+        "Variety": "Bellary",
+        "Grade": "Local",
+        "days_last_2y": 594,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Namakkal",
+        "Market": "Mohanur(Uzhavar Sandhai )",
+        "Variety": "Bellary",
+        "Grade": "Local",
+        "days_last_2y": 594,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Virudhunagar",
+        "Market": "Srivilliputhur(Uzhavar Sandhai )",
+        "Variety": "Bellary",
+        "Grade": "Local",
+        "days_last_2y": 593,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Dharmapuri",
+        "Market": "Palacode(Uzhavar Sandhai )",
+        "Variety": "Bellary",
+        "Grade": "Local",
+        "days_last_2y": 593,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Salem",
+        "Market": "Thammampatti (Uzhavar Sandhai )",
+        "Variety": "Bellary",
+        "Grade": "Local",
+        "days_last_2y": 593,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Dindigul",
+        "Market": "Chinnalapatti(Uzhavar Sandhai )",
+        "Variety": "Bellary",
+        "Grade": "Local",
+        "days_last_2y": 593,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Virudhunagar",
+        "Market": "Sivakasi(Uzhavar Sandhai )",
+        "Variety": "Bellary",
+        "Grade": "Local",
+        "days_last_2y": 593,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Thiruchirappalli",
+        "Market": "Musiri(Uzhavar Sandhai )",
+        "Variety": "Bellary",
+        "Grade": "Local",
+        "days_last_2y": 593,
+        "first": "2024-07-16",
+        "max_gap": 117
+      },
+      {
+        "State": "Tamil Nadu",
+        "District": "Madurai",
+        "Market": "Anna nagar(Uzhavar Sandhai )",
+        "Variety": "Bellary",
+        "Grade": "Local",
+        "days_last_2y": 593,
+        "first": "2024-07-16",
+        "max_gap": 117
+      }
+    ]
+  },
+  "outliers": {
+    "points_with_local_median": 3414425,
+    "ratio_gt_3_or_lt_one_third": 3940,
+    "ratio_gt_10_or_lt_one_tenth": 349,
+    "abs_log_ratio_p99": 0.4700036292457356
+  }
+}

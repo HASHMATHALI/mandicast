@@ -1,0 +1,8 @@
+{
+  "commodity": "Wheat",
+  "period": "holdout",
+  "model": "mean_7d",
+  "fallback_share": 0.008532467735790963,
+  "rows": 191621,
+  "written_at": "2026-11-26T16:58:25Z"
+}

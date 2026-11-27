@@ -1,0 +1,8 @@
+{
+  "commodity": "Wheat",
+  "period": "dev",
+  "model": "mean_7d",
+  "fallback_share": 0.012670488108320381,
+  "rows": 606054,
+  "written_at": "2026-11-26T13:22:44Z"
+}

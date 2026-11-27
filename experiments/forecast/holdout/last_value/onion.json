@@ -1,0 +1,8 @@
+{
+  "commodity": "Onion",
+  "period": "holdout",
+  "model": "last_value",
+  "fallback_share": 0.0,
+  "rows": 304688,
+  "written_at": "2026-11-26T16:58:22Z"
+}

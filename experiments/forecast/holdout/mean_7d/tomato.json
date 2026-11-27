@@ -1,0 +1,8 @@
+{
+  "commodity": "Tomato",
+  "period": "holdout",
+  "model": "mean_7d",
+  "fallback_share": 0.009600623164181043,
+  "rows": 308105,
+  "written_at": "2026-11-26T16:58:23Z"
+}

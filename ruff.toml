@@ -1,0 +1,16 @@
+line-length = 120
+target-version = "py312"
+
+[lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "N"]
+
+[lint.per-file-ignores]
+# pytest uses bare asserts.
+"tests/*" = ["S101"]
+# The summary is a table of label / lambda pairs; one row per line keeps it readable.
+"scripts/profile_summary.py" = ["E501"]
+"scripts/verify_phase2.py" = ["E501"]
+# Generated markdown table rows read best one per line.
+"scripts/phase5_tables.py" = ["E501"]
+# API routes compose WHERE/JOIN clauses from fixed fragments chosen in code; every value is a bound parameter.
+"src/mandicast/api/routes/*.py" = ["S608"]

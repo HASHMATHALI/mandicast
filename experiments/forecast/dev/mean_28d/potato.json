@@ -1,0 +1,8 @@
+{
+  "commodity": "Potato",
+  "period": "dev",
+  "model": "mean_28d",
+  "fallback_share": 4.7279507583928514e-05,
+  "rows": 1015239,
+  "written_at": "2026-11-26T13:22:43Z"
+}

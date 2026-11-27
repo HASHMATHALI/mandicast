@@ -1,0 +1,54 @@
+{
+  "job_id": 2,
+  "kind": "clean",
+  "scope": {
+    "commodities": [
+      "Soyabean"
+    ],
+    "since": null
+  },
+  "counts": {
+    "rows_fetched": 0,
+    "rows_inserted": 0,
+    "rows_duplicate": 0,
+    "rows_rejected": 0
+  },
+  "report": {
+    "Soyabean": {
+      "clean": {
+        "commodity": "Soyabean",
+        "since": null,
+        "rows_read": 1294978,
+        "rows_written": 1294978,
+        "rows_invalid_date": 0,
+        "primary_rows_written": 1189077,
+        "flag_counts": {
+          "non_numeric_price": 0,
+          "zero_or_negative_price": 0,
+          "bounds_not_reported": 2799,
+          "min_gt_max": 0,
+          "modal_outside_range": 2561,
+          "future_date": 0,
+          "duplicate_after_normalisation": 2108,
+          "conflict": 17018,
+          "local_outlier": 335,
+          "day_has_invalid_rows": 2347,
+          "day_has_conflicting_reports": 7938
+        },
+        "alias_rules": {
+          "district:exact": 268,
+          "market:apmc_suffix": 596,
+          "market:exact": 1173,
+          "market:whitespace_case": 217,
+          "state:exact": 25,
+          "state:state_rename": 1,
+          "district:whitespace_case": 1
+        },
+        "series_total": 1334,
+        "eligible_series": 88,
+        "origin": "2026-11-23"
+      }
+    }
+  },
+  "written_at": "2026-11-26T10:45:39Z"
+}

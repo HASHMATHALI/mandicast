@@ -1,0 +1,44 @@
+{
+  "job_id": 22,
+  "kind": "ensure_models",
+  "scope": {
+    "commodities": [
+      "Onion",
+      "Tomato",
+      "Potato",
+      "Wheat",
+      "Soyabean"
+    ],
+    "today": "2026-11-27"
+  },
+  "counts": {
+    "rows_fetched": 0,
+    "rows_inserted": 0,
+    "rows_duplicate": 0,
+    "rows_rejected": 0
+  },
+  "report": {
+    "Onion": {
+      "status": "valid_model",
+      "origin": "2026-11-23"
+    },
+    "Tomato": {
+      "status": "valid_model",
+      "origin": "2026-11-23"
+    },
+    "Potato": {
+      "status": "valid_model",
+      "origin": "2026-11-23"
+    },
+    "Wheat": {
+      "status": "valid_model",
+      "origin": "2026-11-23"
+    },
+    "Soyabean": {
+      "status": "not_retried",
+      "origin": "2026-11-23",
+      "reason": "lightgbm-soyabean-2026q4-ef136591 for this quarter is archived; last value is served until `mandicast retrain` is run"
+    }
+  },
+  "written_at": "2026-11-27T02:41:56Z"
+}

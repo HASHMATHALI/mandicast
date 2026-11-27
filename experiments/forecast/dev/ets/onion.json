@@ -1,0 +1,16 @@
+{
+  "commodity": "Onion",
+  "period": "dev",
+  "model": "ets",
+  "pairs": 95070,
+  "pairs_forecast": 95070,
+  "series": 974,
+  "failed_fits": 0,
+  "failed_forwards": 0,
+  "seconds": 1268.4,
+  "window_days": 730,
+  "season": 7,
+  "statsforecast": "2.1.1",
+  "rows": 1330980,
+  "written_at": "2026-11-26T13:43:56Z"
+}

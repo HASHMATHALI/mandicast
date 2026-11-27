@@ -1,0 +1,61 @@
+{
+  "checked_at": "2026-11-27T02:42:22Z",
+  "commodities": {
+    "Onion": {
+      "production": {
+        "version": "lightgbm-onion-2026q4-ec32e42e",
+        "artifact_ok": true,
+        "gate_passed": true,
+        "mlflow_registry_version": "1",
+        "mlflow_alias_production": 1,
+        "mlflow_alias_matches": true
+      },
+      "status_event_mismatches": []
+    },
+    "Potato": {
+      "production": {
+        "version": "lightgbm-potato-2026q4-9cdbf4d0",
+        "artifact_ok": true,
+        "gate_passed": true,
+        "mlflow_registry_version": "1",
+        "mlflow_alias_production": 1,
+        "mlflow_alias_matches": true
+      },
+      "status_event_mismatches": []
+    },
+    "Soyabean": {
+      "production": {
+        "version": "lightgbm-soyabean-2026q4-ef136591",
+        "artifact_ok": true,
+        "gate_passed": true,
+        "mlflow_registry_version": "1",
+        "mlflow_alias_production": 1,
+        "mlflow_alias_matches": true
+      },
+      "status_event_mismatches": []
+    },
+    "Tomato": {
+      "production": {
+        "version": "lightgbm-tomato-2026q4-510d9ae1",
+        "artifact_ok": true,
+        "gate_passed": true,
+        "mlflow_registry_version": "1",
+        "mlflow_alias_production": 1,
+        "mlflow_alias_matches": true
+      },
+      "status_event_mismatches": []
+    },
+    "Wheat": {
+      "production": {
+        "version": "lightgbm-wheat-2026q4-01908121",
+        "artifact_ok": true,
+        "gate_passed": true,
+        "mlflow_registry_version": "1",
+        "mlflow_alias_production": 1,
+        "mlflow_alias_matches": true
+      },
+      "status_event_mismatches": []
+    }
+  },
+  "all_ok": true
+}

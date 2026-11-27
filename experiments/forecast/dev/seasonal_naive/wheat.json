@@ -1,0 +1,8 @@
+{
+  "commodity": "Wheat",
+  "period": "dev",
+  "model": "seasonal_naive",
+  "fallback_share": 0.039184627112435526,
+  "rows": 606054,
+  "written_at": "2026-11-26T13:22:44Z"
+}

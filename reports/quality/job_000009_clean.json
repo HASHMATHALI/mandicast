@@ -1,0 +1,197 @@
+{
+  "job_id": 9,
+  "kind": "clean",
+  "scope": {
+    "commodities": [
+      "Onion",
+      "Tomato",
+      "Potato",
+      "Wheat",
+      "Soyabean"
+    ],
+    "since": null
+  },
+  "counts": {
+    "rows_fetched": 0,
+    "rows_inserted": 0,
+    "rows_duplicate": 0,
+    "rows_rejected": 0
+  },
+  "report": {
+    "Onion": {
+      "clean": {
+        "commodity": "Onion",
+        "since": null,
+        "rows_read": 3425172,
+        "rows_written": 3425172,
+        "rows_invalid_date": 0,
+        "primary_rows_written": 3245913,
+        "flag_counts": {
+          "non_numeric_price": 1,
+          "zero_or_negative_price": 0,
+          "bounds_not_reported": 129321,
+          "min_gt_max": 4,
+          "modal_outside_range": 691,
+          "future_date": 0,
+          "duplicate_after_normalisation": 10084,
+          "conflict": 6442,
+          "local_outlier": 10392,
+          "day_has_invalid_rows": 606,
+          "day_has_conflicting_reports": 2963
+        },
+        "alias_rules": {
+          "state:state_rename": 2,
+          "state:exact": 31,
+          "district:exact": 612,
+          "district:whitespace": 2,
+          "market:apmc_suffix": 1370,
+          "market:exact": 2408,
+          "market:whitespace": 99
+        },
+        "series_total": 2636,
+        "eligible_series": 494,
+        "origin": "2026-11-23"
+      }
+    },
+    "Tomato": {
+      "clean": {
+        "commodity": "Tomato",
+        "since": null,
+        "rows_read": 3055635,
+        "rows_written": 3055635,
+        "rows_invalid_date": 0,
+        "primary_rows_written": 3008704,
+        "flag_counts": {
+          "non_numeric_price": 0,
+          "zero_or_negative_price": 0,
+          "bounds_not_reported": 88062,
+          "min_gt_max": 14,
+          "modal_outside_range": 20,
+          "future_date": 0,
+          "duplicate_after_normalisation": 9808,
+          "conflict": 2109,
+          "local_outlier": 26675,
+          "day_has_invalid_rows": 0,
+          "day_has_conflicting_reports": 1036
+        },
+        "alias_rules": {
+          "state:exact": 31,
+          "state:state_rename": 2,
+          "district:exact": 591,
+          "district:whitespace": 2,
+          "market:exact": 2266,
+          "market:apmc_suffix": 1353,
+          "market:whitespace": 68
+        },
+        "series_total": 2470,
+        "eligible_series": 519,
+        "origin": "2026-11-24"
+      }
+    },
+    "Potato": {
+      "clean": {
+        "commodity": "Potato",
+        "since": null,
+        "rows_read": 3492418,
+        "rows_written": 3492418,
+        "rows_invalid_date": 0,
+        "primary_rows_written": 3400928,
+        "flag_counts": {
+          "non_numeric_price": 0,
+          "zero_or_negative_price": 0,
+          "bounds_not_reported": 134366,
+          "min_gt_max": 1,
+          "modal_outside_range": 145,
+          "future_date": 0,
+          "duplicate_after_normalisation": 8335,
+          "conflict": 2933,
+          "local_outlier": 6314,
+          "day_has_invalid_rows": 118,
+          "day_has_conflicting_reports": 1446
+        },
+        "alias_rules": {
+          "market:exact": 2177,
+          "market:apmc_suffix": 1285,
+          "market:whitespace": 47,
+          "district:exact": 607,
+          "state:exact": 32,
+          "state:state_rename": 2,
+          "district:whitespace": 2
+        },
+        "series_total": 2349,
+        "eligible_series": 578,
+        "origin": "2026-11-24"
+      }
+    },
+    "Wheat": {
+      "clean": {
+        "commodity": "Wheat",
+        "since": null,
+        "rows_read": 3559803,
+        "rows_written": 3559803,
+        "rows_invalid_date": 0,
+        "primary_rows_written": 3133813,
+        "flag_counts": {
+          "non_numeric_price": 0,
+          "zero_or_negative_price": 0,
+          "bounds_not_reported": 128318,
+          "min_gt_max": 0,
+          "modal_outside_range": 7396,
+          "future_date": 0,
+          "duplicate_after_normalisation": 2887,
+          "conflict": 32870,
+          "local_outlier": 899,
+          "day_has_invalid_rows": 5196,
+          "day_has_conflicting_reports": 14553
+        },
+        "alias_rules": {
+          "market:exact": 2188,
+          "market:apmc_suffix": 1546,
+          "market:whitespace": 189,
+          "district:exact": 519,
+          "district:whitespace": 1,
+          "state:exact": 28,
+          "state:state_rename": 1
+        },
+        "series_total": 2521,
+        "eligible_series": 324,
+        "origin": "2026-11-23"
+      }
+    },
+    "Soyabean": {
+      "clean": {
+        "commodity": "Soyabean",
+        "since": null,
+        "rows_read": 1294978,
+        "rows_written": 1294978,
+        "rows_invalid_date": 0,
+        "primary_rows_written": 1189077,
+        "flag_counts": {
+          "non_numeric_price": 0,
+          "zero_or_negative_price": 0,
+          "bounds_not_reported": 2799,
+          "min_gt_max": 0,
+          "modal_outside_range": 2561,
+          "future_date": 0,
+          "duplicate_after_normalisation": 2108,
+          "conflict": 17018,
+          "local_outlier": 335,
+          "day_has_invalid_rows": 2347,
+          "day_has_conflicting_reports": 7938
+        },
+        "alias_rules": {
+          "market:whitespace": 207,
+          "market:exact": 1046,
+          "market:apmc_suffix": 733,
+          "district:exact": 269,
+          "state:exact": 25,
+          "state:state_rename": 1
+        },
+        "series_total": 1334,
+        "eligible_series": 88,
+        "origin": "2026-11-23"
+      }
+    }
+  },
+  "written_at": "2026-11-26T12:15:19Z"
+}

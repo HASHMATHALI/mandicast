@@ -1,0 +1,8 @@
+{
+  "commodity": "Potato",
+  "period": "holdout",
+  "model": "mean_7d",
+  "fallback_share": 0.007544704775113929,
+  "rows": 323008,
+  "written_at": "2026-11-26T16:58:24Z"
+}

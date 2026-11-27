@@ -1,0 +1,8 @@
+{
+  "commodity": "Onion",
+  "period": "holdout",
+  "model": "mean_28d",
+  "fallback_share": 8.86152391955049e-05,
+  "rows": 304688,
+  "written_at": "2026-11-26T16:58:22Z"
+}

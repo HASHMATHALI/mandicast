@@ -1,0 +1,285 @@
+{
+  "job_id": 10,
+  "kind": "daily",
+  "scope": {
+    "commodities": [
+      "Onion",
+      "Tomato",
+      "Potato",
+      "Wheat",
+      "Soyabean"
+    ],
+    "today": "2026-11-26"
+  },
+  "counts": {
+    "rows_fetched": 23629,
+    "rows_inserted": 0,
+    "rows_duplicate": 0,
+    "rows_rejected": 0
+  },
+  "report": {
+    "Onion": {
+      "refetched_from": "2026-11-18",
+      "fetch": {
+        "commodity": "Onion",
+        "dates_stored": 0,
+        "dates_unchanged": 8,
+        "dates_empty": 1,
+        "rows_fetched": 5408
+      },
+      "load": {
+        "files_loaded": 0,
+        "files_skipped": 700,
+        "rows_read": 0,
+        "rows_inserted": 0,
+        "rows_duplicate": 0,
+        "snapshots_applied": 0,
+        "snapshots_not_applied": [],
+        "rows_superseded": 0
+      },
+      "clean": {
+        "commodity": "Onion",
+        "since": "2026-11-18",
+        "rows_read": 282929,
+        "rows_written": 5408,
+        "rows_invalid_date": 0,
+        "primary_rows_written": 4921,
+        "flag_counts": {
+          "non_numeric_price": 0,
+          "zero_or_negative_price": 0,
+          "bounds_not_reported": 1,
+          "min_gt_max": 0,
+          "modal_outside_range": 0,
+          "future_date": 0,
+          "duplicate_after_normalisation": 0,
+          "conflict": 94,
+          "local_outlier": 6,
+          "day_has_invalid_rows": 0,
+          "day_has_conflicting_reports": 37
+        },
+        "alias_rules": {
+          "district:exact": 480,
+          "market:exact": 1203,
+          "market:apmc_suffix": 1370,
+          "market:whitespace": 94,
+          "state:exact": 28,
+          "state:state_rename": 2,
+          "district:whitespace": 1
+        },
+        "series_total": 2636,
+        "eligible_series": 494,
+        "origin": "2026-11-23"
+      }
+    },
+    "Tomato": {
+      "refetched_from": "2026-11-18",
+      "fetch": {
+        "commodity": "Tomato",
+        "dates_stored": 0,
+        "dates_unchanged": 8,
+        "dates_empty": 1,
+        "rows_fetched": 5418
+      },
+      "load": {
+        "files_loaded": 0,
+        "files_skipped": 626,
+        "rows_read": 0,
+        "rows_inserted": 0,
+        "rows_duplicate": 0,
+        "snapshots_applied": 0,
+        "snapshots_not_applied": [],
+        "rows_superseded": 0
+      },
+      "clean": {
+        "commodity": "Tomato",
+        "since": "2026-11-18",
+        "rows_read": 267050,
+        "rows_written": 5418,
+        "rows_invalid_date": 0,
+        "primary_rows_written": 5370,
+        "flag_counts": {
+          "non_numeric_price": 0,
+          "zero_or_negative_price": 0,
+          "bounds_not_reported": 0,
+          "min_gt_max": 0,
+          "modal_outside_range": 0,
+          "future_date": 0,
+          "duplicate_after_normalisation": 0,
+          "conflict": 28,
+          "local_outlier": 9,
+          "day_has_invalid_rows": 0,
+          "day_has_conflicting_reports": 14
+        },
+        "alias_rules": {
+          "state:exact": 28,
+          "state:state_rename": 2,
+          "district:exact": 483,
+          "district:whitespace": 1,
+          "market:exact": 1198,
+          "market:apmc_suffix": 1353,
+          "market:whitespace": 56
+        },
+        "series_total": 2470,
+        "eligible_series": 519,
+        "origin": "2026-11-24"
+      }
+    },
+    "Potato": {
+      "refetched_from": "2026-11-18",
+      "fetch": {
+        "commodity": "Potato",
+        "dates_stored": 0,
+        "dates_unchanged": 8,
+        "dates_empty": 1,
+        "rows_fetched": 5284
+      },
+      "load": {
+        "files_loaded": 0,
+        "files_skipped": 712,
+        "rows_read": 0,
+        "rows_inserted": 0,
+        "rows_duplicate": 0,
+        "snapshots_applied": 0,
+        "snapshots_not_applied": [],
+        "rows_superseded": 0
+      },
+      "clean": {
+        "commodity": "Potato",
+        "since": "2026-11-18",
+        "rows_read": 267713,
+        "rows_written": 5284,
+        "rows_invalid_date": 0,
+        "primary_rows_written": 5168,
+        "flag_counts": {
+          "non_numeric_price": 0,
+          "zero_or_negative_price": 0,
+          "bounds_not_reported": 0,
+          "min_gt_max": 0,
+          "modal_outside_range": 0,
+          "future_date": 0,
+          "duplicate_after_normalisation": 0,
+          "conflict": 82,
+          "local_outlier": 9,
+          "day_has_invalid_rows": 0,
+          "day_has_conflicting_reports": 41
+        },
+        "alias_rules": {
+          "state:exact": 28,
+          "state:state_rename": 2,
+          "district:exact": 484,
+          "market:apmc_suffix": 1285,
+          "market:exact": 1149,
+          "market:whitespace": 45
+        },
+        "series_total": 2349,
+        "eligible_series": 578,
+        "origin": "2026-11-24"
+      }
+    },
+    "Wheat": {
+      "refetched_from": "2026-11-18",
+      "fetch": {
+        "commodity": "Wheat",
+        "dates_stored": 0,
+        "dates_unchanged": 8,
+        "dates_empty": 1,
+        "rows_fetched": 4855
+      },
+      "load": {
+        "files_loaded": 0,
+        "files_skipped": 724,
+        "rows_read": 0,
+        "rows_inserted": 0,
+        "rows_duplicate": 0,
+        "snapshots_applied": 0,
+        "snapshots_not_applied": [],
+        "rows_superseded": 0
+      },
+      "clean": {
+        "commodity": "Wheat",
+        "since": "2026-11-18",
+        "rows_read": 317246,
+        "rows_written": 4855,
+        "rows_invalid_date": 0,
+        "primary_rows_written": 3498,
+        "flag_counts": {
+          "non_numeric_price": 0,
+          "zero_or_negative_price": 0,
+          "bounds_not_reported": 0,
+          "min_gt_max": 0,
+          "modal_outside_range": 0,
+          "future_date": 0,
+          "duplicate_after_normalisation": 0,
+          "conflict": 292,
+          "local_outlier": 0,
+          "day_has_invalid_rows": 0,
+          "day_has_conflicting_reports": 137
+        },
+        "alias_rules": {
+          "district:exact": 362,
+          "district:whitespace": 1,
+          "market:apmc_suffix": 1546,
+          "market:whitespace": 184,
+          "market:exact": 875,
+          "state:exact": 16,
+          "state:state_rename": 1
+        },
+        "series_total": 2521,
+        "eligible_series": 324,
+        "origin": "2026-11-23"
+      }
+    },
+    "Soyabean": {
+      "refetched_from": "2026-11-18",
+      "fetch": {
+        "commodity": "Soyabean",
+        "dates_stored": 0,
+        "dates_unchanged": 8,
+        "dates_empty": 1,
+        "rows_fetched": 2664
+      },
+      "load": {
+        "files_loaded": 0,
+        "files_skipped": 275,
+        "rows_read": 0,
+        "rows_inserted": 0,
+        "rows_duplicate": 0,
+        "snapshots_applied": 0,
+        "snapshots_not_applied": [],
+        "rows_superseded": 0
+      },
+      "clean": {
+        "commodity": "Soyabean",
+        "since": "2026-11-18",
+        "rows_read": 105793,
+        "rows_written": 2664,
+        "rows_invalid_date": 0,
+        "primary_rows_written": 2187,
+        "flag_counts": {
+          "non_numeric_price": 0,
+          "zero_or_negative_price": 0,
+          "bounds_not_reported": 0,
+          "min_gt_max": 0,
+          "modal_outside_range": 0,
+          "future_date": 0,
+          "duplicate_after_normalisation": 0,
+          "conflict": 118,
+          "local_outlier": 0,
+          "day_has_invalid_rows": 0,
+          "day_has_conflicting_reports": 56
+        },
+        "alias_rules": {
+          "state:exact": 12,
+          "district:exact": 200,
+          "market:apmc_suffix": 733,
+          "market:exact": 588,
+          "market:whitespace": 202
+        },
+        "series_total": 1334,
+        "eligible_series": 88,
+        "origin": "2026-11-23"
+      }
+    }
+  },
+  "written_at": "2026-11-26T12:23:49Z"
+}

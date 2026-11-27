@@ -1,0 +1,22 @@
+# Keep secrets, data and local state out of every image build context.
+.env
+*.env
+!.env.example
+.git
+.venv
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.ruff_cache
+data
+models
+mlruns
+experiments
+logs
+reports
+backups
+dashboard/node_modules
+dashboard/dist
+dashboard/test-results
+dashboard/playwright-report
+dashboard/.env.local

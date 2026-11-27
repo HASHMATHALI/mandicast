@@ -1,0 +1,494 @@
+{
+  "run_at": "2026-11-27T02:11:29Z",
+  "rule": "methodology C10b",
+  "cutoffs": [
+    "2025-07-01",
+    "2025-10-01",
+    "2026-01-01",
+    "2026-04-01",
+    "2026-07-01",
+    "2026-10-01"
+  ],
+  "commodities": {
+    "Onion": {
+      "quarters": [
+        {
+          "quarter_start": "2025-10-01",
+          "production_trained": "2025-07-01",
+          "best_iteration": 50,
+          "passed": true,
+          "failed": [],
+          "points": 111173,
+          "wape_candidate": 0.0623,
+          "wape_last_value": 0.06316,
+          "wape_production": 0.06297
+        },
+        {
+          "quarter_start": "2026-01-01",
+          "production_trained": "2025-10-01",
+          "best_iteration": 115,
+          "passed": true,
+          "failed": [],
+          "points": 96417,
+          "wape_candidate": 0.08219,
+          "wape_last_value": 0.08592,
+          "wape_production": 0.0829
+        },
+        {
+          "quarter_start": "2026-04-01",
+          "production_trained": "2026-01-01",
+          "best_iteration": 120,
+          "passed": true,
+          "failed": [],
+          "points": 86681,
+          "wape_candidate": 0.07111,
+          "wape_last_value": 0.07495,
+          "wape_production": 0.07107
+        },
+        {
+          "quarter_start": "2026-07-01",
+          "production_trained": "2026-04-01",
+          "best_iteration": 212,
+          "passed": true,
+          "failed": [],
+          "points": 87320,
+          "wape_candidate": 0.07196,
+          "wape_last_value": 0.0753,
+          "wape_production": 0.07215
+        },
+        {
+          "quarter_start": "2026-10-01",
+          "production_trained": "2026-07-01",
+          "best_iteration": 86,
+          "passed": true,
+          "failed": [],
+          "points": 78940,
+          "wape_candidate": 0.08869,
+          "wape_last_value": 0.09486,
+          "wape_production": 0.08859
+        }
+      ],
+      "deliberately_worse_at_2026_10_01": {
+        "biased_x1.08": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 78940,
+          "wape_candidate": 0.10134,
+          "wape_last_value": 0.09486,
+          "wape_production": 0.08859
+        },
+        "shuffled_labels_200_rounds": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 78940,
+          "wape_candidate": 0.09487,
+          "wape_last_value": 0.09486,
+          "wape_production": 0.08859
+        },
+        "inverted_change": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 78940,
+          "wape_candidate": 0.11524,
+          "wape_last_value": 0.09486,
+          "wape_production": 0.08859
+        }
+      },
+      "all_deliberately_worse_rejected": true,
+      "seconds": 235.3
+    },
+    "Tomato": {
+      "quarters": [
+        {
+          "quarter_start": "2025-10-01",
+          "production_trained": "2025-07-01",
+          "best_iteration": 104,
+          "passed": true,
+          "failed": [],
+          "points": 104065,
+          "wape_candidate": 0.15049,
+          "wape_last_value": 0.16753,
+          "wape_production": 0.1515
+        },
+        {
+          "quarter_start": "2026-01-01",
+          "production_trained": "2025-10-01",
+          "best_iteration": 11,
+          "passed": true,
+          "failed": [],
+          "points": 86584,
+          "wape_candidate": 0.1636,
+          "wape_last_value": 0.16414,
+          "wape_production": 0.1668
+        },
+        {
+          "quarter_start": "2026-04-01",
+          "production_trained": "2026-01-01",
+          "best_iteration": 214,
+          "passed": true,
+          "failed": [],
+          "points": 81971,
+          "wape_candidate": 0.14219,
+          "wape_last_value": 0.16359,
+          "wape_production": 0.1537
+        },
+        {
+          "quarter_start": "2026-07-01",
+          "production_trained": "2026-04-01",
+          "best_iteration": 87,
+          "passed": true,
+          "failed": [],
+          "points": 89713,
+          "wape_candidate": 0.1715,
+          "wape_last_value": 0.17162,
+          "wape_production": 0.17357
+        },
+        {
+          "quarter_start": "2026-10-01",
+          "production_trained": "2026-07-01",
+          "best_iteration": 2,
+          "passed": true,
+          "failed": [],
+          "points": 82696,
+          "wape_candidate": 0.12795,
+          "wape_last_value": 0.12799,
+          "wape_production": 0.12894
+        }
+      ],
+      "deliberately_worse_at_2026_10_01": {
+        "biased_x1.08": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 82696,
+          "wape_candidate": 0.16018,
+          "wape_last_value": 0.12799,
+          "wape_production": 0.12894
+        },
+        "shuffled_labels_200_rounds": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)"
+          ],
+          "points": 82696,
+          "wape_candidate": 0.12802,
+          "wape_last_value": 0.12799,
+          "wape_production": 0.12894
+        },
+        "inverted_change": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)"
+          ],
+          "points": 82696,
+          "wape_candidate": 0.12977,
+          "wape_last_value": 0.12799,
+          "wape_production": 0.12894
+        }
+      },
+      "all_deliberately_worse_rejected": true,
+      "seconds": 224.2
+    },
+    "Potato": {
+      "quarters": [
+        {
+          "quarter_start": "2025-10-01",
+          "production_trained": "2025-07-01",
+          "best_iteration": 141,
+          "passed": true,
+          "failed": [],
+          "points": 105521,
+          "wape_candidate": 0.06043,
+          "wape_last_value": 0.0643,
+          "wape_production": 0.06046
+        },
+        {
+          "quarter_start": "2026-01-01",
+          "production_trained": "2025-10-01",
+          "best_iteration": 387,
+          "passed": true,
+          "failed": [],
+          "points": 88218,
+          "wape_candidate": 0.07853,
+          "wape_last_value": 0.08503,
+          "wape_production": 0.07862
+        },
+        {
+          "quarter_start": "2026-04-01",
+          "production_trained": "2026-01-01",
+          "best_iteration": 89,
+          "passed": true,
+          "failed": [],
+          "points": 82849,
+          "wape_candidate": 0.07445,
+          "wape_last_value": 0.07893,
+          "wape_production": 0.07565
+        },
+        {
+          "quarter_start": "2026-07-01",
+          "production_trained": "2026-04-01",
+          "best_iteration": 64,
+          "passed": true,
+          "failed": [],
+          "points": 93101,
+          "wape_candidate": 0.06975,
+          "wape_last_value": 0.07219,
+          "wape_production": 0.07006
+        },
+        {
+          "quarter_start": "2026-10-01",
+          "production_trained": "2026-07-01",
+          "best_iteration": 71,
+          "passed": true,
+          "failed": [],
+          "points": 89507,
+          "wape_candidate": 0.06588,
+          "wape_last_value": 0.06819,
+          "wape_production": 0.06631
+        }
+      ],
+      "deliberately_worse_at_2026_10_01": {
+        "biased_x1.08": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 89507,
+          "wape_candidate": 0.10792,
+          "wape_last_value": 0.06819,
+          "wape_production": 0.06631
+        },
+        "shuffled_labels_200_rounds": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 89507,
+          "wape_candidate": 0.06819,
+          "wape_last_value": 0.06819,
+          "wape_production": 0.06631
+        },
+        "inverted_change": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 89507,
+          "wape_candidate": 0.0838,
+          "wape_last_value": 0.06819,
+          "wape_production": 0.06631
+        }
+      },
+      "all_deliberately_worse_rejected": true,
+      "seconds": 357.3
+    },
+    "Wheat": {
+      "quarters": [
+        {
+          "quarter_start": "2025-10-01",
+          "production_trained": "2025-07-01",
+          "best_iteration": 124,
+          "passed": true,
+          "failed": [],
+          "points": 54793,
+          "wape_candidate": 0.01391,
+          "wape_last_value": 0.01618,
+          "wape_production": 0.01398
+        },
+        {
+          "quarter_start": "2026-01-01",
+          "production_trained": "2025-10-01",
+          "best_iteration": 103,
+          "passed": true,
+          "failed": [],
+          "points": 49357,
+          "wape_candidate": 0.01604,
+          "wape_last_value": 0.01788,
+          "wape_production": 0.01606
+        },
+        {
+          "quarter_start": "2026-04-01",
+          "production_trained": "2026-01-01",
+          "best_iteration": 493,
+          "passed": true,
+          "failed": [],
+          "points": 48166,
+          "wape_candidate": 0.02731,
+          "wape_last_value": 0.03155,
+          "wape_production": 0.02807
+        },
+        {
+          "quarter_start": "2026-07-01",
+          "production_trained": "2026-04-01",
+          "best_iteration": 92,
+          "passed": true,
+          "failed": [],
+          "points": 64307,
+          "wape_candidate": 0.02305,
+          "wape_last_value": 0.02551,
+          "wape_production": 0.02322
+        },
+        {
+          "quarter_start": "2026-10-01",
+          "production_trained": "2026-07-01",
+          "best_iteration": 319,
+          "passed": true,
+          "failed": [],
+          "points": 51103,
+          "wape_candidate": 0.01934,
+          "wape_last_value": 0.02203,
+          "wape_production": 0.01959
+        }
+      ],
+      "deliberately_worse_at_2026_10_01": {
+        "biased_x1.08": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 51103,
+          "wape_candidate": 0.07818,
+          "wape_last_value": 0.02203,
+          "wape_production": 0.01959
+        },
+        "shuffled_labels_200_rounds": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 51103,
+          "wape_candidate": 0.02203,
+          "wape_last_value": 0.02203,
+          "wape_production": 0.01959
+        },
+        "inverted_change": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 51103,
+          "wape_candidate": 0.03018,
+          "wape_last_value": 0.02203,
+          "wape_production": 0.01959
+        }
+      },
+      "all_deliberately_worse_rejected": true,
+      "seconds": 290.1
+    },
+    "Soyabean": {
+      "quarters": [
+        {
+          "quarter_start": "2025-10-01",
+          "production_trained": "2025-07-01",
+          "best_iteration": 152,
+          "passed": true,
+          "failed": [],
+          "points": 13156,
+          "wape_candidate": 0.03239,
+          "wape_last_value": 0.03656,
+          "wape_production": 0.03277
+        },
+        {
+          "quarter_start": "2026-01-01",
+          "production_trained": "2025-10-01",
+          "best_iteration": 208,
+          "passed": true,
+          "failed": [],
+          "points": 16184,
+          "wape_candidate": 0.03726,
+          "wape_last_value": 0.04331,
+          "wape_production": 0.03784
+        },
+        {
+          "quarter_start": "2026-04-01",
+          "production_trained": "2026-01-01",
+          "best_iteration": 70,
+          "passed": true,
+          "failed": [],
+          "points": 17770,
+          "wape_candidate": 0.04515,
+          "wape_last_value": 0.05215,
+          "wape_production": 0.04591
+        },
+        {
+          "quarter_start": "2026-07-01",
+          "production_trained": "2026-04-01",
+          "best_iteration": 62,
+          "passed": true,
+          "failed": [],
+          "points": 15721,
+          "wape_candidate": 0.05454,
+          "wape_last_value": 0.06075,
+          "wape_production": 0.05549
+        },
+        {
+          "quarter_start": "2026-10-01",
+          "production_trained": "2026-07-01",
+          "best_iteration": 47,
+          "passed": false,
+          "failed": [
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 11925,
+          "wape_candidate": 0.05254,
+          "wape_last_value": 0.05613,
+          "wape_production": 0.05141
+        }
+      ],
+      "deliberately_worse_at_2026_10_01": {
+        "biased_x1.08": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 11925,
+          "wape_candidate": 0.10325,
+          "wape_last_value": 0.05613,
+          "wape_production": 0.05141
+        },
+        "shuffled_labels_200_rounds": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 11925,
+          "wape_candidate": 0.05618,
+          "wape_last_value": 0.05613,
+          "wape_production": 0.05141
+        },
+        "inverted_change": {
+          "passed": false,
+          "failed": [
+            "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "(iii) WAPE(candidate) \u2264 1.02 \u00d7 WAPE(production)"
+          ],
+          "points": 11925,
+          "wape_candidate": 0.06646,
+          "wape_last_value": 0.05613,
+          "wape_production": 0.05141
+        }
+      },
+      "all_deliberately_worse_rejected": true,
+      "seconds": 61.8
+    }
+  }
+}

@@ -1,0 +1,192 @@
+# MandiCast: every service in one Compose project (docs/15). Secrets and settings come from .env (git-ignored);
+# each container receives only the variables it needs.
+#
+#   docker compose up -d --build              db, redis, migrate (one-off), api, worker, dashboard
+#   docker compose --profile bot up -d        + Telegram bot (needs TELEGRAM_BOT_TOKEN)
+#   docker compose --profile tools up -d      + MLflow UI on http://localhost:5000
+#   docker compose up -d db redis             only the databases (development from the virtual environment)
+#
+# Published ports are bound to 127.0.0.1. Only the dashboard serves users; it proxies /v1 to the API, which has no
+# published port.
+name: mandicast
+
+x-logging: &logging
+  driver: json-file
+  options: {max-size: "10m", max-file: "5"}
+
+x-app: &app
+  image: mandicast-app:local
+  build:
+    context: .
+    dockerfile: docker/app/Dockerfile
+    target: runtime
+  restart: unless-stopped
+  read_only: true
+  tmpfs: [/tmp]
+  security_opt: ["no-new-privileges:true"]
+  cap_drop: [ALL]
+  logging: *logging
+
+x-owner-db: &owner-db postgresql+psycopg://${POSTGRES_USER:?set POSTGRES_USER in .env}:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}@db:5432/${POSTGRES_DB:-mandicast}
+x-api-db: &api-db postgresql+psycopg://mandicast_api:${API_DB_PASSWORD:?set API_DB_PASSWORD in .env}@db:5432/${POSTGRES_DB:-mandicast}
+
+services:
+  db:
+    # postgres 16.16 (alpine), pinned by digest for reproducibility
+    image: postgres:16-alpine@sha256:f2f98726820d0342055351c6e9d36e705f5bfffb3dd53ff556325114b08afb6d
+    restart: unless-stopped
+    # Parallel queries over the ~30M-row tables need more than Docker's default 64 MB /dev/shm.
+    shm_size: 1gb
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?set POSTGRES_USER in .env}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-mandicast}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5433}:5432"   # localhost only
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
+    command:
+      - postgres
+      - -c
+      - shared_buffers=512MB
+      - -c
+      - work_mem=64MB
+      - -c
+      - maintenance_work_mem=512MB
+      - -c
+      - max_wal_size=4GB
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    logging: *logging
+
+  redis:
+    # Cache and rate-limit counters only (no persistence). redis 8 (alpine), pinned by digest.
+    image: redis:8-alpine@sha256:5af80107c1eeecb484a2269b80a26d12bfa6521787da4663bd9f19f60a163483
+    restart: unless-stopped
+    environment:
+      REDISCLI_AUTH: ${REDIS_PASSWORD:?set REDIS_PASSWORD in .env}   # lets the healthcheck authenticate
+    command:
+      - redis-server
+      - --requirepass
+      - ${REDIS_PASSWORD:?set REDIS_PASSWORD in .env}
+      - --save
+      - ""
+      - --appendonly
+      - "no"
+      - --maxmemory
+      - 128mb
+      - --maxmemory-policy
+      - allkeys-lru
+    ports:
+      - "127.0.0.1:${REDIS_PORT:-6380}:6379"   # localhost only
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    logging: *logging
+
+  migrate:
+    # One-off: schema migrations, then the least-privilege role used by the API and the bot.
+    <<: *app
+    restart: "no"
+    entrypoint: ["sh", "-c", "python -m mandicast db-upgrade && python -m mandicast db-roles"]
+    environment:
+      DATABASE_URL: *owner-db
+      API_DB_PASSWORD: ${API_DB_PASSWORD:?set API_DB_PASSWORD in .env}
+    depends_on:
+      db: {condition: service_healthy}
+
+  api:
+    <<: *app
+    command: ["api", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
+    environment:
+      DATABASE_URL: *api-db
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379/0
+      API_TRUST_FORWARDED_FOR: "true"        # only the dashboard's proxy can reach the API
+      API_CORS_ORIGINS: ""                   # same origin as the dashboard: no CORS
+      API_RATE_LIMIT_PER_MINUTE: ${API_RATE_LIMIT_PER_MINUTE:-60}
+    volumes:
+      - ./models:/app/models:ro              # the health check verifies the production artifacts exist
+    expose: ["8000"]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request as u; u.urlopen('http://127.0.0.1:8000/v1/health', timeout=8)"]
+      interval: 20s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+  worker:
+    # Scheduler: ingestion, model checks and retraining, publication, alerts, monitoring, privacy purge (UTC times
+    # in src/mandicast/scheduler.py).
+    <<: *app
+    command: ["worker"]
+    environment:
+      DATABASE_URL: *owner-db
+      DATA_GOV_IN_API_KEY: ${DATA_GOV_IN_API_KEY:-}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+      DASHBOARD_URL: ${DASHBOARD_URL:-http://localhost:8090}
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+      - ./experiments:/app/experiments
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+
+  bot:
+    <<: *app
+    profiles: [bot]
+    command: ["bot"]
+    environment:
+      DATABASE_URL: *api-db
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+      DASHBOARD_URL: ${DASHBOARD_URL:-http://localhost:8090}
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+
+  dashboard:
+    image: mandicast-dashboard:local
+    build:
+      context: .
+      dockerfile: docker/dashboard/Dockerfile
+      args:
+        VITE_BOT_USERNAME: ${VITE_BOT_USERNAME:-}
+    restart: unless-stopped
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    ports:
+      - "127.0.0.1:${DASHBOARD_PORT:-8090}:8080"
+    depends_on:
+      api: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+    logging: *logging
+
+  mlflow:
+    # Experiment tracking UI (runs and the model registry). Artifacts logged from Windows keep their Windows paths,
+    # so their files can be opened here only for runs logged inside the containers.
+    <<: *app
+    profiles: [tools]
+    entrypoint: ["mlflow", "ui", "--backend-store-uri", "sqlite:////app/experiments/mlflow.db",
+                 "--host", "0.0.0.0", "--port", "5000"]
+    volumes:
+      - ./experiments:/app/experiments
+    ports:
+      - "127.0.0.1:${MLFLOW_PORT:-5000}:5000"
+
+volumes:
+  pgdata:

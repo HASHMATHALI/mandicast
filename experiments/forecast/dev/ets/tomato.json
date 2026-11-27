@@ -1,0 +1,16 @@
+{
+  "commodity": "Tomato",
+  "period": "dev",
+  "model": "ets",
+  "pairs": 90317,
+  "pairs_forecast": 90317,
+  "series": 975,
+  "failed_fits": 0,
+  "failed_forwards": 0,
+  "seconds": 1129.7,
+  "window_days": 730,
+  "season": 7,
+  "statsforecast": "2.1.1",
+  "rows": 1264438,
+  "written_at": "2026-11-26T14:02:46Z"
+}

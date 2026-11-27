@@ -1,0 +1,3891 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "MandiCast API",
+    "description": "Daily mandi prices from AGMARKNET (Open Government Data Platform India, GODL-India) and 7/14-day price forecasts with measured accuracy. Forecasts are estimates, not guarantees.",
+    "version": "0.6.0"
+  },
+  "paths": {
+    "/v1/commodities": {
+      "get": {
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Commodities",
+        "operationId": "commodities_v1_commodities_get",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive substring",
+              "title": "Q"
+            },
+            "description": "Case-insensitive substring"
+          },
+          {
+            "name": "has_forecasts",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Has Forecasts"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Commodity"
+                  },
+                  "title": "Response Commodities V1 Commodities Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/states": {
+      "get": {
+        "tags": [
+          "discovery"
+        ],
+        "summary": "States",
+        "operationId": "states_v1_states_get",
+        "parameters": [
+          {
+            "name": "commodity_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2147483647,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Commodity Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StateItem"
+                  },
+                  "title": "Response States V1 States Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/districts": {
+      "get": {
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Districts",
+        "operationId": "districts_v1_districts_get",
+        "parameters": [
+          {
+            "name": "state_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "State Id"
+            }
+          },
+          {
+            "name": "commodity_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2147483647,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Commodity Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DistrictItem"
+                  },
+                  "title": "Response Districts V1 Districts Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/markets": {
+      "get": {
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Markets",
+        "description": "Mandis, by name. Filter by state, district, a commodity they report, a name substring, and whether the\nlatest forecast publication for the commodity includes them.",
+        "operationId": "markets_v1_markets_get",
+        "parameters": [
+          {
+            "name": "state_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2147483647,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "State Id"
+            }
+          },
+          {
+            "name": "district_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2147483647,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "District Id"
+            }
+          },
+          {
+            "name": "commodity_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2147483647,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Commodity Id"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Case-insensitive substring",
+              "title": "Q"
+            },
+            "description": "Case-insensitive substring"
+          },
+          {
+            "name": "has_forecast",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Only mandis with (true) or without (false) a forecast for commodity_id in its latest publication",
+              "title": "Has Forecast"
+            },
+            "description": "Only mandis with (true) or without (false) a forecast for commodity_id in its latest publication"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 500,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 1000
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Cursor"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page_MarketItem_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/markets/{market_id}": {
+      "get": {
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Market",
+        "operationId": "market_v1_markets__market_id__get",
+        "parameters": [
+          {
+            "name": "market_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "Market Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/prices": {
+      "get": {
+        "tags": [
+          "prices"
+        ],
+        "summary": "Prices",
+        "description": "Daily history of one (commodity, mandi) series. Without `variety`/`grade`: the primary value of each day (one\nrow per day). With them: every reported row of that variety/grade.",
+        "operationId": "prices_v1_prices_get",
+        "parameters": [
+          {
+            "name": "commodity_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "Commodity Id"
+            }
+          },
+          {
+            "name": "market_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "Market Id"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "From"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "To"
+            }
+          },
+          {
+            "name": "variety",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Variety"
+            }
+          },
+          {
+            "name": "grade",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Grade"
+            }
+          },
+          {
+            "name": "include_flagged",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Include Flagged"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 500,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 1000
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Cursor"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PricesResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/prices/latest": {
+      "get": {
+        "tags": [
+          "prices"
+        ],
+        "summary": "Latest",
+        "description": "Latest reported price of each mandi for a commodity, if it reported within `max_age_days` of the latest\narrival date of that commodity.",
+        "operationId": "latest_v1_prices_latest_get",
+        "parameters": [
+          {
+            "name": "commodity_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "Commodity Id"
+            }
+          },
+          {
+            "name": "state_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2147483647,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "State Id"
+            }
+          },
+          {
+            "name": "district_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2147483647,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "District Id"
+            }
+          },
+          {
+            "name": "max_age_days",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 3650,
+              "minimum": 1,
+              "default": 30,
+              "title": "Max Age Days"
+            }
+          },
+          {
+            "name": "include_flagged",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Include Flagged"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 500,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 1000
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Cursor"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LatestResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/compare": {
+      "get": {
+        "tags": [
+          "prices"
+        ],
+        "summary": "Compare",
+        "description": "Modal prices of one commodity at 2–10 mandis on the dates when all of them reported (unflagged primary\nvalues). Default range: the 90 days up to the latest report among them.",
+        "operationId": "compare_v1_compare_get",
+        "parameters": [
+          {
+            "name": "commodity_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "Commodity Id"
+            }
+          },
+          {
+            "name": "market_ids",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 120,
+              "description": "2–10 comma-separated market ids",
+              "title": "Market Ids"
+            },
+            "description": "2–10 comma-separated market ids"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "From"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "To"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompareResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/trends": {
+      "get": {
+        "tags": [
+          "prices"
+        ],
+        "summary": "Trends",
+        "description": "Descriptive statistics of recent prices. They describe the past and are not forecasts.",
+        "operationId": "trends_v1_trends_get",
+        "parameters": [
+          {
+            "name": "commodity_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "Commodity Id"
+            }
+          },
+          {
+            "name": "market_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "Market Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TrendsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/forecasts": {
+      "get": {
+        "tags": [
+          "forecasts"
+        ],
+        "summary": "Forecast",
+        "description": "The latest published forecast for a series: one point per day for `horizon` days after the origin, with\n80% and 90% ranges, which method served each day (model, or last value under the fallback rule), the served\nmethod's measured hold-out accuracy, live accuracy so far, and warnings.",
+        "operationId": "forecast_v1_forecasts_get",
+        "parameters": [
+          {
+            "name": "commodity_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "Commodity Id"
+            }
+          },
+          {
+            "name": "market_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "Market Id"
+            }
+          },
+          {
+            "name": "horizon",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "7 or 14 days",
+              "enum": [
+                7,
+                14
+              ],
+              "default": 7,
+              "title": "Horizon"
+            },
+            "description": "7 or 14 days"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForecastResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/v1/forecasts/eligibility": {
+      "get": {
+        "tags": [
+          "forecasts"
+        ],
+        "summary": "Eligibility",
+        "description": "Whether a series passes the sufficiency rules (methodology §2), the statistics behind the decision, and\nwhether it is in the latest published forecast.",
+        "operationId": "eligibility_v1_forecasts_eligibility_get",
+        "parameters": [
+          {
+            "name": "commodity_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "Commodity Id"
+            }
+          },
+          {
+            "name": "market_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "Market Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EligibilityResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/models/current": {
+      "get": {
+        "tags": [
+          "forecasts"
+        ],
+        "summary": "Models Current",
+        "description": "The production model of each commodity (or of one).",
+        "operationId": "models_current_v1_models_current_get",
+        "parameters": [
+          {
+            "name": "commodity_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2147483647,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Commodity Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ModelSummary"
+                  },
+                  "title": "Response Models Current V1 Models Current Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/models/{version}/evaluation": {
+      "get": {
+        "tags": [
+          "forecasts"
+        ],
+        "summary": "Model Evaluation",
+        "description": "The walk-forward evaluation of this model's method: hold-out metrics against the last-price baseline and the\nother models on the same points, by horizon and by quarter (generated from the evaluation files).",
+        "operationId": "model_evaluation_v1_models__version__evaluation_get",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]{0,99}$",
+              "title": "Version"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Model Evaluation V1 Models  Version  Evaluation Get"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/models/history": {
+      "get": {
+        "tags": [
+          "forecasts"
+        ],
+        "summary": "Models History",
+        "description": "Every model version of a commodity (production, candidates, rejected, archived) with its gate outcome, and the\nlifecycle events: registrations, promotions, rejections, rollbacks, fallbacks (newest first).",
+        "operationId": "models_history_v1_models_history_get",
+        "parameters": [
+          {
+            "name": "commodity_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "Commodity Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelHistory"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/freshness": {
+      "get": {
+        "tags": [
+          "meta"
+        ],
+        "summary": "Freshness",
+        "description": "When data was last ingested, how recent it is per commodity, how many mandis stopped reporting, and the\nlatest forecast origin.",
+        "operationId": "freshness_v1_freshness_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FreshnessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/monitoring": {
+      "get": {
+        "tags": [
+          "meta"
+        ],
+        "summary": "Monitoring",
+        "description": "Operations view (methodology C10): live accuracy of published forecasts, the latest publication's fallback\ndecisions and drift, the production model and its gate, recent lifecycle events, and the missing-update checks\nfrom the last monitor run.",
+        "operationId": "monitoring_v1_monitoring_get",
+        "parameters": [
+          {
+            "name": "commodity_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2147483647,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Commodity Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonitoringResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/health": {
+      "get": {
+        "tags": [
+          "meta"
+        ],
+        "summary": "Health",
+        "description": "Liveness and dependencies: database, Redis, production model artifacts. 503 if the database is down;\n`degraded` if Redis is down (the API still serves, without shared cache and rate limits).",
+        "operationId": "health_v1_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/auth/session": {
+      "post": {
+        "tags": [
+          "account"
+        ],
+        "summary": "Create Session",
+        "description": "Exchange the one-time code from the bot's /login link for a session token (the code works once).",
+        "operationId": "create_session_v1_auth_session_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CodeIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "invalid or used code"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/auth/logout": {
+      "post": {
+        "tags": [
+          "account"
+        ],
+        "summary": "Logout",
+        "operationId": "logout_v1_auth_logout_post",
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          }
+        }
+      }
+    },
+    "/v1/alerts": {
+      "get": {
+        "tags": [
+          "account"
+        ],
+        "summary": "List Alerts",
+        "description": "My alert subscriptions.",
+        "operationId": "list_alerts_v1_alerts_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/AlertOut"
+                  },
+                  "type": "array",
+                  "title": "Response List Alerts V1 Alerts Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "account"
+        ],
+        "summary": "Create Alert",
+        "description": "Create an alert: price at or above / at or below a value (₹ per quintal), or the 7-day forecast moving by at\nleast a percentage from the last reported price.",
+        "operationId": "create_alert_v1_alerts_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlertIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AlertOut"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "invalid"
+          },
+          "404": {
+            "description": "unknown series"
+          },
+          "409": {
+            "description": "duplicate"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/alerts/{alert_id}": {
+      "delete": {
+        "tags": [
+          "account"
+        ],
+        "summary": "Delete Alert",
+        "operationId": "delete_alert_v1_alerts__alert_id__delete",
+        "parameters": [
+          {
+            "name": "alert_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "maximum": 2147483647,
+              "minimum": 1,
+              "title": "Alert Id"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "404": {
+            "description": "not found"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/alerts/history": {
+      "get": {
+        "tags": [
+          "account"
+        ],
+        "summary": "Alert History",
+        "description": "Alert messages sent (or attempted) to me, newest first (kept 12 months).",
+        "operationId": "alert_history_v1_alerts_history_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/NotificationOut"
+                  },
+                  "type": "array",
+                  "title": "Response Alert History V1 Alerts History Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/me": {
+      "delete": {
+        "tags": [
+          "account"
+        ],
+        "summary": "Delete Me",
+        "description": "Delete my account, sessions, alerts and alert history, immediately.",
+        "operationId": "delete_me_v1_me_delete",
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Accuracy": {
+        "properties": {
+          "evaluated_on": {
+            "type": "string",
+            "title": "Evaluated On"
+          },
+          "horizon_days": {
+            "type": "integer",
+            "title": "Horizon Days"
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "model",
+              "last_value"
+            ],
+            "title": "Method",
+            "description": "The method that served this horizon"
+          },
+          "points": {
+            "type": "integer",
+            "title": "Points"
+          },
+          "wape": {
+            "type": "number",
+            "title": "Wape",
+            "description": "Weighted absolute percentage error of the serving method on the hold-out year"
+          },
+          "baseline_wape": {
+            "type": "number",
+            "title": "Baseline Wape",
+            "description": "Same, for the last reported price used as the forecast"
+          },
+          "beats_baseline": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Beats Baseline"
+          },
+          "mase_vs_last_value": {
+            "type": "number",
+            "title": "Mase Vs Last Value"
+          },
+          "direction_accuracy_moves_ge_2pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Direction Accuracy Moves Ge 2Pct"
+          },
+          "interval_coverage": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "number"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interval Coverage",
+            "description": "Share of actual prices inside the model's 80% and 90% ranges on the hold-out year"
+          },
+          "report": {
+            "type": "string",
+            "title": "Report"
+          }
+        },
+        "type": "object",
+        "required": [
+          "evaluated_on",
+          "horizon_days",
+          "method",
+          "points",
+          "wape",
+          "baseline_wape",
+          "beats_baseline",
+          "mase_vs_last_value",
+          "direction_accuracy_moves_ge_2pct",
+          "interval_coverage",
+          "report"
+        ],
+        "title": "Accuracy"
+      },
+      "AlertIn": {
+        "properties": {
+          "commodity_id": {
+            "type": "integer",
+            "maximum": 2147483647,
+            "minimum": 1,
+            "title": "Commodity Id"
+          },
+          "market_id": {
+            "type": "integer",
+            "maximum": 2147483647,
+            "minimum": 1,
+            "title": "Market Id"
+          },
+          "condition": {
+            "$ref": "#/components/schemas/Condition"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "commodity_id",
+          "market_id",
+          "condition"
+        ],
+        "title": "AlertIn"
+      },
+      "AlertOut": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "commodity_id": {
+            "type": "integer",
+            "title": "Commodity Id"
+          },
+          "commodity": {
+            "type": "string",
+            "title": "Commodity"
+          },
+          "market_id": {
+            "type": "integer",
+            "title": "Market Id"
+          },
+          "market": {
+            "type": "string",
+            "title": "Market"
+          },
+          "condition": {
+            "$ref": "#/components/schemas/Condition"
+          },
+          "active": {
+            "type": "boolean",
+            "title": "Active"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "commodity_id",
+          "commodity",
+          "market_id",
+          "market",
+          "condition",
+          "active",
+          "created_at",
+          "description"
+        ],
+        "title": "AlertOut"
+      },
+      "Alias": {
+        "properties": {
+          "name_as_reported": {
+            "type": "string",
+            "title": "Name As Reported"
+          },
+          "rule": {
+            "type": "string",
+            "title": "Rule",
+            "description": "exact, whitespace, apmc_suffix, state_rename or manual"
+          },
+          "last_seen": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Seen"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name_as_reported",
+          "rule",
+          "last_seen"
+        ],
+        "title": "Alias"
+      },
+      "CodeIn": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 10,
+            "title": "Code"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "code"
+        ],
+        "title": "CodeIn"
+      },
+      "Commodity": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "price_unit": {
+            "type": "string",
+            "title": "Price Unit"
+          },
+          "series": {
+            "type": "integer",
+            "title": "Series"
+          },
+          "eligible_series": {
+            "type": "integer",
+            "title": "Eligible Series"
+          },
+          "first_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Date"
+          },
+          "last_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Date"
+          },
+          "has_forecasts": {
+            "type": "boolean",
+            "title": "Has Forecasts"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "price_unit",
+          "series",
+          "eligible_series",
+          "first_date",
+          "last_date",
+          "has_forecasts"
+        ],
+        "title": "Commodity"
+      },
+      "CompareItem": {
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "title": "Date"
+          },
+          "modal_prices": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Modal Prices",
+            "description": "Same order as `markets`"
+          }
+        },
+        "type": "object",
+        "required": [
+          "date",
+          "modal_prices"
+        ],
+        "title": "CompareItem"
+      },
+      "CompareMarket": {
+        "properties": {
+          "market_id": {
+            "type": "integer",
+            "title": "Market Id"
+          },
+          "market": {
+            "type": "string",
+            "title": "Market"
+          },
+          "state": {
+            "type": "string",
+            "title": "State"
+          },
+          "series_id": {
+            "type": "integer",
+            "title": "Series Id"
+          },
+          "days_reported_in_range": {
+            "type": "integer",
+            "title": "Days Reported In Range"
+          }
+        },
+        "type": "object",
+        "required": [
+          "market_id",
+          "market",
+          "state",
+          "series_id",
+          "days_reported_in_range"
+        ],
+        "title": "CompareMarket"
+      },
+      "CompareResponse": {
+        "properties": {
+          "commodity": {
+            "$ref": "#/components/schemas/Named"
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit"
+          },
+          "from": {
+            "type": "string",
+            "format": "date",
+            "title": "From"
+          },
+          "to": {
+            "type": "string",
+            "format": "date",
+            "title": "To"
+          },
+          "markets": {
+            "items": {
+              "$ref": "#/components/schemas/CompareMarket"
+            },
+            "type": "array",
+            "title": "Markets"
+          },
+          "common_dates": {
+            "type": "integer",
+            "title": "Common Dates"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CompareItem"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "data_as_of": {
+            "$ref": "#/components/schemas/DataAsOf"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "commodity",
+          "unit",
+          "from",
+          "to",
+          "markets",
+          "common_dates",
+          "items",
+          "data_as_of",
+          "source"
+        ],
+        "title": "CompareResponse"
+      },
+      "Condition": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "price_above",
+              "price_below",
+              "forecast_change_pct"
+            ],
+            "title": "Type"
+          },
+          "value": {
+            "type": "number",
+            "maximum": 10000000,
+            "exclusiveMinimum": 0,
+            "title": "Value"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "value"
+        ],
+        "title": "Condition"
+      },
+      "DataAsOf": {
+        "properties": {
+          "latest_arrival_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latest Arrival Date"
+          },
+          "last_successful_ingestion_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Successful Ingestion At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "latest_arrival_date",
+          "last_successful_ingestion_at"
+        ],
+        "title": "DataAsOf"
+      },
+      "DistrictItem": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "state_id": {
+            "type": "integer",
+            "title": "State Id"
+          },
+          "markets": {
+            "type": "integer",
+            "title": "Markets"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "state_id",
+          "markets"
+        ],
+        "title": "DistrictItem"
+      },
+      "EligibilityResponse": {
+        "properties": {
+          "series": {
+            "$ref": "#/components/schemas/SeriesRef"
+          },
+          "eligible": {
+            "type": "boolean",
+            "title": "Eligible"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          },
+          "evaluated_at_origin": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Evaluated At Origin"
+          },
+          "rules": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "number"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Rules"
+          },
+          "stats": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Stats"
+          },
+          "latest_forecast_origin": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latest Forecast Origin"
+          },
+          "in_latest_forecast": {
+            "type": "boolean",
+            "title": "In Latest Forecast"
+          }
+        },
+        "type": "object",
+        "required": [
+          "series",
+          "eligible",
+          "reason",
+          "evaluated_at_origin",
+          "rules",
+          "stats",
+          "latest_forecast_origin",
+          "in_latest_forecast"
+        ],
+        "title": "EligibilityResponse"
+      },
+      "ErrorDetail": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "details": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Details",
+            "default": {}
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "ErrorDetail"
+      },
+      "ErrorResponse": {
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ErrorDetail"
+          }
+        },
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "title": "ErrorResponse"
+      },
+      "ForecastPoint": {
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "title": "Date"
+          },
+          "horizon_days": {
+            "type": "integer",
+            "title": "Horizon Days"
+          },
+          "modal_price": {
+            "type": "number",
+            "title": "Modal Price"
+          },
+          "served_by": {
+            "type": "string",
+            "enum": [
+              "model",
+              "last_value"
+            ],
+            "title": "Served By",
+            "default": "model"
+          },
+          "model_modal_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Modal Price",
+            "description": "The model's own forecast when the last value was served instead (fallback rule C10c)"
+          },
+          "intervals": {
+            "items": {
+              "$ref": "#/components/schemas/Interval"
+            },
+            "type": "array",
+            "title": "Intervals"
+          },
+          "actual_modal_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actual Modal Price",
+            "description": "The reported price on that date, once known (unflagged primary value)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "date",
+          "horizon_days",
+          "modal_price",
+          "intervals"
+        ],
+        "title": "ForecastPoint"
+      },
+      "ForecastResponse": {
+        "properties": {
+          "series": {
+            "$ref": "#/components/schemas/SeriesRef"
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit"
+          },
+          "horizon_days": {
+            "type": "integer",
+            "title": "Horizon Days"
+          },
+          "issued_on": {
+            "type": "string",
+            "format": "date",
+            "title": "Issued On",
+            "description": "Forecast origin: inputs are reports dated on or before this Monday"
+          },
+          "data_complete_through": {
+            "type": "string",
+            "format": "date",
+            "title": "Data Complete Through"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Published At"
+          },
+          "last_observed": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Last Observed"
+          },
+          "model": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ModelRef"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "null when no valid model existed and the last value was served"
+          },
+          "served_by": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Served By",
+            "description": "Method per day range: model or last_value"
+          },
+          "fallback": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fallback",
+            "description": "Fallback decisions (C10c) for the day ranges shown"
+          },
+          "points": {
+            "items": {
+              "$ref": "#/components/schemas/ForecastPoint"
+            },
+            "type": "array",
+            "title": "Points"
+          },
+          "accuracy": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Accuracy"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "live_accuracy": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LiveAccuracy"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "drift": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Drift"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings"
+          },
+          "disclaimer": {
+            "type": "string",
+            "title": "Disclaimer"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "series",
+          "unit",
+          "horizon_days",
+          "issued_on",
+          "data_complete_through",
+          "published_at",
+          "last_observed",
+          "model",
+          "served_by",
+          "points",
+          "accuracy",
+          "live_accuracy",
+          "drift",
+          "warnings",
+          "disclaimer",
+          "source"
+        ],
+        "title": "ForecastResponse"
+      },
+      "FreshnessCommodity": {
+        "properties": {
+          "commodity_id": {
+            "type": "integer",
+            "title": "Commodity Id"
+          },
+          "commodity": {
+            "type": "string",
+            "title": "Commodity"
+          },
+          "latest_arrival_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latest Arrival Date"
+          },
+          "latest_complete_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latest Complete Date"
+          },
+          "series": {
+            "type": "integer",
+            "title": "Series"
+          },
+          "reported_last_14_days": {
+            "type": "integer",
+            "title": "Reported Last 14 Days"
+          },
+          "stopped_reporting": {
+            "type": "integer",
+            "title": "Stopped Reporting",
+            "description": "Series whose last report is 15–90 days before the latest date"
+          },
+          "eligible_series": {
+            "type": "integer",
+            "title": "Eligible Series"
+          },
+          "latest_forecast_origin": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latest Forecast Origin"
+          }
+        },
+        "type": "object",
+        "required": [
+          "commodity_id",
+          "commodity",
+          "latest_arrival_date",
+          "latest_complete_date",
+          "series",
+          "reported_last_14_days",
+          "stopped_reporting",
+          "eligible_series",
+          "latest_forecast_origin"
+        ],
+        "title": "FreshnessCommodity"
+      },
+      "FreshnessResponse": {
+        "properties": {
+          "last_successful_ingestion": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Successful Ingestion"
+          },
+          "last_forecast_publication": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Forecast Publication"
+          },
+          "commodities": {
+            "items": {
+              "$ref": "#/components/schemas/FreshnessCommodity"
+            },
+            "type": "array",
+            "title": "Commodities"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "last_successful_ingestion",
+          "last_forecast_publication",
+          "commodities",
+          "source"
+        ],
+        "title": "FreshnessResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "degraded",
+              "down"
+            ],
+            "title": "Status"
+          },
+          "checks": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Checks"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "checks"
+        ],
+        "title": "HealthResponse"
+      },
+      "Interval": {
+        "properties": {
+          "level": {
+            "type": "number",
+            "title": "Level"
+          },
+          "lower": {
+            "type": "number",
+            "title": "Lower"
+          },
+          "upper": {
+            "type": "number",
+            "title": "Upper"
+          }
+        },
+        "type": "object",
+        "required": [
+          "level",
+          "lower",
+          "upper"
+        ],
+        "title": "Interval"
+      },
+      "LatestItem": {
+        "properties": {
+          "series_id": {
+            "type": "integer",
+            "title": "Series Id"
+          },
+          "market": {
+            "$ref": "#/components/schemas/MarketItem"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "title": "Date"
+          },
+          "days_behind_latest": {
+            "type": "integer",
+            "title": "Days Behind Latest"
+          },
+          "min_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min Price"
+          },
+          "max_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Price"
+          },
+          "modal_price": {
+            "type": "number",
+            "title": "Modal Price"
+          },
+          "variety": {
+            "type": "string",
+            "title": "Variety"
+          },
+          "grade": {
+            "type": "string",
+            "title": "Grade"
+          },
+          "flags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Flags"
+          }
+        },
+        "type": "object",
+        "required": [
+          "series_id",
+          "market",
+          "date",
+          "days_behind_latest",
+          "min_price",
+          "max_price",
+          "modal_price",
+          "variety",
+          "grade",
+          "flags"
+        ],
+        "title": "LatestItem"
+      },
+      "LatestResponse": {
+        "properties": {
+          "commodity": {
+            "$ref": "#/components/schemas/Named"
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit"
+          },
+          "latest_arrival_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latest Arrival Date"
+          },
+          "max_age_days": {
+            "type": "integer",
+            "title": "Max Age Days"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/LatestItem"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor"
+          },
+          "data_as_of": {
+            "$ref": "#/components/schemas/DataAsOf"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "commodity",
+          "unit",
+          "latest_arrival_date",
+          "max_age_days",
+          "items",
+          "next_cursor",
+          "data_as_of",
+          "source"
+        ],
+        "title": "LatestResponse"
+      },
+      "LiveAccuracy": {
+        "properties": {
+          "as_of": {
+            "type": "string",
+            "format": "date",
+            "title": "As Of"
+          },
+          "day_range": {
+            "type": "string",
+            "title": "Day Range"
+          },
+          "origins": {
+            "type": "integer",
+            "title": "Origins"
+          },
+          "points": {
+            "type": "integer",
+            "title": "Points"
+          },
+          "wape_model": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Wape Model"
+          },
+          "wape_last_value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Wape Last Value"
+          },
+          "wape_served": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Wape Served"
+          },
+          "coverage80": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Coverage80"
+          },
+          "coverage90": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Coverage90"
+          },
+          "note": {
+            "type": "string",
+            "title": "Note"
+          }
+        },
+        "type": "object",
+        "required": [
+          "as_of",
+          "day_range",
+          "origins",
+          "points",
+          "wape_model",
+          "wape_last_value",
+          "wape_served",
+          "coverage80",
+          "coverage90",
+          "note"
+        ],
+        "title": "LiveAccuracy"
+      },
+      "MarketCommodity": {
+        "properties": {
+          "commodity_id": {
+            "type": "integer",
+            "title": "Commodity Id"
+          },
+          "commodity": {
+            "type": "string",
+            "title": "Commodity"
+          },
+          "series_id": {
+            "type": "integer",
+            "title": "Series Id"
+          },
+          "first_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Date"
+          },
+          "last_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Date"
+          },
+          "report_days": {
+            "type": "integer",
+            "title": "Report Days"
+          },
+          "eligible_for_forecast": {
+            "type": "boolean",
+            "title": "Eligible For Forecast"
+          },
+          "eligibility_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Eligibility Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "commodity_id",
+          "commodity",
+          "series_id",
+          "first_date",
+          "last_date",
+          "report_days",
+          "eligible_for_forecast",
+          "eligibility_reason"
+        ],
+        "title": "MarketCommodity"
+      },
+      "MarketDetail": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "district": {
+            "$ref": "#/components/schemas/Named"
+          },
+          "state": {
+            "$ref": "#/components/schemas/Named"
+          },
+          "aliases": {
+            "items": {
+              "$ref": "#/components/schemas/Alias"
+            },
+            "type": "array",
+            "title": "Aliases"
+          },
+          "commodities": {
+            "items": {
+              "$ref": "#/components/schemas/MarketCommodity"
+            },
+            "type": "array",
+            "title": "Commodities"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "district",
+          "state",
+          "aliases",
+          "commodities"
+        ],
+        "title": "MarketDetail"
+      },
+      "MarketItem": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "district": {
+            "$ref": "#/components/schemas/Named"
+          },
+          "state": {
+            "$ref": "#/components/schemas/Named"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "district",
+          "state"
+        ],
+        "title": "MarketItem"
+      },
+      "ModelEventItem": {
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "event": {
+            "type": "string",
+            "title": "Event"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "created_at",
+          "event",
+          "version",
+          "reason"
+        ],
+        "title": "ModelEventItem"
+      },
+      "ModelHistory": {
+        "properties": {
+          "commodity": {
+            "$ref": "#/components/schemas/Named"
+          },
+          "versions": {
+            "items": {
+              "$ref": "#/components/schemas/ModelSummary"
+            },
+            "type": "array",
+            "title": "Versions"
+          },
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/ModelEventItem"
+            },
+            "type": "array",
+            "title": "Events"
+          }
+        },
+        "type": "object",
+        "required": [
+          "commodity",
+          "versions",
+          "events"
+        ],
+        "title": "ModelHistory"
+      },
+      "ModelRef": {
+        "properties": {
+          "version": {
+            "type": "string",
+            "title": "Version"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "training_cutoff": {
+            "type": "string",
+            "format": "date",
+            "title": "Training Cutoff"
+          },
+          "valid_from": {
+            "type": "string",
+            "format": "date",
+            "title": "Valid From"
+          },
+          "valid_to": {
+            "type": "string",
+            "format": "date",
+            "title": "Valid To"
+          }
+        },
+        "type": "object",
+        "required": [
+          "version",
+          "kind",
+          "training_cutoff",
+          "valid_from",
+          "valid_to"
+        ],
+        "title": "ModelRef"
+      },
+      "ModelSummary": {
+        "properties": {
+          "version": {
+            "type": "string",
+            "title": "Version"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "commodity_id": {
+            "type": "integer",
+            "title": "Commodity Id"
+          },
+          "commodity": {
+            "type": "string",
+            "title": "Commodity"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "horizon_days": {
+            "type": "integer",
+            "title": "Horizon Days"
+          },
+          "training_cutoff": {
+            "type": "string",
+            "format": "date",
+            "title": "Training Cutoff"
+          },
+          "valid_from": {
+            "type": "string",
+            "format": "date",
+            "title": "Valid From"
+          },
+          "valid_to": {
+            "type": "string",
+            "format": "date",
+            "title": "Valid To"
+          },
+          "promoted_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Promoted At"
+          },
+          "interval_method": {
+            "type": "string",
+            "title": "Interval Method"
+          },
+          "best_iteration": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Best Iteration"
+          },
+          "training_examples": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Training Examples"
+          },
+          "artifact_sha256": {
+            "type": "string",
+            "title": "Artifact Sha256"
+          },
+          "code_sha256": {
+            "type": "string",
+            "title": "Code Sha256"
+          },
+          "latest_forecast_origin": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latest Forecast Origin"
+          },
+          "status_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Reason"
+          },
+          "gate_passed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gate Passed"
+          },
+          "mlflow_registry_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mlflow Registry Version"
+          }
+        },
+        "type": "object",
+        "required": [
+          "version",
+          "kind",
+          "commodity_id",
+          "commodity",
+          "status",
+          "horizon_days",
+          "training_cutoff",
+          "valid_from",
+          "valid_to",
+          "promoted_at",
+          "interval_method",
+          "best_iteration",
+          "training_examples",
+          "artifact_sha256",
+          "code_sha256",
+          "latest_forecast_origin"
+        ],
+        "title": "ModelSummary"
+      },
+      "MonitoringCommodity": {
+        "properties": {
+          "commodity_id": {
+            "type": "integer",
+            "title": "Commodity Id"
+          },
+          "commodity": {
+            "type": "string",
+            "title": "Commodity"
+          },
+          "live": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Live",
+            "description": "Latest live accuracy per day range (published forecasts only)"
+          },
+          "latest_publication": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latest Publication"
+          },
+          "production_model": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Production Model"
+          },
+          "recent_events": {
+            "items": {
+              "$ref": "#/components/schemas/ModelEventItem"
+            },
+            "type": "array",
+            "title": "Recent Events"
+          },
+          "warnings": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Warnings"
+          }
+        },
+        "type": "object",
+        "required": [
+          "commodity_id",
+          "commodity",
+          "live",
+          "latest_publication",
+          "production_model",
+          "recent_events",
+          "warnings"
+        ],
+        "title": "MonitoringCommodity"
+      },
+      "MonitoringResponse": {
+        "properties": {
+          "checked_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Checked At",
+            "description": "When the last monitor job ran (missing-update checks)"
+          },
+          "global_warnings": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Global Warnings"
+          },
+          "commodities": {
+            "items": {
+              "$ref": "#/components/schemas/MonitoringCommodity"
+            },
+            "type": "array",
+            "title": "Commodities"
+          },
+          "rules": {
+            "type": "string",
+            "title": "Rules"
+          }
+        },
+        "type": "object",
+        "required": [
+          "checked_at",
+          "global_warnings",
+          "commodities",
+          "rules"
+        ],
+        "title": "MonitoringResponse"
+      },
+      "Named": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "title": "Named"
+      },
+      "NotificationOut": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "subscription_id": {
+            "type": "integer",
+            "title": "Subscription Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "sent_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sent At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "subscription_id",
+          "status",
+          "message",
+          "created_at",
+          "sent_at"
+        ],
+        "title": "NotificationOut"
+      },
+      "Page_MarketItem_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/MarketItem"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "Pass as `cursor` to get the next page; null on the last page"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "title": "Page[MarketItem]"
+      },
+      "PriceItem": {
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "title": "Date"
+          },
+          "min_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min Price"
+          },
+          "max_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Price"
+          },
+          "modal_price": {
+            "type": "number",
+            "title": "Modal Price"
+          },
+          "variety": {
+            "type": "string",
+            "title": "Variety"
+          },
+          "grade": {
+            "type": "string",
+            "title": "Grade"
+          },
+          "flags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Flags"
+          },
+          "source_observation_id": {
+            "type": "integer",
+            "title": "Source Observation Id",
+            "description": "Row in source_observations (the value exactly as received)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "date",
+          "min_price",
+          "max_price",
+          "modal_price",
+          "variety",
+          "grade",
+          "flags",
+          "source_observation_id"
+        ],
+        "title": "PriceItem"
+      },
+      "PricesResponse": {
+        "properties": {
+          "series": {
+            "$ref": "#/components/schemas/SeriesRef"
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit"
+          },
+          "from": {
+            "type": "string",
+            "format": "date",
+            "title": "From"
+          },
+          "to": {
+            "type": "string",
+            "format": "date",
+            "title": "To"
+          },
+          "rows": {
+            "type": "string",
+            "enum": [
+              "primary",
+              "variety_grade"
+            ],
+            "title": "Rows"
+          },
+          "include_flagged": {
+            "type": "boolean",
+            "title": "Include Flagged"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PriceItem"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor"
+          },
+          "data_as_of": {
+            "$ref": "#/components/schemas/DataAsOf"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "series",
+          "unit",
+          "from",
+          "to",
+          "rows",
+          "include_flagged",
+          "items",
+          "next_cursor",
+          "data_as_of",
+          "source"
+        ],
+        "title": "PricesResponse"
+      },
+      "RangeStat": {
+        "properties": {
+          "reports": {
+            "type": "integer",
+            "title": "Reports"
+          },
+          "low": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Low"
+          },
+          "high": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "High"
+          },
+          "position_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Position Pct",
+            "description": "0 = at the 52-week low, 100 = at the high"
+          }
+        },
+        "type": "object",
+        "required": [
+          "reports",
+          "low",
+          "high",
+          "position_pct"
+        ],
+        "title": "RangeStat"
+      },
+      "SeriesRef": {
+        "properties": {
+          "series_id": {
+            "type": "integer",
+            "title": "Series Id"
+          },
+          "commodity_id": {
+            "type": "integer",
+            "title": "Commodity Id"
+          },
+          "commodity": {
+            "type": "string",
+            "title": "Commodity"
+          },
+          "market_id": {
+            "type": "integer",
+            "title": "Market Id"
+          },
+          "market": {
+            "type": "string",
+            "title": "Market"
+          },
+          "district_id": {
+            "type": "integer",
+            "title": "District Id"
+          },
+          "district": {
+            "type": "string",
+            "title": "District"
+          },
+          "state_id": {
+            "type": "integer",
+            "title": "State Id"
+          },
+          "state": {
+            "type": "string",
+            "title": "State"
+          },
+          "dominant_variety": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dominant Variety"
+          },
+          "dominant_grade": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dominant Grade"
+          }
+        },
+        "type": "object",
+        "required": [
+          "series_id",
+          "commodity_id",
+          "commodity",
+          "market_id",
+          "market",
+          "district_id",
+          "district",
+          "state_id",
+          "state",
+          "dominant_variety",
+          "dominant_grade"
+        ],
+        "title": "SeriesRef"
+      },
+      "SessionOut": {
+        "properties": {
+          "token": {
+            "type": "string",
+            "title": "Token"
+          },
+          "token_type": {
+            "type": "string",
+            "const": "bearer",
+            "title": "Token Type",
+            "default": "bearer"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Expires At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "token",
+          "expires_at"
+        ],
+        "title": "SessionOut"
+      },
+      "Source": {
+        "properties": {
+          "provider": {
+            "type": "string",
+            "title": "Provider"
+          },
+          "dataset": {
+            "type": "string",
+            "title": "Dataset"
+          },
+          "repository": {
+            "type": "string",
+            "title": "Repository"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "licence": {
+            "type": "string",
+            "title": "Licence"
+          },
+          "licence_url": {
+            "type": "string",
+            "title": "Licence Url"
+          },
+          "notice": {
+            "type": "string",
+            "title": "Notice"
+          }
+        },
+        "type": "object",
+        "required": [
+          "provider",
+          "dataset",
+          "repository",
+          "url",
+          "licence",
+          "licence_url",
+          "notice"
+        ],
+        "title": "Source"
+      },
+      "StateItem": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "markets": {
+            "type": "integer",
+            "title": "Markets"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "markets"
+        ],
+        "title": "StateItem"
+      },
+      "TrendsResponse": {
+        "properties": {
+          "series": {
+            "$ref": "#/components/schemas/SeriesRef"
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit"
+          },
+          "latest": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PriceItem"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "vs_previous_7_days": {
+            "$ref": "#/components/schemas/WindowStat"
+          },
+          "vs_previous_30_days": {
+            "$ref": "#/components/schemas/WindowStat"
+          },
+          "range_52_weeks": {
+            "$ref": "#/components/schemas/RangeStat"
+          },
+          "volatility_91_days_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Volatility 91 Days Pct",
+            "description": "Standard deviation of log changes between consecutive reports over 91 days, in percent"
+          },
+          "definitions": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Definitions"
+          },
+          "note": {
+            "type": "string",
+            "title": "Note"
+          },
+          "data_as_of": {
+            "$ref": "#/components/schemas/DataAsOf"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "series",
+          "unit",
+          "latest",
+          "vs_previous_7_days",
+          "vs_previous_30_days",
+          "range_52_weeks",
+          "volatility_91_days_pct",
+          "definitions",
+          "note",
+          "data_as_of",
+          "source"
+        ],
+        "title": "TrendsResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "WindowStat": {
+        "properties": {
+          "reports": {
+            "type": "integer",
+            "title": "Reports"
+          },
+          "average": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Average"
+          },
+          "change_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Change Pct",
+            "description": "Latest price vs the window average, in percent"
+          }
+        },
+        "type": "object",
+        "required": [
+          "reports",
+          "average",
+          "change_pct"
+        ],
+        "title": "WindowStat"
+      }
+    }
+  }
+}

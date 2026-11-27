@@ -1,0 +1,16 @@
+{
+  "purpose": "Changes to src/mandicast/forecast after freezing that do not change behaviour. Serving accepts a code hash listed here only if undoing the listed edit reproduces the frozen SHA-256 exactly (re-checked on every use by mandicast.serving.registry.check_code_unchanged).",
+  "frozen_code_sha256": "8ec35fd0855b51214bb490cf4f95a04f6eafefe59796626d7065e9e14d6b627d",
+  "allowed": [
+    {
+      "code_sha256": "7ac578a8c09707a377ef02e629244a18cd9de74035ddb6bc8b1b75838bab9817",
+      "recorded": "2026-11-27",
+      "made": "2026-11-26 23:50 IST (after the hold-out evaluation)",
+      "file": "walkforward.py",
+      "kind": "docstring only",
+      "before": "- Development origins: 2023-01-02 … 2025-11-16 (all their targets fall on or before 2025-11-30).",
+      "after": "- Development origins: 2023-01-02 … 2025-11-10 (150 Mondays; all their targets fall on or before 2025-11-30).",
+      "log": "experiments/forecast/DEV_LOG.md (23:50 entry)"
+    }
+  ]
+}

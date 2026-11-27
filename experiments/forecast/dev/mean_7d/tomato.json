@@ -1,0 +1,8 @@
+{
+  "commodity": "Tomato",
+  "period": "dev",
+  "model": "mean_7d",
+  "fallback_share": 0.01121147749784645,
+  "rows": 921734,
+  "written_at": "2026-11-26T13:22:42Z"
+}

@@ -1,0 +1,560 @@
+{
+  "commodity_dir": "potato",
+  "integrity": {
+    "pages": 350,
+    "page_rows": 3492438,
+    "boundary_repair": {
+      "boundary_dates_replaced": 347,
+      "page_rows_for_those_dates": 167733,
+      "refetched_rows_for_those_dates": 167733,
+      "page_rows_not_in_refetch": 0,
+      "refetched_rows_not_in_pages": 30
+    },
+    "pages_failing_sha256": [],
+    "rows_read": 3492438,
+    "total_reported_min": 3492438,
+    "total_reported_max": 3492438,
+    "first_fetch": "2026-11-26T08:37:57Z",
+    "last_fetch": "2026-11-26T09:23:30Z"
+  },
+  "dates": {
+    "unparseable": 0,
+    "min": "2001-01-10",
+    "max": "2026-11-25",
+    "after_download_date": 0,
+    "rows_per_year": {
+      "2001": 640,
+      "2002": 10500,
+      "2003": 39098,
+      "2004": 41483,
+      "2005": 51264,
+      "2006": 71475,
+      "2007": 79630,
+      "2008": 100879,
+      "2009": 104780,
+      "2010": 126868,
+      "2011": 137521,
+      "2012": 136534,
+      "2013": 144572,
+      "2014": 144422,
+      "2015": 162263,
+      "2016": 154829,
+      "2017": 177375,
+      "2018": 194376,
+      "2019": 190515,
+      "2020": 161658,
+      "2021": 172346,
+      "2022": 201754,
+      "2023": 199272,
+      "2024": 222054,
+      "2025": 243342,
+      "2026": 222988
+    },
+    "rows_by_weekday_1mon_7sun": {
+      "1": 536864,
+      "2": 539840,
+      "3": 544210,
+      "4": 538266,
+      "5": 531066,
+      "6": 488266,
+      "7": 313926
+    }
+  },
+  "prices": {
+    "Min_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 132157,
+      "negative": 0
+    },
+    "Max_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 129743,
+      "negative": 0
+    },
+    "Modal_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 0,
+      "negative": 0
+    },
+    "violations": {
+      "min_and_max_zero_modal_positive": 127534,
+      "only_one_bound_zero": 6832,
+      "min_gt_max": 1,
+      "modal_lt_min": 73,
+      "modal_gt_max": 72
+    },
+    "modal_quantiles": {
+      "p0.1": 100.0,
+      "p1": 200.0,
+      "p5": 320.0,
+      "p50": 950.0,
+      "p95": 3200.0,
+      "p99": 4900.0,
+      "p99.9": 7000.0,
+      "min": 0.01,
+      "max": 11200000.0
+    }
+  },
+  "duplicates": {
+    "exact_duplicate_rows": 20,
+    "exact_duplicates_across_page_boundary": 0,
+    "keys_with_multiple_rows": 1692,
+    "keys_with_conflicting_modal": 1464,
+    "rows_in_multi_row_keys": 3387
+  },
+  "names": {
+    "commodity_name_code_pairs": [
+      {
+        "Commodity": "Potato",
+        "Commodity_Code": "24",
+        "len": 3492438
+      }
+    ],
+    "states": {
+      "Andaman and Nicobar": 502,
+      "Andhra Pradesh": 13315,
+      "Arunachal Pradesh": 495,
+      "Assam": 28511,
+      "Bihar": 42868,
+      "Chandigarh": 3172,
+      "Chattisgarh": 12438,
+      "Goa": 5191,
+      "Gujarat": 107754,
+      "Haryana": 312703,
+      "Himachal Pradesh": 93446,
+      "Jammu and Kashmir": 26300,
+      "Jharkhand": 68919,
+      "Karnataka": 76775,
+      "Kerala": 174845,
+      "Keralam": 9011,
+      "Madhya Pradesh": 109978,
+      "Maharashtra": 113069,
+      "Manipur": 10755,
+      "Meghalaya": 7931,
+      "Mizoram": 807,
+      "NCT of Delhi": 20113,
+      "Nagaland": 5029,
+      "Odisha": 246509,
+      "Punjab": 452684,
+      "Rajasthan": 94469,
+      "Sikkim": 35,
+      "Tamil Nadu": 120726,
+      "Telangana": 30162,
+      "Tripura": 64522,
+      "Uttar Pradesh": 832475,
+      "Uttarakhand": 4162,
+      "Uttrakhand": 61361,
+      "West Bengal": 341406
+    },
+    "n_districts": 626,
+    "n_markets": 3509,
+    "varieties_top": [
+      {
+        "Variety": "Other",
+        "len": 1693131
+      },
+      {
+        "Variety": "Potato",
+        "len": 545825
+      },
+      {
+        "Variety": "Desi",
+        "len": 425103
+      },
+      {
+        "Variety": "Jyoti",
+        "len": 269027
+      },
+      {
+        "Variety": "Local",
+        "len": 191057
+      },
+      {
+        "Variety": "(Red Nanital)",
+        "len": 124861
+      },
+      {
+        "Variety": "Red",
+        "len": 55931
+      },
+      {
+        "Variety": "F.A.Q.",
+        "len": 44434
+      },
+      {
+        "Variety": "Red Nanital",
+        "len": 41691
+      },
+      {
+        "Variety": "Badshah",
+        "len": 27744
+      },
+      {
+        "Variety": "Jalander",
+        "len": 25956
+      },
+      {
+        "Variety": "Chandermukhi",
+        "len": 12715
+      },
+      {
+        "Variety": "Chips",
+        "len": 10199
+      },
+      {
+        "Variety": "Kufri Giriraj",
+        "len": 9194
+      },
+      {
+        "Variety": "Kufri Megha",
+        "len": 6713
+      }
+    ],
+    "grades": [
+      {
+        "Grade": "FAQ",
+        "len": 3232505
+      },
+      {
+        "Grade": "Local",
+        "len": 163522
+      },
+      {
+        "Grade": "Medium",
+        "len": 37690
+      },
+      {
+        "Grade": "Non-FAQ",
+        "len": 32609
+      },
+      {
+        "Grade": "Grade A",
+        "len": 11325
+      },
+      {
+        "Grade": "Grade B",
+        "len": 7915
+      },
+      {
+        "Grade": "Large",
+        "len": 3026
+      },
+      {
+        "Grade": "Grade C",
+        "len": 1741
+      },
+      {
+        "Grade": "Small",
+        "len": 1239
+      },
+      {
+        "Grade": "Grade Range-1",
+        "len": 482
+      },
+      {
+        "Grade": "Grade Range-2",
+        "len": 210
+      },
+      {
+        "Grade": "Ref grade-1",
+        "len": 85
+      },
+      {
+        "Grade": "Grade Range-3",
+        "len": 83
+      },
+      {
+        "Grade": "Ref grade-2",
+        "len": 6
+      }
+    ],
+    "state_spelling_variants": {
+      "groups_with_multiple_spellings": 0,
+      "examples": []
+    },
+    "district_spelling_variants": {
+      "groups_with_multiple_spellings": 3,
+      "examples": [
+        {
+          "State": "Assam",
+          "spellings": [
+            "BONGAIGAON",
+            "Bongaigaon"
+          ]
+        },
+        {
+          "State": "Rajasthan",
+          "spellings": [
+            " Jhunjhunu",
+            "Jhunjhunu"
+          ]
+        },
+        {
+          "State": "Punjab",
+          "spellings": [
+            "Kapurthala",
+            "kapurthala"
+          ]
+        }
+      ]
+    },
+    "market_spelling_variants": {
+      "groups_with_multiple_spellings": 22,
+      "examples": [
+        {
+          "State": "Telangana",
+          "District": "Ranga Reddy",
+          "spellings": [
+            "Kukatpally,RBZ",
+            "Kukatpally,RBZ "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Chandrapur",
+          "spellings": [
+            "Chandrapur(Ganjwad)",
+            "Chandrapur(Ganjwad) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Amarawati",
+          "spellings": [
+            "Amrawati(Frui & Veg. Market)",
+            "Amrawati(Frui & Veg. Market) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Pune",
+          "spellings": [
+            "Pune(Khadiki)",
+            "Pune(Khadiki) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Jalgaon",
+          "spellings": [
+            "APMC Jalgaon",
+            "APMC Jalgaon "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Nagpur",
+          "spellings": [
+            "HINGNA - APMC",
+            "Hingna APMC"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Pune",
+          "spellings": [
+            "Junnar(Otur)",
+            "Junnar(Otur) "
+          ]
+        },
+        {
+          "State": "Telangana",
+          "District": "Ranga Reddy",
+          "spellings": [
+            "Vanasthalipuram,RBZ",
+            "Vanasthalipuram,RBZ "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Pune",
+          "spellings": [
+            "Pune(Manjri)",
+            "Pune(Manjri) "
+          ]
+        },
+        {
+          "State": "Madhya Pradesh",
+          "District": "Sheopur",
+          "spellings": [
+            "Sheopurkalan (F&V) APMC",
+            "Sheopurkalan(F&V) APMC"
+          ]
+        },
+        {
+          "State": "Telangana",
+          "District": "Medchal Malkajgiri",
+          "spellings": [
+            "Kukatpally,RBZ",
+            "Kukatpally,RBZ "
+          ]
+        },
+        {
+          "State": "Haryana",
+          "District": "Sirsa",
+          "spellings": [
+            "KALANWALIAPMC",
+            "kalanwali APMC"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Dharashiv",
+          "spellings": [
+            "APMC Dharashiv",
+            "APMC Dharashiv "
+          ]
+        },
+        {
+          "State": "Rajasthan",
+          "District": "Hanumangarh",
+          "spellings": [
+            "Hanumangarh Town APMC",
+            "HanumangarhTown APMC"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Pune",
+          "spellings": [
+            "Pune(Moshi)",
+            "Pune(Moshi) "
+          ]
+        }
+      ]
+    }
+  },
+  "series": {
+    "series": 9476,
+    "series_active_last_30d": 1293,
+    "series_with_365plus_days_in_last_2y_and_active": 11,
+    "rows_in_those_series_last_2y": 4203,
+    "days_per_series_quantiles": {
+      "p10": 1.0,
+      "p25": 4.0,
+      "p50": 40.0,
+      "p75": 251.0,
+      "p90": 1171.0,
+      "min": 1.0,
+      "max": 7198.0
+    },
+    "median_gap_days_quantiles_active": {
+      "p10": 1.0,
+      "p50": 1.0,
+      "p90": 7.0,
+      "min": 1.0,
+      "max": 183.0
+    },
+    "top_active_series": [
+      {
+        "State": "West Bengal",
+        "District": "Howrah",
+        "Market": "Ramkrishanpur(Howrah)",
+        "Variety": "Jyoti",
+        "Grade": "FAQ",
+        "days_last_2y": 447,
+        "first": "2007-06-14",
+        "max_gap": 816
+      },
+      {
+        "State": "West Bengal",
+        "District": "Darjeeling",
+        "Market": "Darjeeling APMC",
+        "Variety": "Red",
+        "Grade": "FAQ",
+        "days_last_2y": 385,
+        "first": "2025-11-01",
+        "max_gap": 3
+      },
+      {
+        "State": "Gujarat",
+        "District": "Navsari",
+        "Market": "Bilimora APMC",
+        "Variety": "Other",
+        "Grade": "FAQ",
+        "days_last_2y": 382,
+        "first": "2025-11-01",
+        "max_gap": 2
+      },
+      {
+        "State": "West Bengal",
+        "District": "Darjeeling",
+        "Market": "Karsiyang(Matigara) APMC",
+        "Variety": "Red",
+        "Grade": "FAQ",
+        "days_last_2y": 380,
+        "first": "2025-11-01",
+        "max_gap": 3
+      },
+      {
+        "State": "Gujarat",
+        "District": "Dahod",
+        "Market": "Dahod(Veg. Market) APMC",
+        "Variety": "Potato",
+        "Grade": "Local",
+        "days_last_2y": 378,
+        "first": "2025-11-07",
+        "max_gap": 2
+      },
+      {
+        "State": "Uttarakhand",
+        "District": "Haridwar",
+        "Market": "Roorkee APMC",
+        "Variety": "Other",
+        "Grade": "Medium",
+        "days_last_2y": 377,
+        "first": "2025-11-07",
+        "max_gap": 3
+      },
+      {
+        "State": "Odisha",
+        "District": "Dhenkanal",
+        "Market": "Hindol APMC",
+        "Variety": "Potato",
+        "Grade": "Grade B",
+        "days_last_2y": 375,
+        "first": "2025-11-10",
+        "max_gap": 2
+      },
+      {
+        "State": "West Bengal",
+        "District": "North 24 Parganas",
+        "Market": "Habra APMC",
+        "Variety": "Jyoti",
+        "Grade": "FAQ",
+        "days_last_2y": 374,
+        "first": "2025-11-10",
+        "max_gap": 3
+      },
+      {
+        "State": "West Bengal",
+        "District": "North 24 Parganas",
+        "Market": "Barasat APMC",
+        "Variety": "Jyoti",
+        "Grade": "FAQ",
+        "days_last_2y": 371,
+        "first": "2025-11-10",
+        "max_gap": 3
+      },
+      {
+        "State": "Haryana",
+        "District": "Panchkula",
+        "Market": "Barwala APMC",
+        "Variety": "Local",
+        "Grade": "FAQ",
+        "days_last_2y": 369,
+        "first": "2025-11-07",
+        "max_gap": 2
+      }
+    ]
+  },
+  "outliers": {
+    "points_with_local_median": 3485967,
+    "ratio_gt_3_or_lt_one_third": 2533,
+    "ratio_gt_10_or_lt_one_tenth": 289,
+    "abs_log_ratio_p99": 0.40546510810816444
+  }
+}

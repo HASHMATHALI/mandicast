@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mandicast"
+version = "0.6.0"
+description = "Agricultural market price intelligence and forecasting for Indian mandis"
+requires-python = ">=3.12"
+dependencies = [
+    "sqlalchemy>=2.1,<2.2",
+    "alembic>=1.20,<1.21",
+    "psycopg[binary]>=3.3,<3.4",
+    "pydantic-settings>=2.16,<2.17",
+    "apscheduler>=3.11,<3.12",
+    "polars>=2.2,<2.3",
+    "pyarrow>=26,<27",
+    "tzdata>=2025.1",
+    "statsforecast>=2.1,<2.2",
+    "lightgbm>=4.7,<4.8",
+    "mlflow>=3.18,<3.19",
+    "holidays>=0.109,<0.110",
+    "numpy>=2.5,<2.6",
+    "fastapi>=0.165,<0.166",
+    "uvicorn>=0.54,<0.55",
+    "redis>=8.2,<8.3",
+    "httpx>=0.29,<0.30",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9.2,<9.3", "ruff>=0.17,<0.18"]
+
+[project.scripts]
+mandicast = "mandicast.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["db: needs the PostgreSQL test database (docker compose up -d db)"]

@@ -1,0 +1,8 @@
+{
+  "commodity": "Potato",
+  "period": "dev",
+  "model": "last_value",
+  "fallback_share": 0.0,
+  "rows": 1015239,
+  "written_at": "2026-11-26T13:22:43Z"
+}

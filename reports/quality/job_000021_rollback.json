@@ -1,0 +1,23 @@
+{
+  "job_id": 21,
+  "kind": "rollback",
+  "scope": {
+    "commodities": [
+      "Soyabean"
+    ],
+    "reason": "rollback drill (Phase 5 verification); restored by retrain right after"
+  },
+  "counts": {
+    "rows_fetched": 0,
+    "rows_inserted": 0,
+    "rows_duplicate": 0,
+    "rows_rejected": 0
+  },
+  "report": {
+    "Soyabean": {
+      "rolled_back": "lightgbm-soyabean-2026q4-ef136591",
+      "restored": null
+    }
+  },
+  "written_at": "2026-11-27T02:41:37Z"
+}

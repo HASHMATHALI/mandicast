@@ -1,0 +1,385 @@
+{
+  "commodity_dir": "soyabean",
+  "integrity": {
+    "pages": 130,
+    "page_rows": 1294978,
+    "boundary_repair": {
+      "boundary_dates_replaced": 129,
+      "page_rows_for_those_dates": 28065,
+      "refetched_rows_for_those_dates": 28065,
+      "page_rows_not_in_refetch": 0,
+      "refetched_rows_not_in_pages": 0
+    },
+    "pages_failing_sha256": [],
+    "rows_read": 1294978,
+    "total_reported_min": 1294978,
+    "total_reported_max": 1294978,
+    "first_fetch": "2026-11-26T10:03:30Z",
+    "last_fetch": "2026-11-26T10:12:56Z"
+  },
+  "dates": {
+    "unparseable": 0,
+    "min": "2001-03-12",
+    "max": "2026-11-25",
+    "after_download_date": 0,
+    "rows_per_year": {
+      "2001": 107,
+      "2002": 4940,
+      "2003": 10529,
+      "2004": 12298,
+      "2005": 18176,
+      "2006": 65147,
+      "2007": 84394,
+      "2008": 74734,
+      "2009": 48304,
+      "2010": 41654,
+      "2011": 40852,
+      "2012": 43755,
+      "2013": 45953,
+      "2014": 43208,
+      "2015": 54010,
+      "2016": 56279,
+      "2017": 63380,
+      "2018": 57357,
+      "2019": 59536,
+      "2020": 43854,
+      "2021": 47759,
+      "2022": 62178,
+      "2023": 62667,
+      "2024": 83471,
+      "2025": 88607,
+      "2026": 81829
+    },
+    "rows_by_weekday_1mon_7sun": {
+      "1": 211918,
+      "2": 216137,
+      "3": 221428,
+      "4": 217376,
+      "5": 214379,
+      "6": 180037,
+      "7": 33703
+    }
+  },
+  "prices": {
+    "Min_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 2542,
+      "negative": 0
+    },
+    "Max_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 773,
+      "negative": 0
+    },
+    "Modal_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 0,
+      "negative": 0
+    },
+    "violations": {
+      "min_and_max_zero_modal_positive": 516,
+      "only_one_bound_zero": 2283,
+      "min_gt_max": 0,
+      "modal_lt_min": 883,
+      "modal_gt_max": 1678
+    },
+    "modal_quantiles": {
+      "p0.1": 950.0,
+      "p1": 1100.0,
+      "p5": 1222.0,
+      "p50": 3321.0,
+      "p95": 6500.0,
+      "p99": 7600.0,
+      "p99.9": 10000.0,
+      "min": 2.0,
+      "max": 30100.0
+    }
+  },
+  "duplicates": {
+    "exact_duplicate_rows": 0,
+    "exact_duplicates_across_page_boundary": 0,
+    "keys_with_multiple_rows": 15252,
+    "keys_with_conflicting_modal": 8397,
+    "rows_in_multi_row_keys": 30878
+  },
+  "names": {
+    "commodity_name_code_pairs": [
+      {
+        "Commodity": "Soyabean",
+        "Commodity_Code": "13",
+        "len": 1294978
+      }
+    ],
+    "states": {
+      "Andhra Pradesh": 752,
+      "Assam": 73,
+      "Bihar": 63,
+      "Chattisgarh": 27465,
+      "Gujarat": 41986,
+      "Haryana": 179,
+      "Himachal Pradesh": 41,
+      "Jharkhand": 2,
+      "Karnataka": 33500,
+      "Kerala": 2,
+      "Madhya Pradesh": 708600,
+      "Maharashtra": 362941,
+      "Manipur": 6577,
+      "Meghalaya": 16,
+      "Mizoram": 20,
+      "NCT of Delhi": 1,
+      "Nagaland": 209,
+      "Odisha": 12,
+      "Punjab": 136,
+      "Rajasthan": 91025,
+      "Tamil Nadu": 4410,
+      "Telangana": 11143,
+      "Uttar Pradesh": 4828,
+      "Uttarakhand": 3,
+      "Uttrakhand": 990,
+      "West Bengal": 4
+    },
+    "n_districts": 270,
+    "n_markets": 1986,
+    "varieties_top": [
+      {
+        "Variety": "Yellow",
+        "len": 508393
+      },
+      {
+        "Variety": "Other",
+        "len": 434449
+      },
+      {
+        "Variety": "Soyabeen",
+        "len": 196393
+      },
+      {
+        "Variety": "Local",
+        "len": 143511
+      },
+      {
+        "Variety": "Black",
+        "len": 7488
+      },
+      {
+        "Variety": "Soybean-Organic",
+        "len": 4318
+      },
+      {
+        "Variety": "Sup",
+        "len": 426
+      }
+    ],
+    "grades": [
+      {
+        "Grade": "FAQ",
+        "len": 1215267
+      },
+      {
+        "Grade": "Non-FAQ",
+        "len": 43135
+      },
+      {
+        "Grade": "Local",
+        "len": 27254
+      },
+      {
+        "Grade": "Medium",
+        "len": 8619
+      },
+      {
+        "Grade": "Large",
+        "len": 380
+      },
+      {
+        "Grade": "Grade Range-1",
+        "len": 184
+      },
+      {
+        "Grade": "Small",
+        "len": 51
+      },
+      {
+        "Grade": "Grade Range-3",
+        "len": 37
+      },
+      {
+        "Grade": "Ref grade-1",
+        "len": 30
+      },
+      {
+        "Grade": "Grade Range-2",
+        "len": 16
+      },
+      {
+        "Grade": "Ref grade-2",
+        "len": 5
+      }
+    ],
+    "state_spelling_variants": {
+      "groups_with_multiple_spellings": 0,
+      "examples": []
+    },
+    "district_spelling_variants": {
+      "groups_with_multiple_spellings": 0,
+      "examples": []
+    },
+    "market_spelling_variants": {
+      "groups_with_multiple_spellings": 57,
+      "examples": [
+        {
+          "State": "Maharashtra",
+          "District": "Nanded",
+          "spellings": [
+            "Hadgaon(Tamsa)",
+            "Hadgaon(Tamsa) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Amarawati",
+          "spellings": [
+            "APMC Chandur Railway",
+            "APMC Chandur Railway "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Beed",
+          "spellings": [
+            "APMC Kaij",
+            "APMC Kaij "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Yavatmal",
+          "spellings": [
+            "APMC Pusad",
+            "APMC Pusad "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Hingoli",
+          "spellings": [
+            "Hingoli(Kanegoan Naka)",
+            "Hingoli(Kanegoan Naka) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Nashik",
+          "spellings": [
+            "Lasalgaon(Niphad)",
+            "Lasalgaon(Niphad) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Jalna",
+          "spellings": [
+            "APMC Ghansawangi",
+            "APMC Ghansawangi "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Latur",
+          "spellings": [
+            "APMC  Latur",
+            "APMC Latur"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Chandrapur",
+          "spellings": [
+            "APMC  Rajura",
+            "APMC Rajura"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Jalgaon",
+          "spellings": [
+            "APMC Jalgaon",
+            "APMC Jalgaon "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Yavatmal",
+          "spellings": [
+            "APMC ZariZamini",
+            "APMC ZariZamini "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Dharashiv",
+          "spellings": [
+            "APMC Washi (Dharashiv)",
+            "APMC Washi (Dharashiv) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Buldhana",
+          "spellings": [
+            "Jalgaon Jamod(Aasalgaon)",
+            "Jalgaon Jamod(Aasalgaon) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Wardha",
+          "spellings": [
+            "Ashti(Karanja)",
+            "Ashti(Karanja) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Yavatmal",
+          "spellings": [
+            "APMC Kalamb",
+            "APMC Kalamb "
+          ]
+        }
+      ]
+    }
+  },
+  "series": {
+    "series": 5135,
+    "series_active_last_30d": 837,
+    "series_with_365plus_days_in_last_2y_and_active": 0,
+    "rows_in_those_series_last_2y": 0,
+    "days_per_series_quantiles": {
+      "p10": 1.0,
+      "p25": 3.0,
+      "p50": 26.0,
+      "p75": 160.0,
+      "p90": 720.0,
+      "min": 1.0,
+      "max": 5397.0
+    },
+    "median_gap_days_quantiles_active": {
+      "p10": 1.0,
+      "p50": 1.0,
+      "p90": 15.0,
+      "min": 1.0,
+      "max": 355.0
+    },
+    "top_active_series": []
+  },
+  "outliers": {
+    "points_with_local_median": 1276632,
+    "ratio_gt_3_or_lt_one_third": 244,
+    "ratio_gt_10_or_lt_one_tenth": 28,
+    "abs_log_ratio_p99": 0.2053110750186533
+  }
+}

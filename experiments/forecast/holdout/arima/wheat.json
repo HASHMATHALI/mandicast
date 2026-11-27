@@ -1,0 +1,18 @@
+{
+  "commodity": "Wheat",
+  "period": "holdout",
+  "model": "arima",
+  "pairs": 1939,
+  "pairs_forecast": 1939,
+  "series": 53,
+  "failed_fits": 0,
+  "failed_forwards": 0,
+  "seconds": 150.0,
+  "window_days": 730,
+  "season": 7,
+  "sample_per_commodity": 60,
+  "sample_seed": 20261126,
+  "statsforecast": "2.1.1",
+  "rows": 27146,
+  "written_at": "2026-11-26T18:05:54Z"
+}

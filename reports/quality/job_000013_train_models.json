@@ -1,0 +1,63 @@
+{
+  "job_id": 13,
+  "kind": "train_models",
+  "scope": {
+    "commodities": [
+      "Onion",
+      "Tomato",
+      "Potato",
+      "Wheat",
+      "Soyabean"
+    ],
+    "cutoff": null
+  },
+  "counts": {
+    "rows_fetched": 0,
+    "rows_inserted": 0,
+    "rows_duplicate": 0,
+    "rows_rejected": 0
+  },
+  "report": {
+    "Onion": {
+      "version": "lightgbm-onion-2026q4-ec32e42e",
+      "id": 1,
+      "promoted": true,
+      "new": true,
+      "best_iteration": 86,
+      "seconds": 73.1
+    },
+    "Tomato": {
+      "version": "lightgbm-tomato-2026q4-510d9ae1",
+      "id": 2,
+      "promoted": true,
+      "new": true,
+      "best_iteration": 2,
+      "seconds": 41.0
+    },
+    "Potato": {
+      "version": "lightgbm-potato-2026q4-9cdbf4d0",
+      "id": 3,
+      "promoted": true,
+      "new": true,
+      "best_iteration": 71,
+      "seconds": 60.8
+    },
+    "Wheat": {
+      "version": "lightgbm-wheat-2026q4-01908121",
+      "id": 4,
+      "promoted": true,
+      "new": true,
+      "best_iteration": 319,
+      "seconds": 89.9
+    },
+    "Soyabean": {
+      "version": "lightgbm-soyabean-2026q4-ef136591",
+      "id": 5,
+      "promoted": true,
+      "new": true,
+      "best_iteration": 47,
+      "seconds": 16.4
+    }
+  },
+  "written_at": "2026-11-27T01:19:59Z"
+}

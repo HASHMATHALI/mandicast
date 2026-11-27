@@ -1,0 +1,486 @@
+{
+  "commodity_dir": "wheat",
+  "integrity": {
+    "pages": 356,
+    "page_rows": 3559803,
+    "boundary_repair": {
+      "boundary_dates_replaced": 354,
+      "page_rows_for_those_dates": 184448,
+      "refetched_rows_for_those_dates": 184448,
+      "page_rows_not_in_refetch": 0,
+      "refetched_rows_not_in_pages": 28
+    },
+    "pages_failing_sha256": [],
+    "rows_read": 3559803,
+    "total_reported_min": 3559803,
+    "total_reported_max": 3559803,
+    "first_fetch": "2026-11-26T09:23:34Z",
+    "last_fetch": "2026-11-26T10:03:26Z"
+  },
+  "dates": {
+    "unparseable": 0,
+    "min": "2001-01-10",
+    "max": "2026-11-25",
+    "after_download_date": 0,
+    "rows_per_year": {
+      "2001": 581,
+      "2002": 16646,
+      "2003": 43421,
+      "2004": 47209,
+      "2005": 63391,
+      "2006": 135662,
+      "2007": 161263,
+      "2008": 150243,
+      "2009": 116279,
+      "2010": 128512,
+      "2011": 133431,
+      "2012": 134570,
+      "2013": 132352,
+      "2014": 140070,
+      "2015": 157276,
+      "2016": 153881,
+      "2017": 179588,
+      "2018": 182592,
+      "2019": 180216,
+      "2020": 132445,
+      "2021": 149528,
+      "2022": 171135,
+      "2023": 158046,
+      "2024": 187995,
+      "2025": 227981,
+      "2026": 275490
+    },
+    "rows_by_weekday_1mon_7sun": {
+      "1": 572039,
+      "2": 573022,
+      "3": 579766,
+      "4": 576568,
+      "5": 571433,
+      "6": 514690,
+      "7": 172285
+    }
+  },
+  "prices": {
+    "Min_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 126291,
+      "negative": 0
+    },
+    "Max_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 124163,
+      "negative": 0
+    },
+    "Modal_Price": {
+      "empty": 0,
+      "non_numeric": 0,
+      "zero": 0,
+      "negative": 0
+    },
+    "violations": {
+      "min_and_max_zero_modal_positive": 122136,
+      "only_one_bound_zero": 6182,
+      "min_gt_max": 0,
+      "modal_lt_min": 3328,
+      "modal_gt_max": 4068
+    },
+    "modal_quantiles": {
+      "p0.1": 590.0,
+      "p1": 660.0,
+      "p5": 850.0,
+      "p50": 1675.0,
+      "p95": 2700.0,
+      "p99": 3100.0,
+      "p99.9": 4250.0,
+      "min": 1.0,
+      "max": 245000.0
+    }
+  },
+  "duplicates": {
+    "exact_duplicate_rows": 0,
+    "exact_duplicates_across_page_boundary": 0,
+    "keys_with_multiple_rows": 27263,
+    "keys_with_conflicting_modal": 16429,
+    "rows_in_multi_row_keys": 54948
+  },
+  "names": {
+    "commodity_name_code_pairs": [
+      {
+        "Commodity": "Wheat",
+        "Commodity_Code": "1",
+        "len": 3559803
+      }
+    ],
+    "states": {
+      "Andhra Pradesh": 4059,
+      "Arunachal Pradesh": 7,
+      "Assam": 3147,
+      "Bihar": 20536,
+      "Chandigarh": 35,
+      "Chattisgarh": 40227,
+      "Goa": 348,
+      "Gujarat": 405365,
+      "Haryana": 36972,
+      "Himachal Pradesh": 138,
+      "Jharkhand": 62633,
+      "Karnataka": 73473,
+      "Kerala": 4155,
+      "Madhya Pradesh": 1136759,
+      "Maharashtra": 428174,
+      "Manipur": 5,
+      "Mizoram": 14,
+      "NCT of Delhi": 17931,
+      "Nagaland": 3,
+      "Odisha": 4213,
+      "Punjab": 60797,
+      "Rajasthan": 383105,
+      "Sikkim": 3,
+      "Tamil Nadu": 39,
+      "Telangana": 1742,
+      "Uttar Pradesh": 779155,
+      "Uttarakhand": 554,
+      "Uttrakhand": 15503,
+      "West Bengal": 80711
+    },
+    "n_districts": 523,
+    "n_markets": 3923,
+    "varieties_top": [
+      {
+        "Variety": "Other",
+        "len": 1506343
+      },
+      {
+        "Variety": "Dara",
+        "len": 581060
+      },
+      {
+        "Variety": "Local",
+        "len": 246033
+      },
+      {
+        "Variety": "Lokwan",
+        "len": 226754
+      },
+      {
+        "Variety": "Wheat",
+        "len": 135941
+      },
+      {
+        "Variety": "Mill Quality",
+        "len": 129979
+      },
+      {
+        "Variety": "147 Average",
+        "len": 84865
+      },
+      {
+        "Variety": "Deshi",
+        "len": 72937
+      },
+      {
+        "Variety": "Maharashtra 2189",
+        "len": 70143
+      },
+      {
+        "Variety": "Sharbati",
+        "len": 51168
+      },
+      {
+        "Variety": "Lok-1",
+        "len": 38954
+      },
+      {
+        "Variety": "Medium",
+        "len": 35037
+      },
+      {
+        "Variety": "MP Sharbati",
+        "len": 34043
+      },
+      {
+        "Variety": "Sonalika",
+        "len": 33369
+      },
+      {
+        "Variety": "Kalyan",
+        "len": 30356
+      }
+    ],
+    "grades": [
+      {
+        "Grade": "FAQ",
+        "len": 3417097
+      },
+      {
+        "Grade": "Non-FAQ",
+        "len": 104156
+      },
+      {
+        "Grade": "Local",
+        "len": 25140
+      },
+      {
+        "Grade": "Medium",
+        "len": 10817
+      },
+      {
+        "Grade": "Grade Range-1",
+        "len": 1462
+      },
+      {
+        "Grade": "Grade Range-2",
+        "len": 661
+      },
+      {
+        "Grade": "Grade Range-3",
+        "len": 200
+      },
+      {
+        "Grade": "Large",
+        "len": 116
+      },
+      {
+        "Grade": "Small",
+        "len": 104
+      },
+      {
+        "Grade": "Ref grade-1",
+        "len": 44
+      },
+      {
+        "Grade": "Ref grade-2",
+        "len": 6
+      }
+    ],
+    "state_spelling_variants": {
+      "groups_with_multiple_spellings": 0,
+      "examples": []
+    },
+    "district_spelling_variants": {
+      "groups_with_multiple_spellings": 2,
+      "examples": [
+        {
+          "State": "Punjab",
+          "spellings": [
+            "Kapurthala",
+            "kapurthala"
+          ]
+        },
+        {
+          "State": "Rajasthan",
+          "spellings": [
+            " Jhunjhunu",
+            "Jhunjhunu"
+          ]
+        }
+      ]
+    },
+    "market_spelling_variants": {
+      "groups_with_multiple_spellings": 52,
+      "examples": [
+        {
+          "State": "Maharashtra",
+          "District": "Yavatmal",
+          "spellings": [
+            "APMC Digras",
+            "APMC Digras "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Pune",
+          "spellings": [
+            "APMC Baramati",
+            "APMC Baramati "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Yavatmal",
+          "spellings": [
+            "KISAN MARKET YARD",
+            "Kisan Market Yard"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Beed",
+          "spellings": [
+            "APMC Kaij",
+            "APMC Kaij "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Nanded",
+          "spellings": [
+            "APMC Bhokar",
+            "APMC Bhokar "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Yavatmal",
+          "spellings": [
+            "Umarked(Danki)",
+            "Umarked(Danki) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Nanded",
+          "spellings": [
+            "APMC Hadgaon",
+            "APMC Hadgaon "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Wardha",
+          "spellings": [
+            "Ashti(Karanja)",
+            "Ashti(Karanja) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Dhule",
+          "spellings": [
+            "Dondaicha (Sindhkheda) ",
+            "Dondaicha(Sindhkheda)"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Latur",
+          "spellings": [
+            "Latur(Murud)",
+            "Latur(Murud) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Dhule",
+          "spellings": [
+            "Dondaicha (Sindhkheda) APMC",
+            "Dondaicha(Sindhkheda) APMC"
+          ]
+        },
+        {
+          "State": "Gujarat",
+          "District": "Rajkot",
+          "spellings": [
+            "JASDAN APMC",
+            "Jasdan APMC"
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Jalgaon",
+          "spellings": [
+            "APMC Jalgaon",
+            "APMC Jalgaon "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Nashik",
+          "spellings": [
+            "Lasalgaon(Niphad)",
+            "Lasalgaon(Niphad) "
+          ]
+        },
+        {
+          "State": "Maharashtra",
+          "District": "Buldhana",
+          "spellings": [
+            "Buldhana(Dhad)",
+            "Buldhana(Dhad) "
+          ]
+        }
+      ]
+    }
+  },
+  "series": {
+    "series": 15471,
+    "series_active_last_30d": 1997,
+    "series_with_365plus_days_in_last_2y_and_active": 5,
+    "rows_in_those_series_last_2y": 1850,
+    "days_per_series_quantiles": {
+      "p10": 1.0,
+      "p25": 2.0,
+      "p50": 15.0,
+      "p75": 122.0,
+      "p90": 545.0,
+      "min": 1.0,
+      "max": 6932.0
+    },
+    "median_gap_days_quantiles_active": {
+      "p10": 1.0,
+      "p50": 1.0,
+      "p90": 17.0,
+      "min": 1.0,
+      "max": 365.0
+    },
+    "top_active_series": [
+      {
+        "State": "Uttar Pradesh",
+        "District": "Raebarelli",
+        "Market": "Lalganj APMC",
+        "Variety": "Dara",
+        "Grade": "FAQ",
+        "days_last_2y": 375,
+        "first": "2025-11-01",
+        "max_gap": 5
+      },
+      {
+        "State": "Uttar Pradesh",
+        "District": "Raebarelli",
+        "Market": "Jayas APMC",
+        "Variety": "Dara",
+        "Grade": "FAQ",
+        "days_last_2y": 372,
+        "first": "2025-11-01",
+        "max_gap": 3
+      },
+      {
+        "State": "Madhya Pradesh",
+        "District": "Dhar",
+        "Market": "Kukshi APMC",
+        "Variety": "Wheat",
+        "Grade": "FAQ",
+        "days_last_2y": 372,
+        "first": "2025-11-01",
+        "max_gap": 3
+      },
+      {
+        "State": "Uttar Pradesh",
+        "District": "Pratapgarh",
+        "Market": "Pratapgarh APMC",
+        "Variety": "Dara",
+        "Grade": "FAQ",
+        "days_last_2y": 366,
+        "first": "2025-11-01",
+        "max_gap": 3
+      },
+      {
+        "State": "Madhya Pradesh",
+        "District": "Satna",
+        "Market": "Satna APMC",
+        "Variety": "Wheat",
+        "Grade": "FAQ",
+        "days_last_2y": 365,
+        "first": "2025-11-01",
+        "max_gap": 3
+      }
+    ]
+  },
+  "outliers": {
+    "points_with_local_median": 3522389,
+    "ratio_gt_3_or_lt_one_third": 509,
+    "ratio_gt_10_or_lt_one_tenth": 118,
+    "abs_log_ratio_p99": 0.1823215567939546
+  }
+}

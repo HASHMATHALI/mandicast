@@ -1,0 +1,153 @@
+{
+  "checked_at": "2026-11-27T01:30:39Z",
+  "models": [
+    {
+      "commodity": "Onion",
+      "version": "lightgbm-onion-2026q4-ec32e42e",
+      "artifact_sha256_ok": true,
+      "holdout_fold": "2026Q4",
+      "reproduces_holdout_fit": true,
+      "serving": {
+        "train_rows": 3201144,
+        "valid_rows": 78940,
+        "best_iteration": 86
+      },
+      "holdout": {
+        "train_rows": 3201144,
+        "valid_rows": 78940,
+        "best_iteration": 86
+      }
+    },
+    {
+      "commodity": "Potato",
+      "version": "lightgbm-potato-2026q4-9cdbf4d0",
+      "artifact_sha256_ok": true,
+      "holdout_fold": "2026Q4",
+      "reproduces_holdout_fit": true,
+      "serving": {
+        "train_rows": 3500796,
+        "valid_rows": 89507,
+        "best_iteration": 71
+      },
+      "holdout": {
+        "train_rows": 3500796,
+        "valid_rows": 89507,
+        "best_iteration": 71
+      }
+    },
+    {
+      "commodity": "Soyabean",
+      "version": "lightgbm-soyabean-2026q4-ef136591",
+      "artifact_sha256_ok": true,
+      "holdout_fold": "2026Q4",
+      "reproduces_holdout_fit": true,
+      "serving": {
+        "train_rows": 852549,
+        "valid_rows": 11925,
+        "best_iteration": 47
+      },
+      "holdout": {
+        "train_rows": 852549,
+        "valid_rows": 11925,
+        "best_iteration": 47
+      }
+    },
+    {
+      "commodity": "Tomato",
+      "version": "lightgbm-tomato-2026q4-510d9ae1",
+      "artifact_sha256_ok": true,
+      "holdout_fold": "2026Q4",
+      "reproduces_holdout_fit": true,
+      "serving": {
+        "train_rows": 3120424,
+        "valid_rows": 82696,
+        "best_iteration": 2
+      },
+      "holdout": {
+        "train_rows": 3120424,
+        "valid_rows": 82696,
+        "best_iteration": 2
+      }
+    },
+    {
+      "commodity": "Wheat",
+      "version": "lightgbm-wheat-2026q4-01908121",
+      "artifact_sha256_ok": true,
+      "holdout_fold": "2026Q4",
+      "reproduces_holdout_fit": true,
+      "serving": {
+        "train_rows": 2680984,
+        "valid_rows": 51103,
+        "best_iteration": 319
+      },
+      "holdout": {
+        "train_rows": 2680984,
+        "valid_rows": 51103,
+        "best_iteration": 319
+      }
+    }
+  ],
+  "forecasts": [
+    {
+      "commodity": "Onion",
+      "origin": "2026-11-23",
+      "published_series": 494,
+      "holdout_series": 494,
+      "same_series": true,
+      "points_compared": 6916,
+      "rel_diff_median": 5.649134738634937e-07,
+      "rel_diff_p99": 2.3328233065921167e-06,
+      "rel_diff_max": 0.005949759005845797,
+      "share_within_0_01pct": 0.9979757085020243
+    },
+    {
+      "commodity": "Potato",
+      "origin": "2026-11-23",
+      "published_series": 580,
+      "holdout_series": 580,
+      "same_series": true,
+      "points_compared": 8120,
+      "rel_diff_median": 1.912818930808346e-06,
+      "rel_diff_p99": 9.444231461884334e-06,
+      "rel_diff_max": 0.0036459714139112074,
+      "share_within_0_01pct": 0.9982758620689656
+    },
+    {
+      "commodity": "Soyabean",
+      "origin": "2026-11-23",
+      "published_series": 88,
+      "holdout_series": 88,
+      "same_series": true,
+      "points_compared": 1232,
+      "rel_diff_median": 3.3550113846064643e-07,
+      "rel_diff_p99": 6.623726086772755e-07,
+      "rel_diff_max": 7.152530121120381e-07,
+      "share_within_0_01pct": 1.0
+    },
+    {
+      "commodity": "Tomato",
+      "origin": "2026-11-23",
+      "published_series": 517,
+      "holdout_series": 517,
+      "same_series": true,
+      "points_compared": 7238,
+      "rel_diff_median": 3.610342345499709e-07,
+      "rel_diff_p99": 3.9269020502690965e-06,
+      "rel_diff_max": 1.212107969394804e-05,
+      "share_within_0_01pct": 1.0
+    },
+    {
+      "commodity": "Wheat",
+      "origin": "2026-11-23",
+      "published_series": 324,
+      "holdout_series": 324,
+      "same_series": true,
+      "points_compared": 4536,
+      "rel_diff_median": 9.026661386089344e-07,
+      "rel_diff_p99": 1.8717836034271961e-06,
+      "rel_diff_max": 2.040721692811976e-06,
+      "share_within_0_01pct": 1.0
+    }
+  ],
+  "all_ok": true
+}

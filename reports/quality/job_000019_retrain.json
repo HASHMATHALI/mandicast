@@ -1,0 +1,413 @@
+{
+  "job_id": 19,
+  "kind": "retrain",
+  "scope": {
+    "commodities": [
+      "Onion",
+      "Tomato",
+      "Potato",
+      "Wheat",
+      "Soyabean"
+    ],
+    "cutoff": "2026-10-01"
+  },
+  "counts": {
+    "rows_fetched": 0,
+    "rows_inserted": 0,
+    "rows_duplicate": 0,
+    "rows_rejected": 0
+  },
+  "report": {
+    "Onion": {
+      "commodity": "Onion",
+      "version": "lightgbm-onion-2026q4-ec32e42e",
+      "status": "production_confirmed",
+      "gate": {
+        "passed": true,
+        "rules": [
+          {
+            "rule": "(i) predictions finite and positive, |log(\u0177/last price)| \u2264 2",
+            "ok": true,
+            "value": 0.46169601695922224
+          },
+          {
+            "rule": "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "ok": true,
+            "value": {
+              "candidate": 0.08869040114529318,
+              "last_value": 0.09485939362560233
+            }
+          }
+        ],
+        "points": 78940,
+        "origins": [
+          "2026-06-22",
+          "2026-09-28"
+        ],
+        "metrics": {
+          "candidate": {
+            "wape": 0.08869040114529318,
+            "wape_days_1_7": 0.06966739368066918,
+            "wape_days_8_14": 0.10872571747333706
+          },
+          "last_value": {
+            "wape": 0.09485939362560233,
+            "wape_days_1_7": 0.07159722622481492,
+            "wape_days_8_14": 0.11935945667911277
+          },
+          "production": null
+        },
+        "failed": [],
+        "not_blocking": [],
+        "note": "E chose the candidate's number of trees, so its score here is optimistic (C10b)",
+        "champion": null,
+        "validation": {
+          "passed": true,
+          "checks": [
+            {
+              "name": "data_reaches_cutoff",
+              "ok": true,
+              "value": "2026-11-25",
+              "rule": "latest complete date \u2265 cutoff \u2212 7 days"
+            },
+            {
+              "name": "examples_vs_production",
+              "ok": true,
+              "value": {
+                "candidate": 3293824,
+                "production": 3293824
+              },
+              "rule": "\u2265 80% of the production model's examples"
+            },
+            {
+              "name": "gate_set_size",
+              "ok": true,
+              "value": 78940,
+              "rule": "\u2265 1000 early-stopping examples"
+            },
+            {
+              "name": "labels_finite",
+              "ok": true,
+              "value": 0,
+              "rule": "no infinite or NaN label"
+            }
+          ]
+        }
+      },
+      "best_iteration": 86
+    },
+    "Tomato": {
+      "commodity": "Tomato",
+      "version": "lightgbm-tomato-2026q4-510d9ae1",
+      "status": "production_confirmed",
+      "gate": {
+        "passed": true,
+        "rules": [
+          {
+            "rule": "(i) predictions finite and positive, |log(\u0177/last price)| \u2264 2",
+            "ok": true,
+            "value": 0.019817550855958814
+          },
+          {
+            "rule": "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "ok": true,
+            "value": {
+              "candidate": 0.12794779941478676,
+              "last_value": 0.12798910297435653
+            }
+          }
+        ],
+        "points": 82696,
+        "origins": [
+          "2026-06-22",
+          "2026-09-28"
+        ],
+        "metrics": {
+          "candidate": {
+            "wape": 0.12794779941478676,
+            "wape_days_1_7": 0.10868705300093581,
+            "wape_days_8_14": 0.14878901731705793
+          },
+          "last_value": {
+            "wape": 0.12798910297435653,
+            "wape_days_1_7": 0.10854258011483632,
+            "wape_days_8_14": 0.1490313415069869
+          },
+          "production": null
+        },
+        "failed": [],
+        "not_blocking": [],
+        "note": "E chose the candidate's number of trees, so its score here is optimistic (C10b)",
+        "champion": null,
+        "validation": {
+          "passed": true,
+          "checks": [
+            {
+              "name": "data_reaches_cutoff",
+              "ok": true,
+              "value": "2026-11-25",
+              "rule": "latest complete date \u2265 cutoff \u2212 7 days"
+            },
+            {
+              "name": "examples_vs_production",
+              "ok": true,
+              "value": {
+                "candidate": 3217548,
+                "production": 3217548
+              },
+              "rule": "\u2265 80% of the production model's examples"
+            },
+            {
+              "name": "gate_set_size",
+              "ok": true,
+              "value": 82696,
+              "rule": "\u2265 1000 early-stopping examples"
+            },
+            {
+              "name": "labels_finite",
+              "ok": true,
+              "value": 0,
+              "rule": "no infinite or NaN label"
+            }
+          ]
+        }
+      },
+      "best_iteration": 2
+    },
+    "Potato": {
+      "commodity": "Potato",
+      "version": "lightgbm-potato-2026q4-9cdbf4d0",
+      "status": "production_confirmed",
+      "gate": {
+        "passed": true,
+        "rules": [
+          {
+            "rule": "(i) predictions finite and positive, |log(\u0177/last price)| \u2264 2",
+            "ok": true,
+            "value": 0.46558749743163413
+          },
+          {
+            "rule": "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "ok": true,
+            "value": {
+              "candidate": 0.06588245829540346,
+              "last_value": 0.06818771113359168
+            }
+          }
+        ],
+        "points": 89507,
+        "origins": [
+          "2026-06-22",
+          "2026-09-28"
+        ],
+        "metrics": {
+          "candidate": {
+            "wape": 0.06588245829540346,
+            "wape_days_1_7": 0.05825828500758756,
+            "wape_days_8_14": 0.07408240185334825
+          },
+          "last_value": {
+            "wape": 0.06818771113359168,
+            "wape_days_1_7": 0.059885795214936664,
+            "wape_days_8_14": 0.07711657979723613
+          },
+          "production": null
+        },
+        "failed": [],
+        "not_blocking": [],
+        "note": "E chose the candidate's number of trees, so its score here is optimistic (C10b)",
+        "champion": null,
+        "validation": {
+          "passed": true,
+          "checks": [
+            {
+              "name": "data_reaches_cutoff",
+              "ok": true,
+              "value": "2026-11-25",
+              "rule": "latest complete date \u2265 cutoff \u2212 7 days"
+            },
+            {
+              "name": "examples_vs_production",
+              "ok": true,
+              "value": {
+                "candidate": 3605852,
+                "production": 3605852
+              },
+              "rule": "\u2265 80% of the production model's examples"
+            },
+            {
+              "name": "gate_set_size",
+              "ok": true,
+              "value": 89507,
+              "rule": "\u2265 1000 early-stopping examples"
+            },
+            {
+              "name": "labels_finite",
+              "ok": true,
+              "value": 0,
+              "rule": "no infinite or NaN label"
+            }
+          ]
+        }
+      },
+      "best_iteration": 71
+    },
+    "Wheat": {
+      "commodity": "Wheat",
+      "version": "lightgbm-wheat-2026q4-01908121",
+      "status": "production_confirmed",
+      "gate": {
+        "passed": true,
+        "rules": [
+          {
+            "rule": "(i) predictions finite and positive, |log(\u0177/last price)| \u2264 2",
+            "ok": true,
+            "value": 0.7150130234741402
+          },
+          {
+            "rule": "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "ok": true,
+            "value": {
+              "candidate": 0.01933947965690366,
+              "last_value": 0.022032373570052086
+            }
+          }
+        ],
+        "points": 51103,
+        "origins": [
+          "2026-06-22",
+          "2026-09-28"
+        ],
+        "metrics": {
+          "candidate": {
+            "wape": 0.01933947965690366,
+            "wape_days_1_7": 0.01740269820673245,
+            "wape_days_8_14": 0.021424023793616593
+          },
+          "last_value": {
+            "wape": 0.022032373570052086,
+            "wape_days_1_7": 0.019839438748344148,
+            "wape_days_8_14": 0.02439261376358594
+          },
+          "production": null
+        },
+        "failed": [],
+        "not_blocking": [],
+        "note": "E chose the candidate's number of trees, so its score here is optimistic (C10b)",
+        "champion": null,
+        "validation": {
+          "passed": true,
+          "checks": [
+            {
+              "name": "data_reaches_cutoff",
+              "ok": true,
+              "value": "2026-11-25",
+              "rule": "latest complete date \u2265 cutoff \u2212 7 days"
+            },
+            {
+              "name": "examples_vs_production",
+              "ok": true,
+              "value": {
+                "candidate": 2740842,
+                "production": 2740842
+              },
+              "rule": "\u2265 80% of the production model's examples"
+            },
+            {
+              "name": "gate_set_size",
+              "ok": true,
+              "value": 51103,
+              "rule": "\u2265 1000 early-stopping examples"
+            },
+            {
+              "name": "labels_finite",
+              "ok": true,
+              "value": 0,
+              "rule": "no infinite or NaN label"
+            }
+          ]
+        }
+      },
+      "best_iteration": 319
+    },
+    "Soyabean": {
+      "commodity": "Soyabean",
+      "version": "lightgbm-soyabean-2026q4-ef136591",
+      "status": "production_confirmed",
+      "gate": {
+        "passed": true,
+        "rules": [
+          {
+            "rule": "(i) predictions finite and positive, |log(\u0177/last price)| \u2264 2",
+            "ok": true,
+            "value": 0.23573696879088563
+          },
+          {
+            "rule": "(ii) WAPE(candidate) \u2264 WAPE(last value)",
+            "ok": true,
+            "value": {
+              "candidate": 0.052541938566597515,
+              "last_value": 0.05613148148578801
+            }
+          }
+        ],
+        "points": 11925,
+        "origins": [
+          "2026-06-22",
+          "2026-09-28"
+        ],
+        "metrics": {
+          "candidate": {
+            "wape": 0.052541938566597515,
+            "wape_days_1_7": 0.044665842561105576,
+            "wape_days_8_14": 0.06109738454230145
+          },
+          "last_value": {
+            "wape": 0.05613148148578801,
+            "wape_days_1_7": 0.04881841759274302,
+            "wape_days_8_14": 0.06407533120653677
+          },
+          "production": null
+        },
+        "failed": [],
+        "not_blocking": [],
+        "note": "E chose the candidate's number of trees, so its score here is optimistic (C10b)",
+        "champion": null,
+        "validation": {
+          "passed": true,
+          "checks": [
+            {
+              "name": "data_reaches_cutoff",
+              "ok": true,
+              "value": "2026-11-25",
+              "rule": "latest complete date \u2265 cutoff \u2212 7 days"
+            },
+            {
+              "name": "examples_vs_production",
+              "ok": true,
+              "value": {
+                "candidate": 866682,
+                "production": 866682
+              },
+              "rule": "\u2265 80% of the production model's examples"
+            },
+            {
+              "name": "gate_set_size",
+              "ok": true,
+              "value": 11925,
+              "rule": "\u2265 1000 early-stopping examples"
+            },
+            {
+              "name": "labels_finite",
+              "ok": true,
+              "value": 0,
+              "rule": "no infinite or NaN label"
+            }
+          ]
+        }
+      },
+      "best_iteration": 47
+    }
+  },
+  "written_at": "2026-11-27T02:37:30Z"
+}

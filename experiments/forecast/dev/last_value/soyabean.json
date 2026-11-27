@@ -1,0 +1,8 @@
+{
+  "commodity": "Soyabean",
+  "period": "dev",
+  "model": "last_value",
+  "fallback_share": 0.0,
+  "rows": 208388,
+  "written_at": "2026-11-26T13:22:44Z"
+}
